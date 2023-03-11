@@ -6,6 +6,7 @@
 
 	@media screen and (max-width: 1085px) {
 		grid-column: 1 / span 3;
+		overflow: visible;
 	}
 
 	&Title {

@@ -19,12 +19,15 @@ export default withLayout({
 
 export const getServerSideProps: GetServerSideProps<HomeScreenProps> = async () => {
 	try {
-		const [popularRecipes, articles] = await Promise.all([HomeScreenService.getPopularRecipes(), HomeScreenService.getArticles()]);
+		const [popularRecipes, articles] = await Promise.all([
+			HomeScreenService.getPopularRecipes(),
+			HomeScreenService.getArticles({ _limit: 5 })
+		]);
 
 		return {
 			props: { popularRecipes, articles }
 		};
-	} catch (error: unknown) {
+	} catch (error) {
 		return {
 			props: { error: (error as Error).message }
 		};
