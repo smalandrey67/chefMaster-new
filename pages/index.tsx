@@ -2,14 +2,14 @@ import { HomeScreen } from "@/screens/HomeScreen/HomeScreen";
 import { HomeScreenService } from "@/screens/HomeScreen/HomeScreen.service";
 import { withLayout } from "@/Layout/Layout";
 
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetServerSideProps } from "next";
 import type { HomeScreenProps } from "@/screens/HomeScreen/HomeScreen.interface";
 
 interface HomeProps extends HomeScreenProps, Record<string, unknown> {}
 
-const Home: NextPage<HomeProps> = (props): JSX.Element => {
+function Home(props: HomeProps): JSX.Element {
 	return <HomeScreen {...props} />;
-};
+}
 
 export default withLayout({
 	Component: Home,
@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps<HomeScreenProps> = async () 
 	try {
 		const [popularRecipes, articles] = await Promise.all([
 			HomeScreenService.getPopularRecipes(),
-			HomeScreenService.getArticles({ _limit: 5 })
+			HomeScreenService.getArticles({ _limit: 4 })
 		]);
 
 		return {

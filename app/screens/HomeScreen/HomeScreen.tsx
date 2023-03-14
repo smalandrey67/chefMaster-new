@@ -1,6 +1,6 @@
 import { Categories } from "@/modules/Categories";
 import { PersonalStatistic } from "@/modules/PersonalStatistic";
-import { Recipes } from "@/modules/Recipes";
+import { PopularRecipes } from "@/modules/PopularRecipes/PopularRecipes";
 import { Articles } from "@/modules/Articles";
 import { ErrorContainer } from "@/containers/ErrorContainer/ErrorContainer";
 
@@ -14,7 +14,7 @@ export function HomeScreen({ popularRecipes, articles, error }: HomeScreenProps)
 			<div className={styles.home}>
 				<Categories />
 				<PersonalStatistic />
-				<Recipes popularRecipes={popularRecipes} />
+				<PopularRecipes popularRecipes={popularRecipes} />
 				<Articles articles={articles} />
 			</div>
 		</ErrorContainer>

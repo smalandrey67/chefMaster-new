@@ -34,6 +34,7 @@
 				"functions": "never"
 			}
 		],
+		"no-unused-labels": "off",
 		"no-else-return": "error",
 		"arrow-spacing": "error",
 		"no-duplicate-imports": "error",
