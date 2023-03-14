@@ -1,7 +1,12 @@
+import { ErrorContainer } from "@/containers/ErrorContainer/ErrorContainer";
+import { Recipes } from "@/modules/Recipes";
+
 import type { RecipesByCategoryScreenProps } from "./RecipesByCategoryScreen.interface";
 
-import styles from "./RecipesByCategoryScreen.module.scss";
-
-export function RecipesByCategoryScreen({ recipes }: RecipesByCategoryScreenProps): JSX.Element {
-	return <div className={styles.wrapper}>{recipes.join(" ")}</div>;
+export function RecipesByCategoryScreen({ recipesByCategory, error }: RecipesByCategoryScreenProps): JSX.Element {
+	return (
+		<ErrorContainer error={error}>
+			<Recipes recipes={recipesByCategory} moduleTitle="Recipes" />
+		</ErrorContainer>
+	);
 }

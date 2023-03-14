@@ -1,34 +1,43 @@
 import { withLayout } from "@/Layout/Layout";
+import { RecipesByCategoryScreenService } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen.service";
 import { RecipesByCategoryScreen } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen";
 
 import type { RecipesByCategoryScreenProps } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen.interface";
-import type { GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 
 interface RecipesByCategoryProps extends RecipesByCategoryScreenProps, Record<string, unknown> {}
 
-function RecipesByCategory({ recipes }: RecipesByCategoryProps): JSX.Element {
-	return <RecipesByCategoryScreen recipes={recipes} />;
+function RecipesByCategory(props: RecipesByCategoryProps): JSX.Element {
+	return <RecipesByCategoryScreen {...props} />;
 }
 
 export default withLayout({
 	Component: RecipesByCategory,
-	pageTitle: "Category",
-	pageDescription: "Discover a world of mouth-watering recipes on our site."
+	pageTitle: "Recipes By Category",
+	pageDescription: "On this page, you can find various categories of recipes"
 });
 
-export const getStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = () => {
+	const paths = ["burgers", "drinks", "salads", "desserts", "pizza", "seafood"];
+
 	return {
-		paths: ["burger", "cola", "salad", "donuts", "pizza", "seafood"].map((path) => ({ params: { category: path } })),
+		paths: paths.map((path) => ({ params: { category: path } })),
 		fallback: false
 	};
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<RecipesByCategoryScreenProps> = async (context) => {
 	try {
+		const category = context.params?.category;
+
+		if (!category || Array.isArray(category)) {
+			throw new Error("Provide category");
+		}
+
+		const recipesByCategory = await RecipesByCategoryScreenService.getRecipesByCategory(category);
+
 		return {
-			props: {
-				recipes: ["recipes"]
-			}
+			props: { recipesByCategory }
 		};
 	} catch (error) {
 		return {

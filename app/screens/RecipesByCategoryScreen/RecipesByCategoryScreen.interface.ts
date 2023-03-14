@@ -1,3 +1,6 @@
+import type { Recipe } from "@/interfaces/Recipe.interface";
+
 export interface RecipesByCategoryScreenProps {
-	recipes: string[];
+	recipesByCategory?: Recipe[];
+	error?: string;
 }

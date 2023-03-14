@@ -14,18 +14,18 @@ function Home(props: HomeProps): JSX.Element {
 export default withLayout({
 	Component: Home,
 	pageTitle: "chefMaster",
-	pageDescription: "Discover a world of mouth-watering recipes on our site."
+	pageDescription: "Discover a world of mouth-watering recipes on our site"
 });
 
 export const getServerSideProps: GetServerSideProps<HomeScreenProps> = async () => {
 	try {
-		const [popularRecipes, articles] = await Promise.all([
-			HomeScreenService.getPopularRecipes(),
+		const [recipes, articles] = await Promise.all([
+			HomeScreenService.getAllRecipes(),
 			HomeScreenService.getArticles({ _limit: 4 })
 		]);
 
 		return {
-			props: { popularRecipes, articles }
+			props: { recipes, articles }
 		};
 	} catch (error) {
 		return {
