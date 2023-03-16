@@ -5,9 +5,9 @@ import type { Article } from "@/interfaces/Article.interface";
 import type { SearchParamsOption } from "ky";
 
 export const HomeScreenService = {
-	async getAllRecipes(): Promise<Recipe[]> {
-		const allRecipes: Recipe[] = await api.get("recipes").json();
-		return allRecipes;
+	async getPopularRecipes(): Promise<Recipe[]> {
+		const popularRecipes: Recipe[] = await api.get("recipes/popular").json();
+		return popularRecipes;
 	},
 
 	async getArticles(queryParams?: SearchParamsOption): Promise<Article[]> {

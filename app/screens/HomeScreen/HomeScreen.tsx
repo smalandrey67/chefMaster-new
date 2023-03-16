@@ -8,13 +8,13 @@ import type { HomeScreenProps } from "./HomeScreen.interface";
 
 import styles from "./HomeScreen.module.scss";
 
-export function HomeScreen({ recipes, articles, error }: HomeScreenProps): JSX.Element {
+export function HomeScreen({ popularRecipes, articles, error }: HomeScreenProps): JSX.Element {
 	return (
 		<ErrorContainer error={error}>
 			<div className={styles.home}>
 				<Categories />
 				<PersonalStatistic />
-				<Recipes recipes={recipes} moduleTitle="Popular" />
+				<Recipes recipes={popularRecipes} moduleTitle="Popular" />
 				<Articles articles={articles} />
 			</div>
 		</ErrorContainer>

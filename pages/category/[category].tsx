@@ -1,6 +1,7 @@
-import { withLayout } from "@/Layout/Layout";
-import { RecipesByCategoryScreenService } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen.service";
 import { RecipesByCategoryScreen } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen";
+import { withLayout } from "@/Layout/Layout";
+
+import { RecipesByCategoryController } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen.controller";
 
 import type { RecipesByCategoryScreenProps } from "@/screens/RecipesByCategoryScreen/RecipesByCategoryScreen.interface";
 import type { GetStaticPaths, GetStaticProps } from "next";
@@ -18,30 +19,15 @@ export default withLayout({
 });
 
 export const getStaticPaths: GetStaticPaths = () => {
-	const paths = ["burgers", "drinks", "salads", "desserts", "pizza", "seafood"];
+	const categories = ["burgers", "drinks", "salads", "desserts", "pizza", "seafood"];
+	const paths = categories.map((path) => ({ params: { category: path } }));
 
 	return {
-		paths: paths.map((path) => ({ params: { category: path } })),
+		paths,
 		fallback: false
 	};
 };
 
 export const getStaticProps: GetStaticProps<RecipesByCategoryScreenProps> = async (context) => {
-	try {
-		const category = context.params?.category;
-
-		if (!category || Array.isArray(category)) {
-			throw new Error("Provide category");
-		}
-
-		const recipesByCategory = await RecipesByCategoryScreenService.getRecipesByCategory(category);
-
-		return {
-			props: { recipesByCategory }
-		};
-	} catch (error) {
-		return {
-			props: { error: (error as Error).message }
-		};
-	}
+	return RecipesByCategoryController.getRecipesByCategory(context);
 };

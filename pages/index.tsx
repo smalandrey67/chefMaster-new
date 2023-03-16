@@ -1,6 +1,7 @@
 import { HomeScreen } from "@/screens/HomeScreen/HomeScreen";
-import { HomeScreenService } from "@/screens/HomeScreen/HomeScreen.service";
 import { withLayout } from "@/Layout/Layout";
+
+import { HomeScreenController } from "@/screens/HomeScreen/HomeScreen.controller";
 
 import type { GetServerSideProps } from "next";
 import type { HomeScreenProps } from "@/screens/HomeScreen/HomeScreen.interface";
@@ -18,18 +19,5 @@ export default withLayout({
 });
 
 export const getServerSideProps: GetServerSideProps<HomeScreenProps> = async () => {
-	try {
-		const [recipes, articles] = await Promise.all([
-			HomeScreenService.getAllRecipes(),
-			HomeScreenService.getArticles({ _limit: 4 })
-		]);
-
-		return {
-			props: { recipes, articles }
-		};
-	} catch (error) {
-		return {
-			props: { error: (error as Error).message }
-		};
-	}
+	return HomeScreenController.getRequestModules();
 };

@@ -2,7 +2,7 @@ import type { Recipe } from "@/interfaces/Recipe.interface";
 import type { Article } from "@/interfaces/Article.interface";
 
 export interface HomeScreenProps {
-	recipes?: Recipe[];
+	popularRecipes?: Recipe[];
 	articles?: Article[];
 	error?: string;
 }
