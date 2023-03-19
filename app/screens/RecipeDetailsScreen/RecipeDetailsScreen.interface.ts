@@ -1,6 +1,6 @@
 import type { RecipeDetails } from "@/interfaces/RecipeDetails.interface";
 
 export interface RecipeDetailsScreenProps {
-	recipeDetails?: RecipeDetails[];
+	recipeDetails?: RecipeDetails;
 	error?: string;
 }
