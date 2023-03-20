@@ -12,7 +12,9 @@ export function Recipes({ recipes, moduleTitle = "recipes" }: RecipesProps): JSX
 				{moduleTitle}
 			</Title>
 			<div className={styles.recipesWrapper}>
-				{recipes && recipes.map((recipe) => <RecipeCard key={recipe._id} {...recipe} />)}
+				{recipes.map((recipe) => (
+					<RecipeCard key={recipe._id} {...recipe} />
+				))}
 			</div>
 		</section>
 	);

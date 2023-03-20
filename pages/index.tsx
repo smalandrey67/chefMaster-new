@@ -19,5 +19,11 @@ export default withLayout({
 });
 
 export const getServerSideProps: GetServerSideProps<HomeScreenProps> = async () => {
-	return HomeScreenController.getRequestModules();
+	try {
+		return await HomeScreenController.getRequestModules();
+	} catch (error) {
+		return {
+			notFound: true
+		};
+	}
 };

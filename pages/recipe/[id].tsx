@@ -19,5 +19,11 @@ export default withLayout({
 });
 
 export const getServerSideProps: GetServerSideProps<RecipeDetailsScreenProps> = async (context) => {
-	return RecipeDetailsScreenController.getRecipeDetails(context);
+	try {
+		return await RecipeDetailsScreenController.getRecipeDetails(context);
+	} catch (error) {
+		return {
+			notFound: true
+		};
+	}
 };

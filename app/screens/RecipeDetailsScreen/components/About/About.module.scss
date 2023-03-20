@@ -1,0 +1,22 @@
+.about {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&Title {
+		@media screen and (max-width: 500px) {
+			font-size: 20px;
+		}
+	}
+
+	&Markers {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+
+		@media screen and (max-width: 500px) {
+			gap: 10px;
+			font-size: 11px;
+		}
+	}
+}

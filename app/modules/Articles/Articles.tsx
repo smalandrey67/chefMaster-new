@@ -17,7 +17,9 @@ export function Articles({ articles }: ArticlesProps): JSX.Element {
 			</div>
 
 			<div className={styles.articlesWrapper}>
-				{articles && articles.map((article) => <ArticleItem key={article._id} {...article} />)}
+				{articles.map((article) => (
+					<ArticleItem key={article._id} {...article} />
+				))}
 			</div>
 		</section>
 	);

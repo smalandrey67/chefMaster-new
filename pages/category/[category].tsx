@@ -29,5 +29,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps<RecipesByCategoryScreenProps> = async (context) => {
-	return RecipesByCategoryController.getRecipesByCategory(context);
+	try {
+		return await RecipesByCategoryController.getRecipesByCategory(context);
+	} catch (error) {
+		return {
+			notFound: true
+		};
+	}
 };

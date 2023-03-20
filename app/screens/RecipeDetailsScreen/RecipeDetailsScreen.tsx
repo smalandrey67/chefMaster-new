@@ -1,21 +1,25 @@
-import Image from "next/image";
-
-import { ErrorContainer } from "@/containers/ErrorContainer/ErrorContainer";
+import { DetailsImage } from "./components/DetailsImage/DetailsImage";
+import { About } from "./components/About/About";
+import { Tabs } from "./components/Tabs/Tabs";
 
 import type { RecipeDetailsScreenProps } from "./RecipeDetailsScreen.interface";
 
 import styles from "./RecipeDetailsScreen.module.scss";
 
-export function RecipeDetailsScreen({ recipeDetails, error }: RecipeDetailsScreenProps): JSX.Element {
-	if (!recipeDetails) return <div>Serve Error</div>;
-
+export function RecipeDetailsScreen({ recipeDetails }: RecipeDetailsScreenProps): JSX.Element {
 	return (
-		<ErrorContainer error={error}>
-			<section className={styles.details}>
-				<div className={styles.detailsBody}>
-					<Image src={recipeDetails.image} className={styles.detailsImage} width={300} height={300} alt="recipe image" />
-				</div>
-			</section>
-		</ErrorContainer>
+		<section className={styles.details}>
+			<div className={styles.detailsBody}>
+				<DetailsImage image={recipeDetails.image} />
+				<About
+					title={recipeDetails.title}
+					cookTime={recipeDetails.cookTime}
+					rating={recipeDetails.rating}
+					cookLevel={recipeDetails.cookLevel}
+				/>
+				<hr />
+				<Tabs recipeDetails={recipeDetails} />
+			</div>
+		</section>
 	);
 }
