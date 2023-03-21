@@ -5,27 +5,4 @@
 	&Body {
 		overflow: hidden;
 	}
-
-	&Tabs {
-		height: 330px;
-		overflow: auto;
-
-		&Wrapper {
-			display: flex;
-			gap: 20px;
-			align-items: center;
-
-			@media screen and (max-width: 500px) {
-				gap: 15px;
-			}
-		}
-
-		&Tab {
-			cursor: pointer;
-
-			@media screen and (max-width: 500px) {
-				font-size: 14px;
-			}
-		}
-	}
 }

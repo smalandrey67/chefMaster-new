@@ -15,7 +15,7 @@
   "dependencies": {
     "@next/font": "^13.2.4",
     "chart.js": "^4.2.1",
-    "chefmaster-ui": "^0.0.9",
+    "chefmaster-ui": "^0.0.10",
     "clsx": "^1.2.1",
     "ky": "^0.33.2",
     "next": "^13.2.4",

@@ -1,32 +1,19 @@
 import { useState } from "react";
 
-import type { RecipeDetailsScreenProps } from "../../RecipeDetailsScreen.interface";
+import { Points } from "./components/Points/Points";
+import { TabContent } from "./components/TabContent/TabContent";
+
+import type { TabsData, TabsProps } from "./Tabs.interface";
 
 import styles from "./Tabs.module.scss";
 
-export function Tabs({ recipeDetails }: RecipeDetailsScreenProps): JSX.Element {
-	const [tab, setTab] = useState<"instruction" | "ingredients" | "cooking">("instruction");
-
-	const chooseTab = (tabName: "instruction" | "ingredients" | "cooking"): void => {
-		setTab(tabName);
-	};
+export function Tabs({ tabsData }: TabsProps): JSX.Element {
+	const [tabPointName, setTabPointName] = useState<keyof TabsData>("instruction");
 
 	return (
 		<div className={styles.tabs}>
-			<div className={styles.tabsWrapper}>
-				<div className={styles.tabsTab} onClick={() => chooseTab("instruction")}>
-					Instruction
-				</div>
-				<div className={styles.tabsTab} onClick={() => chooseTab("ingredients")}>
-					Ingredients
-				</div>
-				<div className={styles.tabsTab} onClick={() => chooseTab("cooking")}>
-					Cooking
-				</div>
-			</div>
-			{recipeDetails[tab].map((item) => (
-				<span key={item}>{item}</span>
-			))}
+			<Points setTabPointName={setTabPointName} />
+			<TabContent tabsData={tabsData} tabPointName={tabPointName} />
 		</div>
 	);
 }

@@ -10,15 +10,26 @@ export function RecipeDetailsScreen({ recipeDetails }: RecipeDetailsScreenProps)
 	return (
 		<section className={styles.details}>
 			<div className={styles.detailsBody}>
-				<DetailsImage image={recipeDetails.image} />
-				<About
-					title={recipeDetails.title}
-					cookTime={recipeDetails.cookTime}
-					rating={recipeDetails.rating}
-					cookLevel={recipeDetails.cookLevel}
+				<DetailsImage
+					detailsImageData={{
+						image: recipeDetails.image
+					}}
 				/>
-				<hr />
-				<Tabs recipeDetails={recipeDetails} />
+				<About
+					aboutData={{
+						title: recipeDetails.title,
+						cookTime: recipeDetails.cookTime,
+						rating: recipeDetails.rating,
+						cookLevel: recipeDetails.cookLevel
+					}}
+				/>
+				<Tabs
+					tabsData={{
+						instruction: recipeDetails.instruction,
+						ingredients: recipeDetails.ingredients,
+						cooking: recipeDetails.cooking
+					}}
+				/>
 			</div>
 		</section>
 	);

@@ -5,7 +5,7 @@ export interface RecipeDetails {
 	cookTime: string;
 	rating: number;
 	cookLevel: string;
-	instruction: any;
-	ingredients: any;
-	cooking: any;
+	instruction: string[];
+	ingredients: string[];
+	cooking: string[];
 }

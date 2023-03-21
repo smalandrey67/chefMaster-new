@@ -2,7 +2,7 @@ import { Poppins } from "@next/font/google";
 
 import type { AppProps } from "next/app";
 
-import "chefmaster-ui/styles/main.css";
+import "chefmaster-ui/dist/styles/main.css";
 import "@/styles/globals.scss";
 
 const poppins = Poppins({

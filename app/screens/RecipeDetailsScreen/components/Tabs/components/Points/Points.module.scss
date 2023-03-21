@@ -1,0 +1,23 @@
+.points {
+	height: 330px;
+	overflow: auto;
+
+	&Wrapper {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+
+		@media screen and (max-width: 500px) {
+			gap: 15px;
+		}
+	}
+
+	&Tab {
+		color: var(--neon-10);
+		cursor: pointer;
+
+		@media screen and (max-width: 500px) {
+			font-size: 14px;
+		}
+	}
+}
