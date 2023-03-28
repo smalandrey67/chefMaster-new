@@ -1,4 +1,7 @@
 import { Poppins } from "@next/font/google";
+import { Provider } from "react-redux";
+
+import { setupStore } from "@/store/store";
 
 import type { AppProps } from "next/app";
 
@@ -10,6 +13,8 @@ const poppins = Poppins({
 	weight: ["400", "600", "800"]
 });
 
+const store = setupStore();
+
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 	return (
 		<>
@@ -20,7 +25,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 					}
 				`}
 			</style>
-			<Component {...pageProps} />
+			<Provider store={store}>
+				<Component {...pageProps} />
+			</Provider>
 		</>
 	);
 }

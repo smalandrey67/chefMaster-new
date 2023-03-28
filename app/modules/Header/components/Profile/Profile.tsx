@@ -1,13 +1,22 @@
-import styles from "./Profile.module.scss";
+import { ProfileCard } from "./components/ProfileCard/ProfileCard";
+import { ProfileImage } from "./components/ProfileImage/ProfileImage";
+
+import { useAppSelector, useAppDispatch } from "@/hooks/useRedux";
+import { selectIsProfileCardOpen } from "../../slices/profile/profile.selectors";
+import { profileActions } from "@/modules/Header/slices/profile/profile";
 
 export function Profile(): JSX.Element {
+	const dispatch = useAppDispatch();
+	const isProfileCardOpen = useAppSelector(selectIsProfileCardOpen);
+
+	const openProfileCard = (): void => {
+		dispatch(profileActions.toggleProfileCard());
+	};
+
 	return (
-		<div className={styles.profile}>
-			<img
-				src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
-				className={styles.profileImage}
-				alt="user picture"
-			/>
-		</div>
+		<>
+			<ProfileImage changeProfileCardState={openProfileCard} />
+			{isProfileCardOpen && <ProfileCard />}
+		</>
 	);
 }
