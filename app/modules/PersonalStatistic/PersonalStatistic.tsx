@@ -1,11 +1,16 @@
 import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
+import { useAppSelector } from "@/hooks/useRedux";
+import { selectUser } from "../AuthForm/slices/auth/auth.selectors";
+
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 import styles from "./PersonalStatistic.module.scss";
 
 export function PersonalStatistic(): JSX.Element {
+	const user = useAppSelector(selectUser);
+
 	const calories = {
 		max: 800,
 		current: 300
@@ -45,6 +50,10 @@ export function PersonalStatistic(): JSX.Element {
 			}
 		}
 	};
+
+	if (!user) {
+		return <div>Not authorized</div>;
+	}
 
 	return (
 		<div className={styles.statistic}>

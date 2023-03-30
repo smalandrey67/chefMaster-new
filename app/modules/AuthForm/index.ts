@@ -1,4 +1,6 @@
-import { authReducer, authActions } from "./slices/auth/auth";
 import { AuthForm } from "./AuthForm";
 
-export { authReducer, authActions, AuthForm };
+import { authReducer, authActions } from "./slices/auth/auth";
+import { authThunk } from "./slices/auth/auth.thunk";
+
+export { authReducer, authActions, AuthForm, authThunk };

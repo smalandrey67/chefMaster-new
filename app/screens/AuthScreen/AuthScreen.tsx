@@ -5,13 +5,13 @@ import type { AuthScreenProps } from "./AuthScreen.interface";
 
 import styles from "./AuthScreen.module.scss";
 
-export function AuthScreen({ screenTitle }: AuthScreenProps): JSX.Element {
+export function AuthScreen({ screenTitle, authType }: AuthScreenProps): JSX.Element {
 	return (
 		<section className={styles.auth}>
 			<Title className={styles.authTitle} variant="big">
 				{screenTitle}
 			</Title>
-			<AuthForm />
+			<AuthForm authType={authType} />
 		</section>
 	);
 }

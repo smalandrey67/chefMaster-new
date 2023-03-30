@@ -1,10 +1,10 @@
-import { api } from "@/configs/ky.config";
+import { api } from "@/configs/axios.config";
 
 import type { Recipe } from "@/interfaces/Recipe.interface";
 
 export const RecipesByCategoryScreenService = {
 	async getRecipesByCategory(category: string): Promise<Recipe[]> {
-		const recipesByCategory: Recipe[] = await api.get(`recipes/category/${category}`).json();
+		const { data: recipesByCategory } = await api.get<Recipe[]>(`recipes/category/${category}`);
 		return recipesByCategory;
 	}
 };
