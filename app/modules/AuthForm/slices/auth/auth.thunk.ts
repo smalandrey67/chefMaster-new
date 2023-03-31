@@ -10,9 +10,9 @@ import type {
 	RegistrationThunkProps
 } from "./auth.interface";
 
-const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkProps, { rejectValue: string }>(
+const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkProps, { rejectValue: void }>(
 	"registration",
-	async ({ registrationBody, navigate }, { rejectWithValue, fulfillWithValue }) => {
+	async ({ registrationBody, navigate, errorAlert }, { rejectWithValue, fulfillWithValue }) => {
 		try {
 			const createdUserData = await AuthFormService.registration(registrationBody);
 
@@ -21,17 +21,17 @@ const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkPro
 			return createdUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return rejectWithValue(error.response?.data.message);
+				return rejectWithValue(errorAlert(error.response?.data.message));
 			}
 
-			return rejectWithValue("Something went wrong");
+			return rejectWithValue(errorAlert("Something went wrong"));
 		}
 	}
 );
 
-const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: string }>(
+const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: void }>(
 	"login",
-	async ({ loginBody, navigate }, { rejectWithValue, fulfillWithValue }) => {
+	async ({ loginBody, navigate, errorAlert }, { rejectWithValue, fulfillWithValue }) => {
 		try {
 			const authorizedUserData = await AuthFormService.login(loginBody);
 
@@ -40,10 +40,10 @@ const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: st
 			return authorizedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return rejectWithValue(error.response?.data.message);
+				return rejectWithValue(errorAlert(error.response?.data.message));
 			}
 
-			return rejectWithValue("Something went wrong");
+			return rejectWithValue(errorAlert("Something went wrong"));
 		}
 	}
 );

@@ -7,4 +7,5 @@ export interface AuthFormProps {
 export interface SubmitAuthForm {
 	email: string;
 	password: string;
+	userName: string;
 }

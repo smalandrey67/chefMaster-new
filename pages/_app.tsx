@@ -5,6 +5,7 @@ import { setupStore } from "@/store/store";
 
 import type { AppProps } from "next/app";
 
+import "react-toastify/dist/ReactToastify.css";
 import "chefmaster-ui/dist/styles/main.css";
 import "@/styles/globals.scss";
 

@@ -13,17 +13,22 @@ interface AuthBody {
 	password: string;
 }
 
-export type RegistrationBody = AuthBody & unknown;
+export type RegistrationBody = AuthBody & {
+	userName: string;
+};
+
 export type LoginBody = AuthBody & unknown;
 
 export interface RegistrationThunkProps {
 	registrationBody: RegistrationBody;
 	navigate: () => void;
+	errorAlert: (message: string) => void;
 }
 
 export interface LoginThunkProps {
 	loginBody: LoginBody;
 	navigate: () => void;
+	errorAlert: (message: string) => void;
 }
 
 // #Response

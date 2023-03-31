@@ -1,10 +1,10 @@
 import { RecipeDetailsScreenService } from "./RecipeDetailsScreen.service";
 
-import type { GetServerSidePropsContext, PreviewData } from "next";
+import type { GetStaticPropsContext, PreviewData } from "next";
 import type { ParsedUrlQuery } from "querystring";
 
 export const RecipeDetailsScreenController = {
-	async getRecipeDetails(context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>) {
+	async getRecipeDetails(context: GetStaticPropsContext<ParsedUrlQuery, PreviewData>) {
 		const recipeId = context.params?.id;
 
 		if (!recipeId || Array.isArray(recipeId)) {

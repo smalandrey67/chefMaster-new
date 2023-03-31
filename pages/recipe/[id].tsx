@@ -2,9 +2,10 @@ import { RecipeDetailsScreen } from "@/screens/RecipeDetailsScreen/RecipeDetails
 import { withLayout } from "@/Layout/Layout";
 
 import { RecipeDetailsScreenController } from "@/screens/RecipeDetailsScreen/RecipeDetailsScreen.controller";
+import { HomeScreenService } from "@/screens/HomeScreen/HomeScreen.service";
 
 import type { RecipeDetailsScreenProps } from "@/screens/RecipeDetailsScreen/RecipeDetailsScreen.interface";
-import type { GetServerSideProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 
 interface RecipeDetailsProps extends RecipeDetailsScreenProps, Record<string, unknown> {}
 
@@ -18,7 +19,17 @@ export default withLayout({
 	pageDescription: "Any additional notes or tips to help make the dish a success"
 });
 
-export const getServerSideProps: GetServerSideProps<RecipeDetailsScreenProps> = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+	const popularRecipes = await HomeScreenService.getPopularRecipes();
+	const paths = popularRecipes.map((path) => ({ params: { id: path._id } }));
+
+	return {
+		paths,
+		fallback: "blocking"
+	};
+};
+
+export const getStaticProps: GetStaticProps<RecipeDetailsScreenProps> = async (context) => {
 	try {
 		return await RecipeDetailsScreenController.getRecipeDetails(context);
 	} catch (error) {

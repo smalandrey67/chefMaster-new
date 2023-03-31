@@ -3,6 +3,7 @@ import { Button } from "chefmaster-ui";
 
 import { ProfileImage } from "../ProfileImage/ProfileImage";
 import { profileActions } from "@/modules/Header/slices/profile/profile";
+import { withUsDays } from "@/modules/Header/utils/withUsDays";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { authThunk } from "@/modules/AuthForm";
@@ -16,24 +17,32 @@ export function ProfileCard(): JSX.Element {
 	const router = useRouter();
 
 	const logoutHandler = (): void => {
-		dispatch(authThunk.logout());
 		navigateToLoginPage();
+		dispatch(authThunk.logout());
 	};
 
 	const navigateToLoginPage = (): void => {
-		dispatch(profileActions.closeProfileCard());
 		router.push("/login");
+		dispatch(profileActions.closeProfileCard());
 	};
 
 	return (
 		<div className={styles.profileCard}>
-			<ProfileImage />
+			<div className={styles.profileCardHead}>
+				<ProfileImage />
+				{user && <div className={styles.profileCardDays}> with us {withUsDays(user?.createdAt)}</div>}
+			</div>
 			<div className={styles.profileCardUser}>
 				<p className={styles.profileCardUserInfo}>
 					<strong className={styles.profileCardUserSubTitle}>email:</strong>
-					{user ? user.email : "no email"}
+					{user ? user.email : ""}
+				</p>
+				<p className={styles.profileCardUserInfo}>
+					<strong className={styles.profileCardUserSubTitle}>name:</strong>
+					{user ? user.userName : ""}
 				</p>
 			</div>
+
 			<div className={styles.profileCardButtons}>
 				{!!user || (
 					<Button className={styles.profileCardButton} isFullWidth onClick={navigateToLoginPage}>
