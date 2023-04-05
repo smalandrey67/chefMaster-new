@@ -1,13 +1,24 @@
+import { useEffect } from "react";
 import { Meta } from "./components/Meta/Meta";
 import { PageContainer } from "@/containers/PageContainer/PageContainer";
 
 import { Header } from "@/modules/Header";
 import { Navbar } from "@/modules/Navbar";
 
+import { selectViewMain } from "@/modules/ViewSettings";
+import { useAppSelector } from "@/hooks/useRedux";
+
 import type { LayoutProps, WithLayoutProps } from "./Layout.interface";
 import styles from "./Layout.module.scss";
 
 function Layout({ children, ...metaProps }: LayoutProps): JSX.Element {
+	const viewMain = useAppSelector(selectViewMain);
+
+	useEffect(() => {
+		document.body.classList.add(viewMain.viewClass);
+		return () => document.body.classList.remove(viewMain.viewClass);
+	}, [viewMain]);
+
 	return (
 		<>
 			<Meta {...metaProps} />

@@ -4,14 +4,14 @@ import { Instruction } from "./components/Instruction/Instruction";
 
 import type { TabContentProps } from "./TabContent.interface";
 
-const Tabs = {
+const tabsComponents = {
 	instruction: Instruction,
 	ingredients: Ingredients,
 	cooking: Cooking
 };
 
 export function TabContent({ tabsData, tabPointName }: TabContentProps): JSX.Element {
-	const Component = Tabs[tabPointName];
+	const Component = tabsComponents[tabPointName];
 
 	return (
 		<div>

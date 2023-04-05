@@ -1,0 +1,21 @@
+@import "@/styles/mixins";
+
+.backgroundOption {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border: none;
+	border-radius: var(--rounded-20);
+
+	&Selected {
+		transform: scale(1.1);
+	}
+
+	&Dark {
+		background: var(--dark-10);
+	}
+
+	&Gray {
+		background: var(--light-20);
+	}
+}

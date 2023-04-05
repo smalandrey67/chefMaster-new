@@ -1,0 +1,17 @@
+@import "@/styles/mixins";
+
+.menuPoint {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	text-transform: capitalize;
+	cursor: pointer;
+
+	@include isHover() {
+		transition: opacity var(--transitionTime) ease;
+
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+}

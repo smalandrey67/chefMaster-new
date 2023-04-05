@@ -1,8 +1,9 @@
+@import "@/styles/viewPersonalize";
+
 .menu {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	background-color: var(--dark-10);
 	border-radius: var(--rounded-10);
 
 	@media screen and (max-width: 1085px) {
