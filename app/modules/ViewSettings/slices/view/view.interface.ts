@@ -1,5 +1,7 @@
+export type ViewClass = "darkNavbarView" | "grayView" | "darkMainView";
+
 export type ViewSettingProperty = {
-	viewClass: string;
+	viewClass: ViewClass;
 };
 
 type ViewSettings = {
@@ -8,5 +10,5 @@ type ViewSettings = {
 };
 
 export interface ViewState {
-	viewSettings: ViewSettings;
+	view: ViewSettings;
 }

@@ -17,8 +17,8 @@ export function ProfileCard(): JSX.Element {
 	const router = useRouter();
 
 	const logoutHandler = (): void => {
-		navigateToLoginPage();
 		dispatch(authThunk.logout());
+		navigateToLoginPage();
 	};
 
 	const navigateToLoginPage = (): void => {
@@ -30,7 +30,7 @@ export function ProfileCard(): JSX.Element {
 		<div className={styles.profileCard}>
 			<div className={styles.profileCardHead}>
 				<ProfileImage />
-				{user && <div className={styles.profileCardDays}> with us {withUsDays(user?.createdAt)}</div>}
+				{user && <div className={styles.profileCardDays}> with us {withUsDays(user.createdAt)}</div>}
 			</div>
 			<div className={styles.profileCardUser}>
 				<p className={styles.profileCardUserInfo}>

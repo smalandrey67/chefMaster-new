@@ -21,7 +21,7 @@ export function ViewSettings(): JSX.Element {
 			<NavbarPersonalize />
 
 			<div className={styles.viewSave}>
-				<Button isFullWidth onClick={saveViewSettings}>
+				<Button isFullWidth onClick={saveViewSettings} name="save">
 					Save
 				</Button>
 			</div>

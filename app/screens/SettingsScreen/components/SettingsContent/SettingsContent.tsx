@@ -1,5 +1,5 @@
 import { ViewSettings } from "@/modules/ViewSettings";
-import { AccountSettings } from "@/modules/AccountSettings/AccountSettings"; // add index.ts
+import { AccountSettings } from "@/modules/AccountSettings";
 
 import type { SettingsContentProps } from "./SettingsContent.interface";
 

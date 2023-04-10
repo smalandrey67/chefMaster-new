@@ -2,78 +2,74 @@ import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { AuthFormService } from "../../AuthForm.service";
-import type {
-	LoginResponse,
-	LoginThunkProps,
-	RefreshResponse,
-	RegistrationResponse,
-	RegistrationThunkProps
-} from "./auth.interface";
+
+import type { LoginThunkProps, RegistrationThunkProps } from "./auth.interface";
+import type { RegistrationResponse, LoginResponse, RefreshResponse } from "@/interfaces/Auth.interface";
 
 const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkProps, { rejectValue: void }>(
 	"registration",
-	async ({ registrationBody, navigate, errorAlert }, { rejectWithValue, fulfillWithValue }) => {
+	async ({ registrationBody, navigate, showErrorAlert }, thunkApi) => {
 		try {
 			const createdUserData = await AuthFormService.registration(registrationBody);
 
-			fulfillWithValue(navigate());
+			thunkApi.fulfillWithValue(navigate());
 
 			return createdUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return rejectWithValue(errorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
 			}
 
-			return rejectWithValue(errorAlert("Something went wrong"));
+			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
 		}
 	}
 );
 
 const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: void }>(
 	"login",
-	async ({ loginBody, navigate, errorAlert }, { rejectWithValue, fulfillWithValue }) => {
+	async ({ loginBody, navigate, showErrorAlert }, thunkApi) => {
 		try {
 			const authorizedUserData = await AuthFormService.login(loginBody);
 
-			fulfillWithValue(navigate());
+			thunkApi.fulfillWithValue(navigate());
 
 			return authorizedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return rejectWithValue(errorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
 			}
 
-			return rejectWithValue(errorAlert("Something went wrong"));
+			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
 		}
 	}
 );
 
 const refresh = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>(
-	"refresh", async (_, { rejectWithValue }) => {
+	"refresh", async (_, thunkApi) => {
 	try {
 		const refreshData = await AuthFormService.refresh();
 		return refreshData;
 	} catch (error: unknown) {
 		if (error instanceof AxiosError) {
-			return rejectWithValue(error.response?.data.message);
+			return thunkApi.rejectWithValue(error.response?.data.message);
 		}
 
-		return rejectWithValue("Something went wrong");
+		return thunkApi.rejectWithValue("Something went wrong");
 	}
 });
 
 const checkIsAuthorized = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>(
 	"isAuthorized",
-	async (_, { rejectWithValue }) => {
+	async (_, thunkApi) => {
 		try {
 			const isAuthorizedData = await AuthFormService.refresh();
 			return isAuthorizedData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return rejectWithValue(error.response?.data.message);
+				return thunkApi.rejectWithValue(error.response?.data.message);
 			}
 
-			return rejectWithValue("Something went wrong");
+			return thunkApi.rejectWithValue("Something went wrong");
 		}
 	}
 );

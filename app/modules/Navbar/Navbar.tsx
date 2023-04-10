@@ -14,7 +14,7 @@ export function Navbar(): JSX.Element {
 	const [viewClass, setViewClass] = useState<string>("");
 
 	useEffect(() => {
-		setViewClass(viewNavbar.viewClass === "darkNavbarView" ? styles.darkNavbarView : styles.grayView);
+		setViewClass(viewNavbar.viewClass);
 	}, [viewNavbar]);
 
 	return (

@@ -1,11 +1,7 @@
 import { api } from "@/configs/axios.config";
-import type {
-	RegistrationBody,
-	LoginBody,
-	RegistrationResponse,
-	LoginResponse,
-	RefreshResponse
-} from "./slices/auth/auth.interface";
+
+import type { RegistrationBody, LoginBody } from "./slices/auth/auth.interface";
+import type { RegistrationResponse, LoginResponse, RefreshResponse } from "@/interfaces/Auth.interface";
 
 export const AuthFormService = {
 	async registration(registrationBody: RegistrationBody): Promise<RegistrationResponse> {

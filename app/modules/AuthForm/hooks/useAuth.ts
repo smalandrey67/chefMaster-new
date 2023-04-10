@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
-import { toast } from "react-toastify";
 
+import { toastAlert } from "@/utils/toastAlert";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { authThunk } from "../slices/auth/auth.thunk";
-import { alertOptions } from "@/constants/alertOptions";
 
 import type { SubmitAuthForm } from "../AuthForm.interface";
 import type { SubmitHandler } from "react-hook-form";
@@ -18,8 +17,8 @@ export const useAuth = (authType: AuthType) => {
 			dispatch(
 				authThunk.registration({
 					registrationBody: data,
-					navigate: () => router.push("/login"),
-					errorAlert: (message: string) => toast.error(message, alertOptions)
+					navigate: (): Promise<boolean> => router.push("/login"),
+					showErrorAlert: (message: string): void => toastAlert(message, "error")
 				})
 			);
 		},
@@ -27,8 +26,8 @@ export const useAuth = (authType: AuthType) => {
 			dispatch(
 				authThunk.login({
 					loginBody: data,
-					navigate: () => router.push("/"),
-					errorAlert: (message: string) => toast.error(message, alertOptions)
+					navigate: (): Promise<boolean> => router.push("/"),
+					showErrorAlert: (message: string): void => toastAlert(message, "error")
 				})
 			);
 		}

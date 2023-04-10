@@ -3,11 +3,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { authReducer } from "@/modules/AuthForm";
 import { profileReducer } from "@/modules/Header";
 import { viewReducer } from "@/modules/ViewSettings";
+import { accountSettingsReducer } from "@/modules/AccountSettings";
 
 const rootReducer = combineReducers({
 	auth: authReducer,
 	profile: profileReducer,
-	view: viewReducer
+	viewSettings: viewReducer,
+	accountSettings: accountSettingsReducer
 });
 
 export const setupStore = () => {

@@ -13,10 +13,9 @@ import styles from "./AuthForm.module.scss";
 
 export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 	const { submitAuth } = useAuth(authType);
-
 	const {
 		register,
-		formState: { errors },
+		formState: { errors, isDirty, isValid },
 		handleSubmit
 	} = useForm<SubmitAuthForm>({ mode: "onBlur" });
 
@@ -55,7 +54,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 				autoComplete={passwordAutoComplete}
 			/>
 
-			<Button isFullWidth type="submit" name="submit">
+			<Button isFullWidth type="submit" name="submit" disabled={!isDirty || !isValid}>
 				{buttonTitle}
 			</Button>
 

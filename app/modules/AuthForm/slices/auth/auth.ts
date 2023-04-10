@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { AuthState } from "./auth.interface";
+import type { User } from "@/interfaces/User.interface";
 
 import { authThunk } from "./auth.thunk";
 
@@ -12,37 +13,17 @@ const initialState: AuthState = {
 const authSlice = createSlice({
 	name: "auth",
 	initialState,
-	reducers: {},
+	reducers: {
+		updateUser: (state, { payload }: PayloadAction<User>): void => {
+			state.user = payload;
+		}
+	},
 	extraReducers: (builder): void => {
 		// #login
-		builder.addCase(authThunk.login.pending, (state): void => {
-			state.isLoading = true;
-			state.error = null;
-		});
 		builder.addCase(authThunk.login.fulfilled, (state, { payload }): void => {
-			state.isLoading = false;
 			state.user = payload.user;
-
 			localStorage.setItem("accessToken", payload.accessToken);
 		});
-		builder.addCase(authThunk.login.rejected, (state, { payload }): void => {
-			if (!payload) return;
-			state.error = payload;
-		});
-
-		// #registration
-		builder.addCase(authThunk.registration.pending, (state): void => {
-			state.isLoading = true;
-			state.error = null;
-		});
-		builder.addCase(authThunk.registration.fulfilled, (state): void => {
-			state.isLoading = false;
-		});
-		builder.addCase(authThunk.registration.rejected, (state, { payload }): void => {
-			if (!payload) return;
-			state.error = payload;
-		});
-
 		// #refresh
 		builder.addCase(authThunk.refresh.pending, (state): void => {
 			state.error = null;
@@ -55,7 +36,7 @@ const authSlice = createSlice({
 			state.error = payload;
 		});
 
-		// # checkIsAuthorized
+		// #checkIsAuthorized
 		builder.addCase(authThunk.checkIsAuthorized.pending, (state): void => {
 			state.error = null;
 		});
@@ -68,7 +49,7 @@ const authSlice = createSlice({
 			state.error = payload;
 		});
 
-		// # logout
+		// #logout
 		builder.addCase(authThunk.logout.pending, (state): void => {
 			state.error = null;
 		});

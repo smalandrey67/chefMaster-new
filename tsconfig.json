@@ -23,6 +23,7 @@
 			"@/modules/*": ["app/modules/*"],
 			"@/interfaces/*": ["app/interfaces/*"],
 			"@/configs/*": ["app/configs/*"],
+			"@/utils/*": ["app/utils/*"],
 			"@/constants/*": ["app/constants/*"],
 			"@/hooks/*": ["app/hooks/*"],
 			"@/store/*": ["app/store/*"],
