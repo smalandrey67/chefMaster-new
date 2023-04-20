@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import type { MetaProps } from "@/interfaces/Meta.interface";
+import type { MetaProps } from "./Meta.interface";
 
 export function Meta({ pageTitle, pageDescription }: MetaProps): JSX.Element {
 	return (

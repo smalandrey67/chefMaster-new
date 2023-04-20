@@ -24,6 +24,7 @@ const authSlice = createSlice({
 			state.user = payload.user;
 			localStorage.setItem("accessToken", payload.accessToken);
 		});
+
 		// #refresh
 		builder.addCase(authThunk.refresh.pending, (state): void => {
 			state.error = null;

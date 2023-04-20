@@ -4,8 +4,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AccountSettingsService } from "../../AccountSettings.service";
 import { authActions } from "@/modules/AuthForm";
 
-import type { UpdateEmailThunkProps, UpdatedUserNameThunkProps } from "./accountSettings.interface";
-import type { UpdateEmailResponse, UpdateUserNameResponse } from "@/interfaces/Auth.interface";
+import type {
+	UpdateEmailThunkProps,
+	UpdatedUserNameThunkProps,
+	UpdateEmailResponse,
+	UpdateUserNameResponse
+} from "./accountSettings.interface";
 
 const updateEmail = createAsyncThunk<UpdateEmailResponse, UpdateEmailThunkProps, { rejectValue: void }>(
 	"updateEmail",

@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { InputGroup, Button } from "chefmaster-ui";
 import { SubDetails } from "./components/SubDetails/SubDetails";
 
-import { formValidations } from "@/constants/formValidations";
+import { formValidations } from "@/constants/formValidations.constants";
 import { useAuth } from "./hooks/useAuth";
 
 import type { AuthFormProps, SubmitAuthForm } from "./AuthForm.interface";
@@ -19,9 +19,9 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 		handleSubmit
 	} = useForm<SubmitAuthForm>({ mode: "onBlur" });
 
-	const emailError = errors.email ? String(errors.email.message) : null;
-	const passwordError = errors.password ? String(errors.password.message) : null;
-	const userNameError = errors.userName ? String(errors.userName.message) : null;
+	const userNameError = errors.userName ? errors.userName.message : null;
+	const emailError = errors.email ? errors.email.message : null;
+	const passwordError = errors.password ? errors.password.message : null;
 
 	const isRegistration = authType === "registration";
 	const buttonTitle = isRegistration ? "Sign up" : "Log in";

@@ -8,23 +8,22 @@ import type { MainPersonalizeOptionProps } from "./MainPersonalizeOption.interfa
 
 import styles from "./MainPersonalizeOption.module.scss";
 
-export function MainPersonalizeOption({ value, viewClass }: MainPersonalizeOptionProps): JSX.Element {
+export function MainPersonalizeOption({ optionView, viewData }: MainPersonalizeOptionProps): JSX.Element {
 	const dispatch = useAppDispatch();
 	const viewMain = useAppSelector(selectViewMain);
 
 	const changeMainView = (): void => {
-		dispatch(viewActions.changeMainView({ viewClass }));
+		dispatch(viewActions.changeMainView(viewData));
 	};
 
 	return (
 		<button
 			className={clsx(styles.backgroundOption, {
-				[styles.backgroundOptionDark]: value === "dark",
-				[styles.backgroundOptionGray]: value === "gray",
-				[styles.backgroundOptionSelected]: viewMain.viewClass === viewClass
+				[styles.backgroundOptionDark]: optionView === "dark",
+				[styles.backgroundOptionGray]: optionView === "light"
 			})}
 			onClick={changeMainView}
-			name={value}
+			name={optionView}
 		/>
 	);
 }

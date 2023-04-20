@@ -1,14 +1,19 @@
-export type ViewClass = "darkNavbarView" | "grayView" | "darkMainView";
-
 export type ViewSettingProperty = {
-	viewClass: ViewClass;
+	background: string;
 };
 
-type ViewSettings = {
-	main: ViewSettingProperty;
-	navbar: ViewSettingProperty;
+export type ViewSettings = {
+	main: ViewSettingProperty | null;
+	navbar: ViewSettingProperty | null;
 };
 
 export interface ViewState {
 	view: ViewSettings;
+	error: null | string;
+}
+
+export interface SaveViewSettingsThunkProps {
+	userId: string;
+	showSuccessAlert: (message: string) => void;
+	showErrorAlert: (message: string) => void;
 }

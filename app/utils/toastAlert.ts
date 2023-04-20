@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { alertOptions } from "@/constants/alertOptions";
+import { alertOptions } from "@/constants/alert.constants";
 
 export const toastAlert = (message: string, type: "success" | "error"): void => {
 	switch (type) {

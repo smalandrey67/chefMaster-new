@@ -6,12 +6,12 @@ import { AxiosRequestConfig } from "axios";
 
 export const HomeScreenService = {
 	async getPopularRecipes(): Promise<Recipe[]> {
-		const { data: popularRecipes } = await api.get<Recipe[]>("recipes/popular");
+		const { data: popularRecipes } = await api.get<Recipe[]>("/recipes/popular");
 		return popularRecipes;
 	},
 
 	async getArticles(params?: AxiosRequestConfig["params"]): Promise<Article[]> {
-		const { data: articles } = await api.get<Article[]>("articles", { params });
+		const { data: articles } = await api.get<Article[]>("/articles", { params });
 		return articles;
 	}
 };

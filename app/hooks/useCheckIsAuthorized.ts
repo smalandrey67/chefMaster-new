@@ -5,12 +5,13 @@ import { authThunk } from "@/modules/AuthForm";
 
 export const useCheckIsAuthorized = (): void => {
 	const dispatch = useAppDispatch();
-	const loadRef = useRef(false);
+	const loadUserRef = useRef(false);
 
 	useEffect(() => {
-		if (localStorage.getItem("accessToken") && !loadRef.current) {
+		if (localStorage.getItem("accessToken") && !loadUserRef.current) {
 			dispatch(authThunk.checkIsAuthorized());
-			loadRef.current = true;
+
+			loadUserRef.current = true;
 		}
 	}, [dispatch]);
 };

@@ -7,7 +7,12 @@ export const useChangeMainView = (): void => {
 	const viewMain = useAppSelector(selectViewMain);
 
 	useEffect(() => {
-		document.body.classList.add(viewMain.viewClass);
-		return () => document.body.classList.remove(viewMain.viewClass);
+		if (!viewMain) return;
+
+		document.body.style.background = viewMain.background;
+
+		return () => {
+			document.body.style.background = "";
+		};
 	}, [viewMain]);
 };

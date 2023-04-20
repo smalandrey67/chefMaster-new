@@ -1,16 +1,11 @@
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { ViewSettingProperty, ViewState } from "./view.interface";
 
-const initialViewValues = {
-	main: { viewClass: "darkMainView" },
-	navbar: { viewClass: "darkNavbarView" }
-};
+import { viewSettingsThunk } from "./view.thunk";
 
 const initialState: ViewState = {
-	view:
-		typeof window !== "undefined" && localStorage.getItem("viewSettings")
-			? JSON.parse(localStorage.getItem("viewSettings") || "")
-			: initialViewValues
+	view: { main: null, navbar: null },
+	error: null
 };
 
 const viewSlice = createSlice({
@@ -25,9 +20,18 @@ const viewSlice = createSlice({
 			state.view.navbar = payload;
 		},
 
-		saveViewSettings: (state): void => {
-			localStorage.setItem("viewSettings", JSON.stringify(state.view));
+		resetAllView: (state): void => {
+			state.view = { main: null, navbar: null };
 		}
+	},
+	extraReducers: (builder): void => {
+		builder.addCase(viewSettingsThunk.getViewSettings.fulfilled, (state, { payload }): void => {
+			state.view = payload;
+		});
+		builder.addCase(viewSettingsThunk.getViewSettings.rejected, (state, { payload }): void => {
+			if (!payload) return;
+			state.error = payload;
+		});
 	}
 });
 

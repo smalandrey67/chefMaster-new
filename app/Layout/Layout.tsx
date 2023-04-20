@@ -4,8 +4,9 @@ import { PageContainer } from "@/containers/PageContainer/PageContainer";
 import { Header } from "@/modules/Header";
 import { Navbar } from "@/modules/Navbar";
 
-import { useChangeMainView } from "@/hooks/useChangeMainView";
 import { useCheckIsAuthorized } from "@/hooks/useCheckIsAuthorized";
+import { useLoadAppView } from "@/hooks/useLoadAppView";
+import { useChangeMainView } from "@/hooks/useChangeMainView";
 
 import type { LayoutProps, WithLayoutProps } from "./Layout.interface";
 
@@ -13,6 +14,7 @@ import styles from "./Layout.module.scss";
 
 function Layout({ children, ...metaProps }: LayoutProps): JSX.Element {
 	useCheckIsAuthorized();
+	useLoadAppView();
 	useChangeMainView();
 
 	return (

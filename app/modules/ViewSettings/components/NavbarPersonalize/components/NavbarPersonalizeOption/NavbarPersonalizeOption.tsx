@@ -8,23 +8,23 @@ import { selectViewNavbar } from "@/modules/ViewSettings/slices/view/view.select
 
 import styles from "./NavbarPersonalizeOption.module.scss";
 
-export function NavbarPersonalizeOption({ value, viewClass }: NavbarPersonalizeOptionProps): JSX.Element {
+export function NavbarPersonalizeOption({ optionView, viewData }: NavbarPersonalizeOptionProps): JSX.Element {
 	const dispatch = useAppDispatch();
 	const viewNavbar = useAppSelector(selectViewNavbar);
 
 	const changeNavbarView = (): void => {
-		dispatch(viewActions.changeNavbarView({ viewClass }));
+		dispatch(viewActions.changeNavbarView(viewData));
 	};
 
 	return (
 		<button
 			className={clsx(styles.backgroundOption, {
-				[styles.backgroundOptionDark]: value === "dark",
-				[styles.backgroundOptionGray]: value === "gray",
-				[styles.backgroundOptionSelected]: viewNavbar.viewClass === viewClass
+				[styles.backgroundOptionDark]: optionView === "dark",
+				[styles.backgroundOptionGray]: optionView === "light"
+				// [styles.backgroundOptionSelected]: viewNavbar.viewClass === null
 			})}
 			onClick={changeNavbarView}
-			name={value}
+			name={optionView}
 		/>
 	);
 }

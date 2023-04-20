@@ -1,3 +1,5 @@
+import type { ResponseAuthInstance } from "@/interfaces/ResponseAuthInstance.interface";
+import type { AccessToken, RefreshToken } from "@/interfaces/Token.interface";
 import type { User } from "@/interfaces/User.interface";
 
 export interface AuthState {
@@ -6,6 +8,7 @@ export interface AuthState {
 	error: string | null;
 }
 
+// #request
 interface AuthBody {
 	email: string;
 	password: string;
@@ -17,6 +20,20 @@ export type RegistrationBody = AuthBody & {
 
 export type LoginBody = AuthBody & unknown;
 
+// #response
+export interface RegistrationResponse extends ResponseAuthInstance {}
+
+export interface LoginResponse extends ResponseAuthInstance {
+	accessToken: AccessToken;
+	refreshToken: RefreshToken;
+}
+
+export interface RefreshResponse extends ResponseAuthInstance {
+	accessToken: AccessToken;
+	refreshToken: RefreshToken;
+}
+
+// #thunk props
 export interface RegistrationThunkProps {
 	registrationBody: RegistrationBody;
 	navigate: () => void;

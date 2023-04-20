@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Button, InputGroup, Title } from "chefmaster-ui";
 
-import { formValidations } from "@/constants/formValidations";
+import { formValidations } from "@/constants/formValidations.constants";
 import { useEmailUpdate } from "./hooks/useEmailUpdate";
 
 import type { SubmitEmailUpdateForm } from "./EmailUpdate.interface";
@@ -11,13 +11,14 @@ import styles from "./EmailUpdate.module.scss";
 export function EmailUpdate(): JSX.Element {
 	const {
 		register,
-		formState: { errors, isDirty, isValid },
+		formState: { errors, isDirty, isValid, isSubmitting },
 		handleSubmit,
 		reset
 	} = useForm<SubmitEmailUpdateForm>({ mode: "onBlur" });
 	const { updateEmail, currentEmail } = useEmailUpdate(reset);
 
-	const updatedEmailError = errors.updatedEmail ? String(errors.updatedEmail.message) : null;
+	const updatedEmailError = errors.updatedEmail ? errors.updatedEmail.message : null;
+	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 
 	return (
 		<form className={styles.email} onSubmit={handleSubmit(updateEmail)}>
@@ -39,7 +40,7 @@ export function EmailUpdate(): JSX.Element {
 			/>
 
 			<div className={styles.emailUpdate}>
-				<Button isFullWidth type="submit" name="update" disabled={!isDirty || !isValid}>
+				<Button isFullWidth type="submit" name="update" disabled={isDisabledSubmitButton}>
 					update
 				</Button>
 			</div>

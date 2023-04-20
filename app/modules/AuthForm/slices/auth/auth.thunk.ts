@@ -2,9 +2,15 @@ import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { AuthFormService } from "../../AuthForm.service";
+import { viewActions } from "@/modules/ViewSettings";
 
-import type { LoginThunkProps, RegistrationThunkProps } from "./auth.interface";
-import type { RegistrationResponse, LoginResponse, RefreshResponse } from "@/interfaces/Auth.interface";
+import type {
+	LoginThunkProps,
+	RegistrationThunkProps,
+	RegistrationResponse,
+	LoginResponse,
+	RefreshResponse
+} from "./auth.interface";
 
 const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkProps, { rejectValue: void }>(
 	"registration",
@@ -44,8 +50,7 @@ const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: vo
 	}
 );
 
-const refresh = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>(
-	"refresh", async (_, thunkApi) => {
+const refresh = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>("refresh", async (_, thunkApi) => {
 	try {
 		const refreshData = await AuthFormService.refresh();
 		return refreshData;
@@ -74,16 +79,17 @@ const checkIsAuthorized = createAsyncThunk<RefreshResponse, void, { rejectValue:
 	}
 );
 
-const logout = createAsyncThunk<void, void, { rejectValue: string }>(
-	"logout", async (_, { rejectWithValue }) => {
+const logout = createAsyncThunk<void, void, { rejectValue: string }>("logout", async (_, thunkApi) => {
 	try {
+		thunkApi.dispatch(viewActions.resetAllView());
+
 		await AuthFormService.logout();
 	} catch (error: unknown) {
 		if (error instanceof AxiosError) {
-			return rejectWithValue(error.response?.data.message);
+			return thunkApi.rejectWithValue(error.response?.data.message);
 		}
 
-		return rejectWithValue("Something went wrong");
+		return thunkApi.rejectWithValue("Something went wrong");
 	}
 });
 

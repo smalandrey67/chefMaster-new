@@ -3,7 +3,7 @@ import { Button } from "chefmaster-ui";
 
 import { ProfileImage } from "../ProfileImage/ProfileImage";
 import { profileActions } from "@/modules/Header/slices/profile/profile";
-import { withUsDays } from "@/modules/Header/utils/withUsDays";
+import { durationDays, withUsDays } from "@/modules/Header/utils/withUsDays";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { authThunk } from "@/modules/AuthForm";
@@ -30,7 +30,11 @@ export function ProfileCard(): JSX.Element {
 		<div className={styles.profileCard}>
 			<div className={styles.profileCardHead}>
 				<ProfileImage />
-				{user && <div className={styles.profileCardDays}> with us {withUsDays(user.createdAt)}</div>}
+				{user && (
+					<div className={styles.profileCardDays}>
+						with us <time dateTime={`P${durationDays(user.createdAt)}D`}>{withUsDays(user.createdAt)}</time>
+					</div>
+				)}
 			</div>
 			<div className={styles.profileCardUser}>
 				<p className={styles.profileCardUserInfo}>

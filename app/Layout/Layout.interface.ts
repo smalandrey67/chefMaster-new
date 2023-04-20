@@ -1,5 +1,5 @@
 import type { FunctionComponent, ReactNode } from "react";
-import type { MetaProps } from "@/interfaces/Meta.interface";
+import type { MetaProps } from "./components/Meta/Meta.interface";
 
 export interface LayoutProps extends MetaProps {
 	children: ReactNode;

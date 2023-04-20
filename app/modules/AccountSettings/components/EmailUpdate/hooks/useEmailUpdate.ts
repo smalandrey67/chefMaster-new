@@ -2,7 +2,7 @@ import { toastAlert } from "@/utils/toastAlert";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 
 import { accountSettingsThunk } from "@/modules/AccountSettings/slice/accountSettings/accountSettings.thunk";
-import { selectUser } from "@/modules/AuthForm/slices/auth/auth.selectors";
+import { selectUser } from "@/modules/AuthForm";
 
 import type { SubmitHandler, UseFormReset } from "react-hook-form";
 import type { SubmitEmailUpdateForm } from "../EmailUpdate.interface";

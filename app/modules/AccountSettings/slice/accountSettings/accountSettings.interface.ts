@@ -1,13 +1,29 @@
-type UpdateEmailBody = {
+import type { ResponseAuthInstance } from "@/interfaces/ResponseAuthInstance.interface";
+import type { AccessToken, RefreshToken } from "@/interfaces/Token.interface";
+
+// #request
+export type UpdateEmailBody = {
 	oldEmail: string;
 	updatedEmail: string;
 };
 
-type UpdateUserNameBody = {
+export type UpdateUserNameBody = {
 	oldUserName: string;
 	updatedUserName: string;
 };
 
+// #response
+export interface UpdateEmailResponse extends ResponseAuthInstance {
+	accessToken: AccessToken;
+	refreshToken: RefreshToken;
+}
+
+export interface UpdateUserNameResponse extends ResponseAuthInstance {
+	accessToken: AccessToken;
+	refreshToken: RefreshToken;
+}
+
+// #thunk props
 export interface UpdateEmailThunkProps {
 	updateEmailBody: UpdateEmailBody;
 	showErrorAlert: (message: string) => void;
