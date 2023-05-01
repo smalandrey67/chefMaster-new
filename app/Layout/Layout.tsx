@@ -1,8 +1,8 @@
-import { Meta } from "./components/Meta/Meta";
 import { PageContainer } from "@/containers/PageContainer/PageContainer";
 
-import { Header } from "@/modules/Header";
-import { Navbar } from "@/modules/Navbar";
+import { Meta } from "./components/Meta/Meta";
+import { Header } from "./components/Header/Header";
+import { Navbar } from "./components/Navbar/Navbar";
 
 import { useCheckIsAuthorized } from "@/hooks/useCheckIsAuthorized";
 import { useLoadAppView } from "@/hooks/useLoadAppView";

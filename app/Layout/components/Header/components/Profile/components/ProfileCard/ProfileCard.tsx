@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { Button } from "chefmaster-ui";
 
 import { ProfileImage } from "../ProfileImage/ProfileImage";
-import { profileActions } from "@/modules/Header/slices/profile/profile";
-import { durationDays, withUsDays } from "@/modules/Header/utils/withUsDays";
+import { profileActions } from "@/Layout/components/Header/slices/profile/profile";
+import { durationDays, withUsDays } from "@/Layout/components/Header/utils/withUsDays";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { authThunk } from "@/modules/AuthForm";

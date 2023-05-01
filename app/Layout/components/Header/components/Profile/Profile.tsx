@@ -3,7 +3,7 @@ import { ProfileImage } from "./components/ProfileImage/ProfileImage";
 
 import { useAppSelector, useAppDispatch } from "@/hooks/useRedux";
 import { selectIsProfileCardOpen } from "../../slices/profile/profile.selectors";
-import { profileActions } from "@/modules/Header/slices/profile/profile";
+import { profileActions } from "../../slices/profile/profile";
 
 export function Profile(): JSX.Element {
 	const dispatch = useAppDispatch();

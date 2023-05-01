@@ -1,8 +1,8 @@
 import { NavbarItem } from "./components/NavbarItem/NavbarItem";
 import { navbarItems } from "./Navbar.constants";
 
+import { selectViewNavbar } from "@/modules/ViewSettings";
 import { useAppSelector } from "@/hooks/useRedux";
-import { selectViewNavbar } from "../ViewSettings";
 
 import styles from "./Navbar.module.scss";
 

@@ -9,8 +9,15 @@
 		overflow: visible;
 	}
 
+	&Header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 70px;
+	}
+
 	&Title {
-		margin: 0 0 70px 0;
+		margin: 0;
 		text-transform: capitalize;
 	}
 

@@ -5,8 +5,8 @@ import type { Article } from "@/interfaces/Article.interface";
 import { AxiosRequestConfig } from "axios";
 
 export const HomeScreenService = {
-	async getPopularRecipes(): Promise<Recipe[]> {
-		const { data: popularRecipes } = await api.get<Recipe[]>("/recipes/popular");
+	async getPopularRecipes(params?: AxiosRequestConfig["params"]): Promise<Recipe[]> {
+		const { data: popularRecipes } = await api.get<Recipe[]>("/recipes/popular", { params });
 		return popularRecipes;
 	},
 
