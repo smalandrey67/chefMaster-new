@@ -11,7 +11,7 @@ export const useChangeMainView = (): void => {
 
 		document.body.style.background = viewMain.background;
 
-		return () => {
+		return (): void => {
 			document.body.style.background = "";
 		};
 	}, [viewMain]);

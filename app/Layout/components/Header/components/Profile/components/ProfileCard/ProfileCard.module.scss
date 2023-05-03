@@ -28,21 +28,16 @@
 		color: #15e052;
 	}
 
-	&User {
-		width: 100%;
-		margin: 10px 0 10px 0;
+	&Name {
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		margin: 0 0 5px 0;
+		font-size: 14px;
+	}
 
-		&Info {
-			display: flex;
-			gap: 5px;
-			align-items: center;
-			margin: 0;
-			font-size: 14px;
-		}
-
-		&SubTitle {
-			color: var(--neon-10);
-		}
+	&SubTitle {
+		color: var(--neon-10);
 	}
 
 	&Buttons {

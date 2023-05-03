@@ -6,17 +6,21 @@ import { NavbarPersonalize } from "./components/NavbarPersonalize/NavbarPersonal
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { toastAlert } from "@/utils/toastAlert";
-import { selectUser } from "../AuthForm";
 import { viewSettingsThunk } from "./slices/view/view.thunk";
+
+import { selectUser } from "../AuthForm";
+import { selectIsViewHasBeenChanged } from "./slices/view/view.selectors";
 
 import styles from "./ViewSettings.module.scss";
 
 export function ViewSettings(): JSX.Element {
 	const user = useAppSelector(selectUser);
+	const isViewHasBeenChanged = useAppSelector(selectIsViewHasBeenChanged);
+
 	const dispatch = useAppDispatch();
 
 	const saveViewSettings = (): void => {
-		if (!user) return;
+		if (!user || !isViewHasBeenChanged) return;
 
 		dispatch(
 			viewSettingsThunk.saveViewSettings({
@@ -33,7 +37,7 @@ export function ViewSettings(): JSX.Element {
 			<NavbarPersonalize />
 
 			<div className={styles.viewSave}>
-				<Button isFullWidth onClick={saveViewSettings} name="save">
+				<Button isFullWidth onClick={saveViewSettings} name="save" disabled={!isViewHasBeenChanged}>
 					Save
 				</Button>
 			</div>

@@ -9,6 +9,7 @@ export type ViewSettings = {
 
 export interface ViewState {
 	view: ViewSettings;
+	isViewHasBeenChanged: boolean;
 	error: null | string;
 }
 

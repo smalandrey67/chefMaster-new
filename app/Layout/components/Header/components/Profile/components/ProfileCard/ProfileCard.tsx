@@ -30,32 +30,30 @@ export function ProfileCard(): JSX.Element {
 		<div className={styles.profileCard}>
 			<div className={styles.profileCardHead}>
 				<ProfileImage />
-				{user && (
-					<div className={styles.profileCardDays}>
-						with us <time dateTime={`P${durationDays(user.createdAt)}D`}>{withUsDays(user.createdAt)}</time>
-					</div>
-				)}
+				<div>
+					<p className={styles.profileCardName}>
+						{!!user && (
+							<>
+								<strong className={styles.profileCardSubTitle}>name:</strong>
+								{user.userName}
+							</>
+						)}
+					</p>
+					{user && (
+						<div className={styles.profileCardDays}>
+							with us <time dateTime={`P${durationDays(user.createdAt)}D`}>{withUsDays(user.createdAt)}</time>
+						</div>
+					)}
+				</div>
 			</div>
-			<div className={styles.profileCardUser}>
-				<p className={styles.profileCardUserInfo}>
-					<strong className={styles.profileCardUserSubTitle}>email:</strong>
-					{user ? user.email : ""}
-				</p>
-				<p className={styles.profileCardUserInfo}>
-					<strong className={styles.profileCardUserSubTitle}>name:</strong>
-					{user ? user.userName : ""}
-				</p>
-			</div>
-
 			<div className={styles.profileCardButtons}>
-				{!!user || (
-					<Button className={styles.profileCardButton} isFullWidth onClick={navigateToLoginPage}>
-						Log in
-					</Button>
-				)}
-				{!!user && (
+				{user ? (
 					<Button className={styles.profileCardButton} isFullWidth onClick={logoutHandler}>
 						Log out
+					</Button>
+				) : (
+					<Button className={styles.profileCardButton} isFullWidth onClick={navigateToLoginPage}>
+						Log in
 					</Button>
 				)}
 			</div>

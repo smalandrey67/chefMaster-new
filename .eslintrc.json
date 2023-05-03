@@ -10,6 +10,11 @@
 		"prettier",
 		"next/core-web-vitals"
 	],
+	"settings": {
+		"next": {
+			"rootDir": "/app"
+		}
+	},
 	"overrides": [],
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {

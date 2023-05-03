@@ -5,6 +5,7 @@ import { viewSettingsThunk } from "./view.thunk";
 
 const initialState: ViewState = {
 	view: { main: null, navbar: null },
+	isViewHasBeenChanged: false,
 	error: null
 };
 
@@ -13,15 +14,24 @@ const viewSlice = createSlice({
 	initialState,
 	reducers: {
 		changeMainView: (state, { payload }: PayloadAction<ViewSettingProperty>): void => {
+			// checks if already have such view settings
+			if (payload.background === state.view.main?.background) return;
+
 			state.view.main = payload;
+			state.isViewHasBeenChanged = true;
 		},
 
 		changeNavbarView: (state, { payload }: PayloadAction<ViewSettingProperty>): void => {
+			// checks if already have such view settings
+			if (payload.background === state.view.navbar?.background) return;
+
 			state.view.navbar = payload;
+			state.isViewHasBeenChanged = true;
 		},
 
 		resetAllView: (state): void => {
 			state.view = { main: null, navbar: null };
+			state.isViewHasBeenChanged = false;
 		}
 	},
 	extraReducers: (builder): void => {

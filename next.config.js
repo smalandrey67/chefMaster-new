@@ -5,6 +5,9 @@ const nextConfig = {
 	images: {
 		domains: ["lh3.googleusercontent.com", "images.unsplash.com"],
 		formats: ["image/webp"]
+	},
+	eslint: {
+		dirs: ["pages", "app"]
 	}
 };
 

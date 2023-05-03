@@ -8,23 +8,23 @@ const API_URL =
 		: process.env.NEXT_PUBLIC_API_URL_PRODUCTION;
 
 // instances
-export const api = axios.create({
+export const $api = axios.create({
 	withCredentials: true,
 	baseURL: API_URL
 });
 
-export const apiProtected = axios.create({
+export const $apiProtected = axios.create({
 	withCredentials: true,
 	baseURL: API_URL
 });
 
 // interceptors
-apiProtected.interceptors.request.use((config) => {
+$apiProtected.interceptors.request.use((config) => {
 	config.headers.Authorization = `Bearer ${localStorage.getItem("accessToken")}`;
 	return config;
 });
 
-apiProtected.interceptors.response.use(
+$apiProtected.interceptors.response.use(
 	(config) => {
 		return config;
 	},
@@ -33,10 +33,10 @@ apiProtected.interceptors.response.use(
 
 		if (error.response.status === 401) {
 			try {
-				const { data: refreshResultData } = await api.get<RefreshResponse>("/refresh");
+				const { data: refreshResultData } = await $api.get<RefreshResponse>("/refresh");
 				localStorage.setItem("accessToken", refreshResultData.accessToken);
 
-				return apiProtected.request(originalRequest);
+				return $apiProtected.request(originalRequest);
 			} catch (error) {
 				console.error("No authorized");
 			}

@@ -11,8 +11,7 @@ const getViewSettings = createAsyncThunk<ViewSettings, string, { rejectValue: st
 	async (userId, thunkApi) => {
 		try {
 			const viewSettingsData = await ViewSettingsService.getViewSettings(userId);
-
-			return { main: viewSettingsData.main, navbar: viewSettingsData.navbar };
+			return viewSettingsData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
 				return thunkApi.rejectWithValue(error.response?.data.message);

@@ -1,8 +1,7 @@
 import clsx from "clsx";
 
-import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
+import { useAppDispatch } from "@/hooks/useRedux";
 import { viewActions } from "@/modules/ViewSettings/slices/view/view";
-import { selectViewMain } from "@/modules/ViewSettings/slices/view/view.selectors";
 
 import type { MainPersonalizeOptionProps } from "./MainPersonalizeOption.interface";
 
@@ -10,7 +9,6 @@ import styles from "./MainPersonalizeOption.module.scss";
 
 export function MainPersonalizeOption({ optionView, viewData }: MainPersonalizeOptionProps): JSX.Element {
 	const dispatch = useAppDispatch();
-	const viewMain = useAppSelector(selectViewMain);
 
 	const changeMainView = (): void => {
 		dispatch(viewActions.changeMainView(viewData));

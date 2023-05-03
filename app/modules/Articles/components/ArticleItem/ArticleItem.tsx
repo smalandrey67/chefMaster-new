@@ -7,7 +7,7 @@ import styles from "./ArticleItem.module.scss";
 
 export function ArticleItem({ image, title, _id }: Article): JSX.Element {
 	return (
-		<article className={styles.article}>
+		<article className={styles.article} onClick={() => console.log(_id)}>
 			<Image src={image} className={styles.articleImage} width={100} height={100} alt={title} />
 			<div className={styles.articleTitle}>
 				<Title variant="small">Black Friday deal: Free salmon steaks</Title>
