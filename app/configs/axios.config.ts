@@ -41,5 +41,7 @@ $apiProtected.interceptors.response.use(
 				console.error("No authorized");
 			}
 		}
+
+		return Promise.reject(error);
 	}
 );

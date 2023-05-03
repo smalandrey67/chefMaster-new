@@ -6,6 +6,10 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
-		width: 150px;
+		width: 100%;
+
+		@media screen and (min-width: 420px) {
+			width: 150px;
+		}
 	}
 }

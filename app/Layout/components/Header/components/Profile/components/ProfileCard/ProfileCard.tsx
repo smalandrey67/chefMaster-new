@@ -29,22 +29,20 @@ export function ProfileCard(): JSX.Element {
 	return (
 		<div className={styles.profileCard}>
 			<div className={styles.profileCardHead}>
-				<ProfileImage />
-				<div>
-					<p className={styles.profileCardName}>
-						{!!user && (
-							<>
+				{user && (
+					<>
+						<ProfileImage />
+						<div>
+							<p className={styles.profileCardName}>
 								<strong className={styles.profileCardSubTitle}>name:</strong>
 								{user.userName}
-							</>
-						)}
-					</p>
-					{user && (
-						<div className={styles.profileCardDays}>
-							with us <time dateTime={`P${durationDays(user.createdAt)}D`}>{withUsDays(user.createdAt)}</time>
+							</p>
+							<div className={styles.profileCardDays}>
+								with us <time dateTime={`P${durationDays(user.createdAt)}D`}>{withUsDays(user.createdAt)}</time>
+							</div>
 						</div>
-					)}
-				</div>
+					</>
+				)}
 			</div>
 			<div className={styles.profileCardButtons}>
 				{user ? (

@@ -23,7 +23,7 @@ const updateEmail = createAsyncThunk<UpdateEmailResponse, UpdateEmailThunkProps,
 			return updatedUser;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
 			}
 
 			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
@@ -43,7 +43,7 @@ const updateUserName = createAsyncThunk<UpdateUserNameResponse, UpdatedUserNameT
 			return updatedUser;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
 			}
 
 			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));

@@ -23,7 +23,7 @@ const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkPro
 			return createdUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
 			}
 
 			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
@@ -42,7 +42,7 @@ const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: vo
 			return authorizedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
-				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
 			}
 
 			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));

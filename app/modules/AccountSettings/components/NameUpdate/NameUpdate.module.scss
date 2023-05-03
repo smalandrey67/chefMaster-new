@@ -4,7 +4,11 @@
 	gap: 13px;
 
 	&Update {
-		width: 150px;
-		margin-left: auto;
+		width: 100%;
+
+		@media screen and (min-width: 420px) {
+			width: 150px;
+			margin-left: auto;
+		}
 	}
 }
