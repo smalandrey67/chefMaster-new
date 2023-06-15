@@ -1,0 +1,23 @@
+.startCooking {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	padding: 0 50px;
+	font-weight: 600;
+	text-transform: capitalize;
+	cursor: pointer;
+	background-color: var(--neon-10);
+	border: none;
+	border-radius: var(--rounded-10);
+
+	&Wrapper {
+		position: fixed;
+		right: 1px;
+		bottom: 5px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+}

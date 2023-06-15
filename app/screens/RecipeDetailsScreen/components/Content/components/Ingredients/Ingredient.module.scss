@@ -1,0 +1,12 @@
+.ingredients {
+	padding-bottom: 40px;
+
+	&Title {
+		margin: 0 0 10px 0;
+		font-size: 15px;
+
+		@media screen and (min-width: 500px) {
+			font-size: 18px;
+		}
+	}
+}

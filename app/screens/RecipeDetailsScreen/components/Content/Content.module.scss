@@ -1,0 +1,9 @@
+@import "@/styles/mixins";
+
+.content {
+	position: relative;
+	padding-right: 15px;
+	overflow: auto;
+
+	@include customScrollbar;
+}

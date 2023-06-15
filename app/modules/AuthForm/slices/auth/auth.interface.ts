@@ -9,16 +9,16 @@ export interface AuthState {
 }
 
 // #request
-interface AuthBody {
+interface AuthBodyInstance {
 	email: string;
 	password: string;
 }
 
-export type RegistrationBody = AuthBody & {
+export type RegistrationBody = AuthBodyInstance & {
 	userName: string;
 };
 
-export type LoginBody = AuthBody & unknown;
+export type LoginBody = AuthBodyInstance & unknown;
 
 // #response
 export interface RegistrationResponse extends ResponseAuthInstance {}

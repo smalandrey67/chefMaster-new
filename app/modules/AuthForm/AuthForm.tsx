@@ -24,7 +24,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 	const passwordError = errors.password ? errors.password.message : null;
 
 	const isRegistration = authType === "registration";
-	const buttonTitle = isRegistration ? "Sign up" : "Log in";
+	const authButtonTitle = isRegistration ? "Sign up" : "Log in";
 	const passwordAutoComplete = isRegistration ? "new-password" : "current-password";
 
 	return (
@@ -55,7 +55,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 			/>
 
 			<Button isFullWidth type="submit" name="submit" disabled={!isDirty || !isValid}>
-				{buttonTitle}
+				{authButtonTitle}
 			</Button>
 
 			<SubDetails authType={authType} />

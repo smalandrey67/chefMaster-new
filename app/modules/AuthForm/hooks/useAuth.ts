@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useRouter } from "next/router";
 
 import { toastAlert } from "@/utils/toastAlert";
@@ -12,26 +13,28 @@ export const useAuth = (authType: AuthType) => {
 	const dispatch = useAppDispatch();
 	const router = useRouter();
 
-	const auth = {
-		registration: (data: SubmitAuthForm): void => {
-			dispatch(
-				authThunk.registration({
-					registrationBody: data,
-					navigate: (): Promise<boolean> => router.push("/login"),
-					showErrorAlert: (message: string): void => toastAlert(message, "error")
-				})
-			);
-		},
-		login: (data: SubmitAuthForm): void => {
-			dispatch(
-				authThunk.login({
-					loginBody: data,
-					navigate: (): Promise<boolean> => router.push("/"),
-					showErrorAlert: (message: string): void => toastAlert(message, "error")
-				})
-			);
-		}
-	};
+	const auth = useMemo(() => {
+		return {
+			registration: (data: SubmitAuthForm): void => {
+				dispatch(
+					authThunk.registration({
+						registrationBody: data,
+						navigate: (): Promise<boolean> => router.push("/login"),
+						showErrorAlert: (message: string): void => toastAlert(message, "error")
+					})
+				);
+			},
+			login: (data: SubmitAuthForm): void => {
+				dispatch(
+					authThunk.login({
+						loginBody: data,
+						navigate: (): Promise<boolean> => router.push("/"),
+						showErrorAlert: (message: string): void => toastAlert(message, "error")
+					})
+				);
+			}
+		};
+	}, [dispatch, router]);
 
 	const submitAuth: SubmitHandler<SubmitAuthForm> = (data): void => {
 		auth[authType](data);
