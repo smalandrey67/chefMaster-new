@@ -1,10 +1,10 @@
 import { DetailsImage } from "./components/DetailsImage/DetailsImage";
 import { About } from "./components/About/About";
-import { Tabs } from "./components/Tabs/Tabs";
 
 import type { RecipeDetailsScreenProps } from "./RecipeDetailsScreen.interface";
 
 import styles from "./RecipeDetailsScreen.module.scss";
+import { Content } from "./components/Content/Content";
 
 export function RecipeDetailsScreen({ recipeDetails }: RecipeDetailsScreenProps): JSX.Element {
 	return (
@@ -23,8 +23,8 @@ export function RecipeDetailsScreen({ recipeDetails }: RecipeDetailsScreenProps)
 						cookLevel: recipeDetails.cookLevel
 					}}
 				/>
-				<Tabs
-					tabsData={{
+				<Content
+					contentData={{
 						instruction: recipeDetails.instruction,
 						ingredients: recipeDetails.ingredients,
 						cooking: recipeDetails.cooking

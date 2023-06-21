@@ -1,3 +1,4 @@
+import { Button } from "chefmaster-ui";
 import { GiCookingGlove } from "react-icons/gi";
 
 import type { StartCookingProps } from "./StartCooking.interface";
@@ -11,10 +12,9 @@ export function StartCooking({ setIsStartCooking }: StartCookingProps): JSX.Elem
 
 	return (
 		<div className={styles.startCookingWrapper}>
-			<button className={styles.startCooking} onClick={startCooking}>
-				<GiCookingGlove size={17} />
+			<Button className={styles.startCooking} onClick={startCooking} Icon={GiCookingGlove} iconSize={17}>
 				start cooking
-			</button>
+			</Button>
 		</div>
 	);
 }

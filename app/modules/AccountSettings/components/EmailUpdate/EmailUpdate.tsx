@@ -34,9 +34,10 @@ export function EmailUpdate(): JSX.Element {
 			<InputGroup
 				labelName="updated email:"
 				type="email"
-				autoComplete="email"
-				error={updatedEmailError}
 				{...register("updatedEmail", formValidations.email)}
+				error={updatedEmailError}
+				autoComplete="email"
+				aria-invalid={!!updatedEmailError}
 			/>
 
 			<div className={styles.emailUpdate}>

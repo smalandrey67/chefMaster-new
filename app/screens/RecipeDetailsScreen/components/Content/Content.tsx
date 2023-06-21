@@ -10,7 +10,7 @@ import type { ContentProps } from "./Content.interface";
 import styles from "./Content.module.scss";
 
 export function Content({ contentData }: ContentProps): JSX.Element {
-	const [isStartCooking, setIsStartCooking] = useState(false);
+	const [isStartCooking, setIsStartCooking] = useState<boolean>(false);
 
 	return (
 		<>

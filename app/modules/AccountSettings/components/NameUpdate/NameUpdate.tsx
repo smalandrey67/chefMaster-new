@@ -34,9 +34,10 @@ export function NameUpdate(): JSX.Element {
 			<InputGroup
 				labelName="updated name:"
 				type="text"
-				autoComplete="username"
-				error={updatedUserName}
 				{...register("updatedUserName", formValidations.userName)}
+				error={updatedUserName}
+				autoComplete="username"
+				aria-invalid={!!updatedUserName}
 			/>
 
 			<div className={styles.nameUpdate}>

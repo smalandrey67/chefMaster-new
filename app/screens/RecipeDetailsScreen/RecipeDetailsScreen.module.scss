@@ -3,6 +3,8 @@
 	height: 100%;
 
 	&Body {
+		display: grid;
+		grid-template-rows: auto auto auto 1fr;
 		overflow: hidden;
 	}
 }

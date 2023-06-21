@@ -36,6 +36,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 					{...register("userName", formValidations.userName)}
 					error={userNameError}
 					autoComplete="username"
+					aria-invalid={!!userNameError}
 				/>
 			)}
 
@@ -45,6 +46,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 				{...register("email", formValidations.email)}
 				error={emailError}
 				autoComplete="email"
+				aria-invalid={!!emailError}
 			/>
 			<InputGroup
 				labelName="password:"
@@ -52,6 +54,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 				{...register("password", formValidations.password)}
 				error={passwordError}
 				autoComplete={passwordAutoComplete}
+				aria-invalid={!!passwordError}
 			/>
 
 			<Button isFullWidth type="submit" name="submit" disabled={!isDirty || !isValid}>
