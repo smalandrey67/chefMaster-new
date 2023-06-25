@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Title, InputGroup, Button } from "chefmaster-ui";
 
-import { formValidations } from "@/constants/formValidations.constants";
+import { formValidations } from "@/configs/form.config";
 import { useNameUpdate } from "./hooks/useNameUpdate";
 
 import type { SubmitNameUpdateForm } from "./NameUpdate.interface";

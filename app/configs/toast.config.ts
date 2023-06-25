@@ -1,6 +1,6 @@
 import type { ToastOptions } from "react-toastify";
 
-export const alertOptions: ToastOptions = {
+export const toastOptions: ToastOptions = {
 	position: "bottom-right",
 	autoClose: 5000,
 	hideProgressBar: false,

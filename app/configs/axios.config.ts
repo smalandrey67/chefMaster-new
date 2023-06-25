@@ -1,11 +1,11 @@
 import axios from "axios";
+import Cookies from "js-cookie";
+
+import { isDevelopment } from "@/constants/mode.constants";
 
 import type { RefreshResponse } from "@/modules/AuthForm";
 
-const API_URL =
-	process.env.NODE_ENV === "development"
-		? process.env.NEXT_PUBLIC_API_URL_DEVELOPMENT
-		: process.env.NEXT_PUBLIC_API_URL_PRODUCTION;
+const API_URL = isDevelopment ? process.env.NEXT_PUBLIC_API_URL_DEVELOPMENT : process.env.NEXT_PUBLIC_API_URL_PRODUCTION;
 
 // instances
 export const $api = axios.create({
@@ -34,11 +34,13 @@ $apiProtected.interceptors.response.use(
 		if (error.response.status === 401) {
 			try {
 				const { data: refreshResultData } = await $api.get<RefreshResponse>("/refresh");
+
+				Cookies.set("user", JSON.stringify(refreshResultData.user));
 				localStorage.setItem("accessToken", refreshResultData.accessToken);
 
 				return $apiProtected.request(originalRequest);
 			} catch (error) {
-				console.error("No authorized");
+				Cookies.remove("user");
 			}
 		}
 

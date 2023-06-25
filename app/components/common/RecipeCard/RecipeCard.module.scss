@@ -9,6 +9,7 @@
 	background-color: var(--dark-10);
 	border-radius: var(--rounded-10);
 
+	@include scale();
 	@include isHover() {
 		transition: transform var(--transitionTime) ease;
 

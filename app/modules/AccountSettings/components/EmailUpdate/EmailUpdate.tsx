@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { Button, InputGroup, Title } from "chefmaster-ui";
 
-import { formValidations } from "@/constants/formValidations.constants";
 import { useEmailUpdate } from "./hooks/useEmailUpdate";
 
+import { formValidations } from "@/configs/form.config";
 import type { SubmitEmailUpdateForm } from "./EmailUpdate.interface";
 
 import styles from "./EmailUpdate.module.scss";

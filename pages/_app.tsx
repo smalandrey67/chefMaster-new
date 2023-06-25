@@ -1,3 +1,4 @@
+import NextNProgress from "nextjs-progressbar";
 import { Poppins } from "@next/font/google";
 import { Provider } from "react-redux";
 
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 				`}
 			</style>
 			<Provider store={store}>
+				<NextNProgress color="var(--neon-10)" />
 				<Component {...pageProps} />
 			</Provider>
 		</>

@@ -7,10 +7,9 @@
 
 	&Layout {
 		display: grid;
-		grid-template-rows: 85vh;
+		grid-template-rows: 86vh;
 		grid-template-columns: 5fr 66px;
 		column-gap: 10px;
-		min-height: 87vh;
 
 		@media screen and (min-width: 1180px) {
 			grid-template-columns: 5fr 1fr;

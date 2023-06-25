@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { InputGroup, Button } from "chefmaster-ui";
 import { SubDetails } from "./components/SubDetails/SubDetails";
 
-import { formValidations } from "@/constants/formValidations.constants";
+import { formValidations } from "@/configs/form.config";
 import { useAuth } from "./hooks/useAuth";
 
 import type { AuthFormProps, SubmitAuthForm } from "./AuthForm.interface";

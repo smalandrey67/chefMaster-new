@@ -50,19 +50,6 @@ const login = createAsyncThunk<LoginResponse, LoginThunkProps, { rejectValue: vo
 	}
 );
 
-const refresh = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>("refresh", async (_, thunkApi) => {
-	try {
-		const refreshData = await AuthFormService.refresh();
-		return refreshData;
-	} catch (error: unknown) {
-		if (error instanceof AxiosError) {
-			return thunkApi.rejectWithValue(error.response?.data.message);
-		}
-
-		return thunkApi.rejectWithValue("Something went wrong");
-	}
-});
-
 const checkIsAuthorized = createAsyncThunk<RefreshResponse, void, { rejectValue: string }>(
 	"isAuthorized",
 	async (_, thunkApi) => {
@@ -93,4 +80,4 @@ const logout = createAsyncThunk<void, void, { rejectValue: string }>("logout", a
 	}
 });
 
-export const authThunk = { registration, login, refresh, checkIsAuthorized, logout };
+export const authThunk = { registration, login, checkIsAuthorized, logout };

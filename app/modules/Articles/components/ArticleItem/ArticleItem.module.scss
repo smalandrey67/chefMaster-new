@@ -11,6 +11,7 @@
 		grid-template-columns: 1fr 2fr;
 	}
 
+	@include scale();
 	@include isHover() {
 		transition: transform var(--transitionTime) ease;
 

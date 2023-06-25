@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { AuthState } from "./auth.interface";
 import type { User } from "@/interfaces/User.interface";
@@ -22,19 +24,9 @@ const authSlice = createSlice({
 		// #login
 		builder.addCase(authThunk.login.fulfilled, (state, { payload }): void => {
 			state.user = payload.user;
-			localStorage.setItem("accessToken", payload.accessToken);
-		});
 
-		// #refresh
-		builder.addCase(authThunk.refresh.pending, (state): void => {
-			state.error = null;
-		});
-		builder.addCase(authThunk.refresh.fulfilled, (state, { payload }): void => {
+			Cookies.set("user", JSON.stringify(payload.user));
 			localStorage.setItem("accessToken", payload.accessToken);
-		});
-		builder.addCase(authThunk.refresh.rejected, (state, { payload }): void => {
-			if (!payload) return;
-			state.error = payload;
 		});
 
 		// #checkIsAuthorized
@@ -43,10 +35,14 @@ const authSlice = createSlice({
 		});
 		builder.addCase(authThunk.checkIsAuthorized.fulfilled, (state, { payload }): void => {
 			state.user = payload.user;
+
+			Cookies.set("user", JSON.stringify(payload.user));
 			localStorage.setItem("accessToken", payload.accessToken);
 		});
 		builder.addCase(authThunk.checkIsAuthorized.rejected, (state, { payload }): void => {
 			if (!payload) return;
+
+			Cookies.remove("user");
 			state.error = payload;
 		});
 
@@ -56,6 +52,8 @@ const authSlice = createSlice({
 		});
 		builder.addCase(authThunk.logout.fulfilled, (state): void => {
 			state.user = null;
+
+			Cookies.remove("user");
 			localStorage.removeItem("accessToken");
 		});
 		builder.addCase(authThunk.logout.rejected, (state, { payload }): void => {
