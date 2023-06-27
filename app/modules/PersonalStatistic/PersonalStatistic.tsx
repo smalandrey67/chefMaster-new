@@ -1,15 +1,15 @@
 import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { NotAuthorized } from "chefmaster-ui";
 
-import { useAppSelector } from "@/hooks/useRedux";
-import { selectUser } from "../AuthForm/slices/auth/auth.selectors";
+import { useUserExist } from "@/hooks/useUserExist";
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 import styles from "./PersonalStatistic.module.scss";
 
 export function PersonalStatistic(): JSX.Element {
-	const user = useAppSelector(selectUser);
+	const isUserExist = useUserExist();
 
 	const calories = {
 		max: 800,
@@ -51,8 +51,8 @@ export function PersonalStatistic(): JSX.Element {
 		}
 	};
 
-	if (!user) {
-		return <div>Not authorized</div>;
+	if (!isUserExist) {
+		return <NotAuthorized />;
 	}
 
 	return (

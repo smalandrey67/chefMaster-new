@@ -1,0 +1,21 @@
+@import "@/styles/mixins";
+
+.avatar {
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+	margin-bottom: 30px;
+
+	@media screen and (min-width: 420px) {
+		margin-bottom: 10px;
+	}
+
+	&Update {
+		width: 100%;
+
+		@media screen and (min-width: 420px) {
+			width: 150px;
+			margin-left: auto;
+		}
+	}
+}

@@ -1,4 +1,3 @@
-import { ToastContainer } from "react-toastify";
 import { Button } from "chefmaster-ui";
 
 import { MainPersonalize } from "./components/MainPersonalize/MainPersonalize";
@@ -41,7 +40,6 @@ export function ViewSettings(): JSX.Element {
 					Save
 				</Button>
 			</div>
-			<ToastContainer role="alert" />
 		</div>
 	);
 }

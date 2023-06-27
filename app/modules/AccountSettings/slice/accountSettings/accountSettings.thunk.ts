@@ -8,7 +8,9 @@ import type {
 	UpdateEmailThunkProps,
 	UpdatedUserNameThunkProps,
 	UpdateEmailResponse,
-	UpdateUserNameResponse
+	UpdateUserNameResponse,
+	UpdateAvatarResponse,
+	UpdatedAvatarThunkProps
 } from "./accountSettings.interface";
 
 const updateEmail = createAsyncThunk<UpdateEmailResponse, UpdateEmailThunkProps, { rejectValue: void }>(
@@ -51,4 +53,24 @@ const updateUserName = createAsyncThunk<UpdateUserNameResponse, UpdatedUserNameT
 	}
 );
 
-export const accountSettingsThunk = { updateEmail, updateUserName };
+const updateAvatar = createAsyncThunk<UpdateAvatarResponse, UpdatedAvatarThunkProps, { rejectValue: void }>(
+	"updateAvatar",
+	async ({ updatedAvatarBody, showErrorAlert, showSuccessAlert }, thunkApi) => {
+		try {
+			const updatedUser = await AccountSettingsService.updateAvatar(updatedAvatarBody);
+
+			thunkApi.dispatch(authActions.updateUser(updatedUser.user));
+			thunkApi.fulfillWithValue(showSuccessAlert("Successfully updated avatar"));
+
+			return updatedUser;
+		} catch (error: unknown) {
+			if (error instanceof AxiosError) {
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+			}
+
+			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
+		}
+	}
+);
+
+export const accountSettingsThunk = { updateEmail, updateUserName, updateAvatar };

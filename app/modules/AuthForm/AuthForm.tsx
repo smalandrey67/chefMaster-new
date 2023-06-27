@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { ToastContainer } from "react-toastify";
-
 import { InputGroup, Button } from "chefmaster-ui";
+
 import { SubDetails } from "./components/SubDetails/SubDetails";
 
 import { formValidations } from "@/configs/form.config";
@@ -62,7 +61,6 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 			</Button>
 
 			<SubDetails authType={authType} />
-			<ToastContainer role="alert" />
 		</form>
 	);
 }

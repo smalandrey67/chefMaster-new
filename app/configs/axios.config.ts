@@ -41,6 +41,7 @@ $apiProtected.interceptors.response.use(
 				return $apiProtected.request(originalRequest);
 			} catch (error) {
 				Cookies.remove("user");
+				localStorage.removeItem("accessToken");
 			}
 		}
 

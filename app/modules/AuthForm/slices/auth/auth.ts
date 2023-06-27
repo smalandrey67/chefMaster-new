@@ -41,9 +41,9 @@ const authSlice = createSlice({
 		});
 		builder.addCase(authThunk.checkIsAuthorized.rejected, (state, { payload }): void => {
 			if (!payload) return;
+			state.error = payload;
 
 			Cookies.remove("user");
-			state.error = payload;
 		});
 
 		// #logout

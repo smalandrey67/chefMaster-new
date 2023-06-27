@@ -3,7 +3,7 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
-		domains: ["lh3.googleusercontent.com", "images.unsplash.com", "spoonacular.com"],
+		domains: ["lh3.googleusercontent.com", "images.unsplash.com", "spoonacular.com", "res.cloudinary.com"],
 		formats: ["image/webp"]
 	},
 	eslint: {

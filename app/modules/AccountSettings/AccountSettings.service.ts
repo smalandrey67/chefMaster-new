@@ -1,5 +1,7 @@
 import { $apiProtected } from "@/configs/axios.config";
 import type {
+	UpdateAvatarBody,
+	UpdateAvatarResponse,
 	UpdateEmailBody,
 	UpdateEmailResponse,
 	UpdateUserNameBody,
@@ -18,5 +20,10 @@ export const AccountSettingsService = {
 			updateUserNameBody
 		);
 		return updatedUserNameData;
+	},
+
+	async updateAvatar(updateAvatarBody: UpdateAvatarBody): Promise<UpdateAvatarResponse> {
+		const { data: updatedAvatarData } = await $apiProtected.post("/update-avatar", updateAvatarBody);
+		return updatedAvatarData;
 	}
 };

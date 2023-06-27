@@ -12,6 +12,8 @@ export type UpdateUserNameBody = {
 	updatedUserName: string;
 };
 
+export type UpdateAvatarBody = FormData;
+
 // #response
 export interface UpdateEmailResponse extends ResponseAuthInstance {
 	accessToken: AccessToken;
@@ -19,6 +21,11 @@ export interface UpdateEmailResponse extends ResponseAuthInstance {
 }
 
 export interface UpdateUserNameResponse extends ResponseAuthInstance {
+	accessToken: AccessToken;
+	refreshToken: RefreshToken;
+}
+
+export interface UpdateAvatarResponse extends ResponseAuthInstance {
 	accessToken: AccessToken;
 	refreshToken: RefreshToken;
 }
@@ -32,6 +39,12 @@ export interface UpdateEmailThunkProps {
 
 export interface UpdatedUserNameThunkProps {
 	updateUserNameBody: UpdateUserNameBody;
+	showErrorAlert: (message: string) => void;
+	showSuccessAlert: (message: string) => void;
+}
+
+export interface UpdatedAvatarThunkProps {
+	updatedAvatarBody: UpdateAvatarBody;
 	showErrorAlert: (message: string) => void;
 	showSuccessAlert: (message: string) => void;
 }
