@@ -6,10 +6,13 @@ const accountSettingsSlice = createSlice({
 	initialState: {},
 	reducers: {},
 	extraReducers: (builder): void => {
-		builder.addCase(accountSettingsThunk.updateEmail.fulfilled, (state, { payload }): void => {
+		builder.addCase(accountSettingsThunk.updateAvatar.fulfilled, (_, { payload }): void => {
 			localStorage.setItem("accessToken", payload.accessToken);
 		});
-		builder.addCase(accountSettingsThunk.updateUserName.fulfilled, (state, { payload }): void => {
+		builder.addCase(accountSettingsThunk.updateEmail.fulfilled, (_, { payload }): void => {
+			localStorage.setItem("accessToken", payload.accessToken);
+		});
+		builder.addCase(accountSettingsThunk.updateUserName.fulfilled, (_, { payload }): void => {
 			localStorage.setItem("accessToken", payload.accessToken);
 		});
 	}

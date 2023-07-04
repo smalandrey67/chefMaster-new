@@ -1,19 +1,27 @@
-import { Ingredient } from "./components/Ingredient/Ingredient";
+import { MIngredient } from "./components/Ingredient/Ingredient";
 
+import { biasFromLeftToRight } from "@/constants/motion.constant";
 import type { IngredientsProps } from "./Ingredients.interface";
 
 import styles from "./Ingredient.module.scss";
 
 export function Ingredients({ ingredients }: IngredientsProps): JSX.Element {
 	return (
-		<div className={styles.ingredients}>
+		<ul className={styles.ingredients}>
 			<h4 className={styles.ingredientsTitle}>Ingredients</h4>
 
 			{Array(10)
 				.fill(ingredients[0])
-				.map(({ id, ...properties }) => (
-					<Ingredient key={id} {...properties} />
+				.map(({ id, ...properties }, index) => (
+					<MIngredient
+						key={id}
+						variants={biasFromLeftToRight}
+						initial="hidden"
+						animate="visible"
+						custom={index}
+						{...properties}
+					/>
 				))}
-		</div>
+		</ul>
 	);
 }

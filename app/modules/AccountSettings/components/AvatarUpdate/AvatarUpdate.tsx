@@ -25,7 +25,7 @@ export function AvatarUpdate(): JSX.Element {
 	const { localAvatar, changeAvatarLocal } = useAvatarUpdateLocal();
 	const updateAvatar = useAvatarUpdate(reset);
 
-	const updatedAvatarError = errors.avatar ? errors.avatar.message : null;
+	const updatedAvatarError = errors.avatar && errors.avatar.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 	const currentAvatar = localAvatar ? String(localAvatar) : user?.avatar ? user?.avatar : NO_PROFILE_IMAGE;
 

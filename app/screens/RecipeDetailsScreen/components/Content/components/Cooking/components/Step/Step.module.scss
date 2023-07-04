@@ -1,0 +1,71 @@
+@import "@/styles/mixins";
+
+.step {
+	width: 100%;
+	min-height: 40px;
+	padding: 8px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	background-color: var(--dark-20);
+	border-radius: var(--rounded-20);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+	&Wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&Content {
+		overflow: hidden;
+
+		&Ingredients {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+			margin: 7px 0;
+			overflow: auto;
+
+			@include customScrollbar;
+		}
+
+		&Ingredient {
+			position: relative;
+			flex-shrink: 0;
+			width: 40px;
+			height: 40px;
+			overflow: hidden;
+			border-radius: var(--rounded-20);
+
+			@media screen and (min-width: 500px) {
+				width: 50px;
+				height: 50px;
+			}
+
+			&Image {
+				width: 50px;
+				height: 50px;
+				object-fit: contain;
+			}
+		}
+
+		&Text {
+			margin: 0;
+			font-size: 13px;
+		}
+	}
+
+	&Arrow {
+		height: 25px;
+		padding: 0;
+		color: inherit;
+		cursor: pointer;
+		background: none;
+		border: none;
+
+		&Open {
+			transform: rotate(180deg);
+		}
+	}
+}

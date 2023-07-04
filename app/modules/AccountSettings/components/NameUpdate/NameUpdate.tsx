@@ -17,7 +17,7 @@ export function NameUpdate(): JSX.Element {
 	} = useForm<SubmitNameUpdateForm>({ mode: "onBlur" });
 	const { updateName, currentUserName } = useNameUpdate(reset);
 
-	const updatedUserName = errors.updatedUserName ? errors.updatedUserName.message : null;
+	const updatedUserName = errors.updatedUserName && errors.updatedUserName.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 
 	return (

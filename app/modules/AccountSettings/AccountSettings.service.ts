@@ -23,7 +23,7 @@ export const AccountSettingsService = {
 	},
 
 	async updateAvatar(updateAvatarBody: UpdateAvatarBody): Promise<UpdateAvatarResponse> {
-		const { data: updatedAvatarData } = await $apiProtected.post("/update-avatar", updateAvatarBody);
+		const { data: updatedAvatarData } = await $apiProtected.post<UpdateAvatarResponse>("/update-avatar", updateAvatarBody);
 		return updatedAvatarData;
 	}
 };

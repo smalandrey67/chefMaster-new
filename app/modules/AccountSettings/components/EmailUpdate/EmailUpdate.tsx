@@ -17,7 +17,7 @@ export function EmailUpdate(): JSX.Element {
 	} = useForm<SubmitEmailUpdateForm>({ mode: "onBlur" });
 	const { updateEmail, currentEmail } = useEmailUpdate(reset);
 
-	const updatedEmailError = errors.updatedEmail ? errors.updatedEmail.message : null;
+	const updatedEmailError = errors.updatedEmail && errors.updatedEmail.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 
 	return (

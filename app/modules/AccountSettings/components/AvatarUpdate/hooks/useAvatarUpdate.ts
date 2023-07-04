@@ -21,7 +21,7 @@ export const useAvatarUpdate = (reset: UseFormReset<SubmitAvatarUpdateForm>) => 
 
 		dispatch(
 			accountSettingsThunk.updateAvatar({
-				updatedAvatarBody: formData,
+				updateAvatarBody: formData,
 				showErrorAlert: (message: string): void => toastAlert(message, "error"),
 				showSuccessAlert: (message: string): void => toastAlert(message, "success")
 			})

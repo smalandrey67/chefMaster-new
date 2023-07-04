@@ -40,7 +40,5 @@ export const useAuth = (authType: AuthType) => {
 		auth[authType](data);
 	};
 
-	return {
-		submitAuth
-	};
+	return submitAuth;
 };

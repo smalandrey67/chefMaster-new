@@ -37,14 +37,14 @@ export interface UpdateEmailThunkProps {
 	showSuccessAlert: (message: string) => void;
 }
 
-export interface UpdatedUserNameThunkProps {
+export interface UpdateUserNameThunkProps {
 	updateUserNameBody: UpdateUserNameBody;
 	showErrorAlert: (message: string) => void;
 	showSuccessAlert: (message: string) => void;
 }
 
-export interface UpdatedAvatarThunkProps {
-	updatedAvatarBody: UpdateAvatarBody;
+export interface UpdateAvatarThunkProps {
+	updateAvatarBody: UpdateAvatarBody;
 	showErrorAlert: (message: string) => void;
 	showSuccessAlert: (message: string) => void;
 }

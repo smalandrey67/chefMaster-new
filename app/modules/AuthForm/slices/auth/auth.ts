@@ -16,7 +16,7 @@ const authSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
-		updateUser: (state, { payload }: PayloadAction<User>): void => {
+		updateUserLocal: (state, { payload }: PayloadAction<User>): void => {
 			state.user = payload;
 		}
 	},

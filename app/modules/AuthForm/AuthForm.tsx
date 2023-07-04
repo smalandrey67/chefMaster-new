@@ -11,20 +11,23 @@ import type { AuthFormProps, SubmitAuthForm } from "./AuthForm.interface";
 import styles from "./AuthForm.module.scss";
 
 export function AuthForm({ authType }: AuthFormProps): JSX.Element {
-	const { submitAuth } = useAuth(authType);
 	const {
 		register,
-		formState: { errors, isDirty, isValid },
+		formState: { errors, isDirty, isValid, isSubmitting },
 		handleSubmit
 	} = useForm<SubmitAuthForm>({ mode: "onBlur" });
 
-	const userNameError = errors.userName ? errors.userName.message : null;
-	const emailError = errors.email ? errors.email.message : null;
-	const passwordError = errors.password ? errors.password.message : null;
+	const submitAuth = useAuth(authType);
+
+	const userNameError = errors.userName && errors.userName.message;
+	const emailError = errors.email && errors.email.message;
+	const passwordError = errors.password && errors.password.message;
 
 	const isRegistration = authType === "registration";
 	const authButtonTitle = isRegistration ? "Sign up" : "Log in";
 	const passwordAutoComplete = isRegistration ? "new-password" : "current-password";
+
+	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(submitAuth)}>
@@ -56,7 +59,7 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 				aria-invalid={!!passwordError}
 			/>
 
-			<Button isFullWidth type="submit" name="submit" disabled={!isDirty || !isValid}>
+			<Button isFullWidth type="submit" name="submit" disabled={isDisabledSubmitButton}>
 				{authButtonTitle}
 			</Button>
 

@@ -1,27 +1,29 @@
 import { useState } from "react";
 
 import { Ingredients } from "./components/Ingredients/Ingredients";
-import { StartCooking } from "./components/StartCooking/StartCooking";
+import { TabsChangeButton } from "./components/TabsChangeButton/TabsChangeButton";
 import { Cooking } from "./components/Cooking/Cooking";
-import { Instruction } from "./components/Instruction/Instruction";
+import { Description } from "./components/Description/Description";
 
 import type { ContentProps } from "./Content.interface";
 
 import styles from "./Content.module.scss";
 
-export function Content({ contentData }: ContentProps): JSX.Element {
+export function Content({ cooking, description, ingredients }: ContentProps): JSX.Element {
 	const [isStartCooking, setIsStartCooking] = useState<boolean>(false);
 
 	return (
 		<>
 			{isStartCooking ? (
-				<Cooking />
+				<div className={styles.content}>
+					<Cooking cooking={cooking} />
+					{isStartCooking && <TabsChangeButton setIsStartCooking={setIsStartCooking} buttonTitle="ingredients" />}
+				</div>
 			) : (
 				<div className={styles.content}>
-					<Instruction />
-					<Ingredients ingredients={contentData.ingredients} />
-
-					{isStartCooking || <StartCooking setIsStartCooking={setIsStartCooking} />}
+					<Description description={description} />
+					<Ingredients ingredients={ingredients} />
+					{isStartCooking || <TabsChangeButton setIsStartCooking={setIsStartCooking} buttonTitle="start cooking" />}
 				</div>
 			)}
 		</>

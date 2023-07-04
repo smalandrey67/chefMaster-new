@@ -6,23 +6,23 @@ import { authActions } from "@/modules/AuthForm";
 
 import type {
 	UpdateEmailThunkProps,
-	UpdatedUserNameThunkProps,
+	UpdateUserNameThunkProps,
 	UpdateEmailResponse,
 	UpdateUserNameResponse,
 	UpdateAvatarResponse,
-	UpdatedAvatarThunkProps
+	UpdateAvatarThunkProps
 } from "./accountSettings.interface";
 
 const updateEmail = createAsyncThunk<UpdateEmailResponse, UpdateEmailThunkProps, { rejectValue: void }>(
 	"updateEmail",
 	async ({ updateEmailBody, showErrorAlert, showSuccessAlert }, thunkApi) => {
 		try {
-			const updatedUser = await AccountSettingsService.updateEmail(updateEmailBody);
+			const updatedUserData = await AccountSettingsService.updateEmail(updateEmailBody);
 
-			thunkApi.dispatch(authActions.updateUser(updatedUser.user));
+			thunkApi.dispatch(authActions.updateUserLocal(updatedUserData.user));
 			thunkApi.fulfillWithValue(showSuccessAlert("Successfully updated email"));
 
-			return updatedUser;
+			return updatedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
 				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
@@ -33,16 +33,16 @@ const updateEmail = createAsyncThunk<UpdateEmailResponse, UpdateEmailThunkProps,
 	}
 );
 
-const updateUserName = createAsyncThunk<UpdateUserNameResponse, UpdatedUserNameThunkProps, { rejectValue: void }>(
-	"updatedUserName",
+const updateUserName = createAsyncThunk<UpdateUserNameResponse, UpdateUserNameThunkProps, { rejectValue: void }>(
+	"updateUserName",
 	async ({ updateUserNameBody, showErrorAlert, showSuccessAlert }, thunkApi) => {
 		try {
-			const updatedUser = await AccountSettingsService.updateUserName(updateUserNameBody);
+			const updatedUserData = await AccountSettingsService.updateUserName(updateUserNameBody);
 
-			thunkApi.dispatch(authActions.updateUser(updatedUser.user));
+			thunkApi.dispatch(authActions.updateUserLocal(updatedUserData.user));
 			thunkApi.fulfillWithValue(showSuccessAlert("Successfully updated name"));
 
-			return updatedUser;
+			return updatedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
 				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.error[0].msg));
@@ -53,16 +53,16 @@ const updateUserName = createAsyncThunk<UpdateUserNameResponse, UpdatedUserNameT
 	}
 );
 
-const updateAvatar = createAsyncThunk<UpdateAvatarResponse, UpdatedAvatarThunkProps, { rejectValue: void }>(
+const updateAvatar = createAsyncThunk<UpdateAvatarResponse, UpdateAvatarThunkProps, { rejectValue: void }>(
 	"updateAvatar",
-	async ({ updatedAvatarBody, showErrorAlert, showSuccessAlert }, thunkApi) => {
+	async ({ updateAvatarBody, showErrorAlert, showSuccessAlert }, thunkApi) => {
 		try {
-			const updatedUser = await AccountSettingsService.updateAvatar(updatedAvatarBody);
+			const updatedUserData = await AccountSettingsService.updateAvatar(updateAvatarBody);
 
-			thunkApi.dispatch(authActions.updateUser(updatedUser.user));
+			thunkApi.dispatch(authActions.updateUserLocal(updatedUserData.user));
 			thunkApi.fulfillWithValue(showSuccessAlert("Successfully updated avatar"));
 
-			return updatedUser;
+			return updatedUserData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
 				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));

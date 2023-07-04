@@ -4,10 +4,10 @@ import type { DetailsImageProps } from "./DetailsImage.interface";
 
 import styles from "./DetailsImage.module.scss";
 
-export function DetailsImage({ detailsImageData }: DetailsImageProps): JSX.Element {
+export function DetailsImage({ image }: DetailsImageProps): JSX.Element {
 	return (
 		<div className={styles.imageWrapper}>
-			<Image src={detailsImageData.image} className={styles.image} fill alt="recipe details image" />
+			<Image src={image} className={styles.image} fill alt="recipe details image" />
 		</div>
 	);
 }
