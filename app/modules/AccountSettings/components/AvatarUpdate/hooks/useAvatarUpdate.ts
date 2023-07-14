@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { accountSettingsThunk } from "@/modules/AccountSettings/slice/accountSettings/accountSettings.thunk";
-import { toastAlert } from "@/utils/toastAlert";
+import { toastAlert } from "@/utils/toastAlert.util";
 
 import { selectUser } from "@/modules/AuthForm";
 

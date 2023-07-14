@@ -1,5 +1,5 @@
-import type { RecipeDetails } from "@/interfaces/RecipeDetails.interface";
+import type { RecipeDetails } from "../../RecipeDetailsScreen.interface";
 
-type ContentData = Pick<RecipeDetails, "description" | "ingredients" | "cooking">;
+type Content = Pick<RecipeDetails, "description" | "ingredients" | "cooking">;
 
-export interface ContentProps extends ContentData {}
+export interface ContentProps extends Content {}

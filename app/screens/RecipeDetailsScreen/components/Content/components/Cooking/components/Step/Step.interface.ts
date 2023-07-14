@@ -1,4 +1,4 @@
-import type { CookingStep } from "@/interfaces/RecipeDetails.interface";
+import type { CookingStep } from "@/screens/RecipeDetailsScreen/RecipeDetailsScreen.interface";
 
 type Step = Omit<CookingStep, "id">;
 

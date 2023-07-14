@@ -8,14 +8,14 @@ import type { RecipesProps } from "./Recipes.interface";
 
 import styles from "./Recipes.module.scss";
 
-export function Recipes({ recipes, moduleTitle = "recipes" }: RecipesProps): JSX.Element {
+export function Recipes({ recipes, moduleTitle = "recipes", isSeeAll = true }: RecipesProps): JSX.Element {
 	return (
 		<section className={styles.recipes}>
 			<div className={styles.recipesHeader}>
 				<Title className={styles.recipesTitle} variant="big">
 					{moduleTitle}
 				</Title>
-				<FancyLink Link={Link} href="/recipes" Icon={TbArrowNarrowRight} iconSize={20} iconColor="var(--dark-10)" />
+				{isSeeAll && <FancyLink Link={Link} href="/recipes" Icon={TbArrowNarrowRight} iconSize={20} iconColor="var(--dark-10)" />}
 			</div>
 			<div className={styles.recipesWrapper}>
 				{recipes.map((recipe) => (

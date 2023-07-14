@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { INGREDIENTS_IMAGE } from "@/constants/image.constants";
+import { INGREDIENT_IMAGE } from "@/constants/images.constants";
 import { biasFromLeftToRight, growthHeight } from "@/constants/motion.constant";
 
 import { BiChevronDown } from "react-icons/bi";
@@ -40,7 +40,7 @@ export function Step({ ingredients, stepCount, step }: StepProps): JSX.Element {
 							{ingredients.map((ingredient) => (
 								<div key={ingredient.id} className={styles.stepContentIngredient}>
 									<Image
-										src={`${INGREDIENTS_IMAGE}${ingredient.image}`}
+										src={`${INGREDIENT_IMAGE}${ingredient.image}`}
 										className={styles.stepContentIngredientImage}
 										fill
 										alt={ingredient.name}

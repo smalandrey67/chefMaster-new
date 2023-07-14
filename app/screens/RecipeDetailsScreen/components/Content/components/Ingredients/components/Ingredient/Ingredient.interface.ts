@@ -1,3 +1,3 @@
-import type { Ingredient } from "@/interfaces/RecipeDetails.interface";
+import type { Ingredient } from "@/screens/RecipeDetailsScreen/RecipeDetailsScreen.interface";
 
 export interface IngredientProps extends Omit<Ingredient, "id"> {}

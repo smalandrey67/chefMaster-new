@@ -7,7 +7,8 @@ export const ViewSettingsService = {
 		return viewSettingsData;
 	},
 
-	async saveViewSettings(userId: string, saveViewSettingsBody: ViewSettings): Promise<void> {
-		await $apiProtected.post<ViewSettings>(`/view/${userId}`, saveViewSettingsBody);
+	async saveViewSettings(userId: string, saveViewSettingsBody: ViewSettings): Promise<ViewSettings> {
+		const { data: updatedViewSettingsData } = await $apiProtected.post<ViewSettings>(`/view/${userId}`, saveViewSettingsBody);
+		return updatedViewSettingsData;
 	}
 };

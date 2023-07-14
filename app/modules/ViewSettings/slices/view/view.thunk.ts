@@ -21,7 +21,7 @@ const getViewSettings = createAsyncThunk<ViewSettings, string, { rejectValue: st
 	}
 );
 
-const saveViewSettings = createAsyncThunk<void, SaveViewSettingsThunkProps, { rejectValue: void; state: RootState }>(
+const saveViewSettings = createAsyncThunk<ViewSettings, SaveViewSettingsThunkProps, { rejectValue: void; state: RootState }>(
 	"save_viewSettings",
 	async ({ userId, showSuccessAlert, showErrorAlert }, thunkApi) => {
 		try {
@@ -29,7 +29,8 @@ const saveViewSettings = createAsyncThunk<void, SaveViewSettingsThunkProps, { re
 
 			thunkApi.fulfillWithValue(showSuccessAlert("Successfully saved view"));
 
-			await ViewSettingsService.saveViewSettings(userId, viewSettings.view);
+			const updatedViewSettingsData = await ViewSettingsService.saveViewSettings(userId, viewSettings.view);
+			return updatedViewSettingsData;
 		} catch (error: unknown) {
 			if (error instanceof AxiosError) {
 				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));

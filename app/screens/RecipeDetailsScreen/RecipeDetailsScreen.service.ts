@@ -1,6 +1,6 @@
 import { $api } from "@/configs/axios.config";
 
-import type { RecipeDetails } from "@/interfaces/RecipeDetails.interface";
+import type { RecipeDetails } from "./RecipeDetailsScreen.interface";
 
 export const RecipeDetailsScreenService = {
 	async getRecipeDetails(recipeId: string): Promise<RecipeDetails> {

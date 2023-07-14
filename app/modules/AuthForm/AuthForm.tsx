@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { InputGroup, Button } from "chefmaster-ui";
 
-import { SubDetails } from "./components/SubDetails/SubDetails";
-
-import { formValidations } from "@/configs/form.config";
 import { useAuth } from "./hooks/useAuth";
+import { AuthFormToggle } from "./components/AuthFormToggle/AuthFormToggle";
+import { formValidations } from "@/configs/form.config";
 
-import type { AuthFormProps, SubmitAuthForm } from "./AuthForm.interface";
+import type { AuthFormProps, AuthFormData } from "./AuthForm.interface";
 
 import styles from "./AuthForm.module.scss";
 
@@ -15,13 +14,13 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 		register,
 		formState: { errors, isDirty, isValid, isSubmitting },
 		handleSubmit
-	} = useForm<SubmitAuthForm>({ mode: "onBlur" });
+	} = useForm<AuthFormData>({ mode: "onBlur" });
 
 	const submitAuth = useAuth(authType);
 
-	const userNameError = errors.userName && errors.userName.message;
-	const emailError = errors.email && errors.email.message;
-	const passwordError = errors.password && errors.password.message;
+	const userNameValidationError = errors.userName && errors.userName.message;
+	const emailValidationError = errors.email && errors.email.message;
+	const passwordValidationError = errors.password && errors.password.message;
 
 	const isRegistration = authType === "registration";
 	const authButtonTitle = isRegistration ? "Sign up" : "Log in";
@@ -36,9 +35,9 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 					labelName="userName:"
 					type="text"
 					{...register("userName", formValidations.userName)}
-					error={userNameError}
+					error={userNameValidationError}
 					autoComplete="username"
-					aria-invalid={!!userNameError}
+					aria-invalid={!!userNameValidationError}
 				/>
 			)}
 
@@ -46,24 +45,24 @@ export function AuthForm({ authType }: AuthFormProps): JSX.Element {
 				labelName="email:"
 				type="email"
 				{...register("email", formValidations.email)}
-				error={emailError}
+				error={emailValidationError}
 				autoComplete="email"
-				aria-invalid={!!emailError}
+				aria-invalid={!!emailValidationError}
 			/>
 			<InputGroup
 				labelName="password:"
 				type="password"
 				{...register("password", formValidations.password)}
-				error={passwordError}
+				error={passwordValidationError}
 				autoComplete={passwordAutoComplete}
-				aria-invalid={!!passwordError}
+				aria-invalid={!!passwordValidationError}
 			/>
 
 			<Button isFullWidth type="submit" name="submit" disabled={isDisabledSubmitButton}>
 				{authButtonTitle}
 			</Button>
 
-			<SubDetails authType={authType} />
+			<AuthFormToggle authType={authType} />
 		</form>
 	);
 }

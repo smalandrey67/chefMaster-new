@@ -1,12 +1,12 @@
+import { viewSettingsThunk } from "./view.thunk";
+
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { ViewSettingProperty, ViewState } from "./view.interface";
 
-import { viewSettingsThunk } from "./view.thunk";
-
 const initialState: ViewState = {
 	view: { main: null, navbar: null },
-	isViewHasBeenChanged: false,
-	error: null
+	initialView: { main: null, navbar: null },
+	isViewHasBeenChanged: false
 };
 
 const viewSlice = createSlice({
@@ -14,16 +14,24 @@ const viewSlice = createSlice({
 	initialState,
 	reducers: {
 		changeMainView: (state, { payload }: PayloadAction<ViewSettingProperty>): void => {
-			// checks if already have such view settings
-			if (payload.background === state.view.main?.background) return;
+			if (payload.background === state.initialView.main?.background) {
+				state.view.main = payload;
+				state.isViewHasBeenChanged = false;
+
+				return;
+			} // checks if user already has such view settings
 
 			state.view.main = payload;
 			state.isViewHasBeenChanged = true;
 		},
 
 		changeNavbarView: (state, { payload }: PayloadAction<ViewSettingProperty>): void => {
-			// checks if already have such view settings
-			if (payload.background === state.view.navbar?.background) return;
+			if (payload.background === state.initialView.navbar?.background) {
+				state.view.navbar = payload;
+				state.isViewHasBeenChanged = false;
+
+				return;
+			} // checks if user already has such view settings
 
 			state.view.navbar = payload;
 			state.isViewHasBeenChanged = true;
@@ -37,10 +45,11 @@ const viewSlice = createSlice({
 	extraReducers: (builder): void => {
 		builder.addCase(viewSettingsThunk.getViewSettings.fulfilled, (state, { payload }): void => {
 			state.view = payload;
+			state.initialView = payload;
 		});
-		builder.addCase(viewSettingsThunk.getViewSettings.rejected, (state, { payload }): void => {
-			if (!payload) return;
-			state.error = payload;
+		builder.addCase(viewSettingsThunk.saveViewSettings.fulfilled, (state, { payload }): void => {
+			state.isViewHasBeenChanged = false;
+			state.initialView = payload;
 		});
 	}
 });

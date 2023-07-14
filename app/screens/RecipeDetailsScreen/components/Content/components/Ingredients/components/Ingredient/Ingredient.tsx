@@ -2,7 +2,7 @@ import Image from "next/image";
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
 
-import { INGREDIENTS_IMAGE } from "@/constants/image.constants";
+import { INGREDIENT_IMAGE } from "@/constants/images.constants";
 import type { IngredientProps } from "./Ingredient.interface";
 
 import styles from "./Ingredient.module.scss";
@@ -12,7 +12,7 @@ const Ingredient = forwardRef<HTMLLIElement, IngredientProps>(({ name, image, un
 		<li className={styles.ingredient} ref={ref}>
 			<div className={styles.ingredientView}>
 				<div className={styles.ingredientImageWrapper}>
-					<Image src={`${INGREDIENTS_IMAGE}${image}`} className={styles.ingredientImage} fill alt={name} />
+					<Image src={`${INGREDIENT_IMAGE}${image}`} className={styles.ingredientImage} fill alt={name} />
 				</div>
 
 				<span className={styles.ingredientName}>{name}</span>

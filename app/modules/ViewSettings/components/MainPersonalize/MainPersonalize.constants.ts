@@ -10,5 +10,10 @@ export const mainOptions: readonly MainOption[] = [
 		id: "698cbe15-fcd9-4b08-9b8f-423b9464d527",
 		optionView: "light",
 		viewData: { background: "var(--light-20)" }
+	},
+	{
+		id: "52c1faaf-6d7d-495b-b6f0-5286d9265274",
+		optionView: "jungle",
+		viewData: { background: "#192f2e" }
 	}
 ];

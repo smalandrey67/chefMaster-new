@@ -13,7 +13,7 @@ export function About({ title, cookTime, rating, cookLevel }: AboutProps): JSX.E
 					{title}
 				</Title>
 				<div className={styles.aboutRating}>
-					<IconMarker Icon={AiFillStar} label={rating} iconColor="var(--neon-10)" iconSize={20} />
+					<IconMarker Icon={AiFillStar} label={rating} iconColor="var(--neon-10)" iconSize={22} />
 				</div>
 			</div>
 			<div className={styles.aboutMarkers}>

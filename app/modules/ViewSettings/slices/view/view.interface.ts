@@ -9,8 +9,8 @@ export type ViewSettings = {
 
 export interface ViewState {
 	view: ViewSettings;
+	initialView: ViewSettings;
 	isViewHasBeenChanged: boolean;
-	error: null | string;
 }
 
 export interface SaveViewSettingsThunkProps {

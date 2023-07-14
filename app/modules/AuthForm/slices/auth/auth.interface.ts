@@ -1,47 +1,28 @@
-import type { ResponseAuthInstance } from "@/interfaces/ResponseAuthInstance.interface";
-import type { AccessToken, RefreshToken } from "@/interfaces/Token.interface";
 import type { User } from "@/interfaces/User.interface";
+import type { Tokens } from "@/interfaces/Tokens.interface";
+import type { AccurateAuthData } from "../../AuthForm.interface";
+import type { ResponseAuthInstance } from "@/interfaces/ResponseAuthInstance.interface";
 
 export interface AuthState {
 	user: User | null;
-	isLoading: boolean;
-	error: string | null;
 }
-
-// #request
-interface AuthBodyInstance {
-	email: string;
-	password: string;
-}
-
-export type RegistrationBody = AuthBodyInstance & {
-	userName: string;
-};
-
-export type LoginBody = AuthBodyInstance & unknown;
 
 // #response
 export interface RegistrationResponse extends ResponseAuthInstance {}
 
-export interface LoginResponse extends ResponseAuthInstance {
-	accessToken: AccessToken;
-	refreshToken: RefreshToken;
-}
+export interface LoginResponse extends ResponseAuthInstance, Tokens {}
 
-export interface RefreshResponse extends ResponseAuthInstance {
-	accessToken: AccessToken;
-	refreshToken: RefreshToken;
-}
+export interface RefreshResponse extends ResponseAuthInstance, Tokens {}
 
 // #thunk props
 export interface RegistrationThunkProps {
-	registrationBody: RegistrationBody;
-	navigate: () => void;
+	registrationBody: AccurateAuthData<"registration">;
+	navigate: () => Promise<boolean>;
 	showErrorAlert: (message: string) => void;
 }
 
 export interface LoginThunkProps {
-	loginBody: LoginBody;
-	navigate: () => void;
+	loginBody: AccurateAuthData<"login">;
+	navigate: () => Promise<boolean>;
 	showErrorAlert: (message: string) => void;
 }

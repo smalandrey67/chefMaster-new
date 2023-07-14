@@ -1,6 +1,6 @@
 export type AuthType = "login" | "registration";
 
 export interface AuthScreenProps {
-	screenTitle: string;
+	authScreenTitle: string;
 	authType: AuthType;
 }

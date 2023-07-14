@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 import { useRouter } from "next/router";
 
-import { toastAlert } from "@/utils/toastAlert";
-import { useAppDispatch } from "@/hooks/useRedux";
 import { authThunk } from "../slices/auth/auth.thunk";
+import { toastAlert } from "@/utils/toastAlert.util";
+import { useAppDispatch } from "@/hooks/useRedux";
 
-import type { SubmitAuthForm } from "../AuthForm.interface";
-import type { SubmitHandler } from "react-hook-form";
 import type { AuthType } from "@/screens/AuthScreen/AuthScreen.interface";
+import type { SubmitHandler } from "react-hook-form";
+import type { AccurateAuthData, AuthFormData } from "../AuthForm.interface";
 
 export const useAuth = (authType: AuthType) => {
 	const dispatch = useAppDispatch();
@@ -15,19 +15,19 @@ export const useAuth = (authType: AuthType) => {
 
 	const auth = useMemo(() => {
 		return {
-			registration: (data: SubmitAuthForm): void => {
+			registration: (registrationData: AccurateAuthData<"registration">): void => {
 				dispatch(
 					authThunk.registration({
-						registrationBody: data,
+						registrationBody: registrationData,
 						navigate: (): Promise<boolean> => router.push("/login"),
 						showErrorAlert: (message: string): void => toastAlert(message, "error")
 					})
 				);
 			},
-			login: (data: SubmitAuthForm): void => {
+			login: (loginData: AccurateAuthData<"login">): void => {
 				dispatch(
 					authThunk.login({
-						loginBody: data,
+						loginBody: loginData,
 						navigate: (): Promise<boolean> => router.push("/"),
 						showErrorAlert: (message: string): void => toastAlert(message, "error")
 					})
@@ -36,7 +36,7 @@ export const useAuth = (authType: AuthType) => {
 		};
 	}, [dispatch, router]);
 
-	const submitAuth: SubmitHandler<SubmitAuthForm> = (data): void => {
+	const submitAuth: SubmitHandler<AuthFormData> = (data): void => {
 		auth[authType](data);
 	};
 

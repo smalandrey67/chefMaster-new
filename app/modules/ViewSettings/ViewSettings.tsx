@@ -4,7 +4,7 @@ import { MainPersonalize } from "./components/MainPersonalize/MainPersonalize";
 import { NavbarPersonalize } from "./components/NavbarPersonalize/NavbarPersonalize";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { toastAlert } from "@/utils/toastAlert";
+import { toastAlert } from "@/utils/toastAlert.util";
 import { viewSettingsThunk } from "./slices/view/view.thunk";
 
 import { selectUser } from "../AuthForm";

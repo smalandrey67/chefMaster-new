@@ -26,6 +26,30 @@
 	}
 
 	&Title {
+		margin-bottom: 5px;
+	}
+
+	&Author {
 		display: flex;
+		gap: 5px;
+		align-items: center;
+
+		&Image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			&Wrapper {
+				position: relative;
+				width: 20px;
+				height: 20px;
+				overflow: hidden;
+				border-radius: var(--round);
+			}
+		}
+
+		&Name {
+			font-size: 11px;
+		}
 	}
 }

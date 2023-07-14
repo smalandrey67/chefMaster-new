@@ -4,8 +4,10 @@ export interface AuthFormProps {
 	authType: AuthType;
 }
 
-export interface SubmitAuthForm {
+export interface AuthFormData {
 	email: string;
 	password: string;
 	userName: string;
 }
+
+export type AccurateAuthData<T extends AuthType> = T extends "login" ? Omit<AuthFormData, "userName"> : AuthFormData;

@@ -3,7 +3,7 @@ import { Button, Title, InputUpload } from "chefmaster-ui/dist";
 
 import { selectUser } from "@/modules/AuthForm";
 import { useAppSelector } from "@/hooks/useRedux";
-import { NO_PROFILE_IMAGE } from "@/constants/image.constants";
+import { NO_PROFILE_IMAGE } from "@/constants/images.constants";
 
 import { useAvatarUpdateLocal } from "./hooks/useAvatarUpdateLocal";
 import { useAvatarUpdate } from "./hooks/useAvatarUpdate";
@@ -27,7 +27,7 @@ export function AvatarUpdate(): JSX.Element {
 
 	const updatedAvatarError = errors.avatar && errors.avatar.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
-	const currentAvatar = localAvatar ? String(localAvatar) : user?.avatar ? user?.avatar : NO_PROFILE_IMAGE;
+	const currentAvatar = localAvatar ? String(localAvatar) : user?.avatar ? user.avatar : NO_PROFILE_IMAGE;
 
 	return (
 		<form className={styles.avatar} onSubmit={handleSubmit(updateAvatar)}>

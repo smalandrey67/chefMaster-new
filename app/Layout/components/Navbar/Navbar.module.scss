@@ -1,21 +1,23 @@
 .menu {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: flex-end;
+	padding: 15px;
 	background: var(--dark-10);
 	border-radius: var(--rounded-10);
 
-	@media screen and (max-width: 1085px) {
-		align-items: flex-start;
-		padding-top: 30px;
-	}
-
-	&Wrapper {
+	&Middle {
 		display: flex;
 		flex-direction: column;
-		row-gap: 15px;
 		align-items: center;
+		justify-content: flex-start;
+
 		width: 100%;
+		height: 100%;
+
+		@media screen and (min-width: 1180px) {
+			justify-content: center;
+		}
 	}
 }
 

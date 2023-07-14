@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { FancyLink } from "chefmaster-ui";
 
-import type { SubDetailsProps } from "./SubDetails.interface";
+import type { AuthFormToggleProps } from "./AuthFormToggle.interface";
 
-import styles from "./SubDetails.module.scss";
+import styles from "./AuthFormToggle.module.scss";
 
-export function SubDetails({ authType }: SubDetailsProps): JSX.Element {
+export function AuthFormToggle({ authType }: AuthFormToggleProps): JSX.Element {
 	return (
 		<div className={styles.subDetails}>
 			{

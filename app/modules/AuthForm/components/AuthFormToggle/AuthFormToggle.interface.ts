@@ -1,5 +1,5 @@
 import type { AuthType } from "@/screens/AuthScreen/AuthScreen.interface";
 
-export interface SubDetailsProps {
+export interface AuthFormToggleProps {
 	authType: AuthType;
 }

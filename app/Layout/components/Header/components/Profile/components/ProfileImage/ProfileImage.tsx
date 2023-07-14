@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useAppSelector } from "@/hooks/useRedux";
 import { selectUser } from "@/modules/AuthForm";
 
-import { NO_PROFILE_IMAGE } from "@/constants/image.constants";
+import { NO_PROFILE_IMAGE } from "@/constants/images.constants";
 import type { ProfileImageProps } from "./ProfileImage.interface";
 
 import styles from "./ProfileImage.module.scss";

@@ -1,4 +1,4 @@
-import type { RecipeDetails } from "@/interfaces/RecipeDetails.interface";
+import type { RecipeDetails } from "@/screens/RecipeDetailsScreen/RecipeDetailsScreen.interface";
 
 type Cooking = Pick<RecipeDetails, "cooking">;
 

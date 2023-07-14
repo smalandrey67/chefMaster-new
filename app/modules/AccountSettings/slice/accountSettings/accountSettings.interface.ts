@@ -1,5 +1,5 @@
+import type { Tokens } from "@/interfaces/Tokens.interface";
 import type { ResponseAuthInstance } from "@/interfaces/ResponseAuthInstance.interface";
-import type { AccessToken, RefreshToken } from "@/interfaces/Token.interface";
 
 // #request
 export type UpdateEmailBody = {
@@ -15,20 +15,11 @@ export type UpdateUserNameBody = {
 export type UpdateAvatarBody = FormData;
 
 // #response
-export interface UpdateEmailResponse extends ResponseAuthInstance {
-	accessToken: AccessToken;
-	refreshToken: RefreshToken;
-}
+export interface UpdateEmailResponse extends ResponseAuthInstance, Tokens {}
 
-export interface UpdateUserNameResponse extends ResponseAuthInstance {
-	accessToken: AccessToken;
-	refreshToken: RefreshToken;
-}
+export interface UpdateUserNameResponse extends ResponseAuthInstance, Tokens {}
 
-export interface UpdateAvatarResponse extends ResponseAuthInstance {
-	accessToken: AccessToken;
-	refreshToken: RefreshToken;
-}
+export interface UpdateAvatarResponse extends ResponseAuthInstance, Tokens {}
 
 // #thunk props
 export interface UpdateEmailThunkProps {

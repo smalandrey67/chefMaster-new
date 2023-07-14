@@ -1,5 +1,5 @@
-import type { RecipeDetails } from "@/interfaces/RecipeDetails.interface";
+import type { RecipeDetails } from "../../RecipeDetailsScreen.interface";
 
-type DetailsImageData = Pick<RecipeDetails, "image">;
+type DetailsImage = Pick<RecipeDetails, "image">;
 
-export interface DetailsImageProps extends DetailsImageData {}
+export interface DetailsImageProps extends DetailsImage {}

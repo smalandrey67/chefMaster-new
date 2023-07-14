@@ -1,20 +1,15 @@
 import { $api } from "@/configs/axios.config";
 
-import type {
-	RegistrationBody,
-	LoginBody,
-	LoginResponse,
-	RefreshResponse,
-	RegistrationResponse
-} from "./slices/auth/auth.interface";
+import type { LoginResponse, RefreshResponse, RegistrationResponse } from "./slices/auth/auth.interface";
+import type { AccurateAuthData } from "./AuthForm.interface";
 
 export const AuthFormService = {
-	async registration(registrationBody: RegistrationBody): Promise<RegistrationResponse> {
+	async registration(registrationBody: AccurateAuthData<"registration">): Promise<RegistrationResponse> {
 		const { data: registrationResultData } = await $api.post<RegistrationResponse>("/registration", registrationBody);
 		return registrationResultData;
 	},
 
-	async login(loginBody: LoginBody): Promise<LoginResponse> {
+	async login(loginBody: AccurateAuthData<"login">): Promise<LoginResponse> {
 		const { data: loginResultData } = await $api.post<LoginResponse>("/login", loginBody);
 		return loginResultData;
 	},
