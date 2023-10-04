@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 				`}
 			</style>
 			<Provider store={store}>
-				<NextNProgress color="var(--neon-10)" />
+				<NextNProgress color="#ffc30e" />
 				<Component {...pageProps} />
 				<ToastContainer role="alert" />
 			</Provider>

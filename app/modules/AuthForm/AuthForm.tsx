@@ -3,7 +3,7 @@ import { InputGroup, Button } from "chefmaster-ui";
 
 import { useAuth } from "./hooks/useAuth";
 import { AuthFormToggle } from "./components/AuthFormToggle/AuthFormToggle";
-import { formValidations } from "@/configs/form.config";
+import { formValidations } from "@/config/form.config";
 
 import type { AuthFormProps, AuthFormData } from "./AuthForm.interface";
 

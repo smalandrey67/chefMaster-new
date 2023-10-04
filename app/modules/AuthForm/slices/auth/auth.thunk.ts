@@ -1,15 +1,15 @@
 import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { AuthFormService } from "../../AuthForm.service";
 import { viewActions } from "@/modules/ViewSettings";
+import { AuthFormService } from "../../AuthForm.service";
 
 import type {
-	LoginThunkProps,
-	RegistrationThunkProps,
-	RegistrationResponse,
 	LoginResponse,
-	RefreshResponse
+	RefreshResponse,
+	LoginThunkProps,
+	RegistrationResponse,
+	RegistrationThunkProps
 } from "./auth.interface";
 
 const registration = createAsyncThunk<RegistrationResponse, RegistrationThunkProps, { rejectValue: void }>(

@@ -1,13 +1,15 @@
 import { toast } from "react-toastify";
-import { toastOptions } from "@/configs/toast.config";
+import { toastOptions } from "@/config/toast.config";
 
 export const toastAlert = (message: string, type: "success" | "error"): void => {
 	switch (type) {
-		case "success":
+		case "success": {
 			toast.success(message, toastOptions);
 			break;
-		case "error":
+		}
+		case "error": {
 			toast.error(message, toastOptions);
 			break;
+		}
 	}
 };

@@ -17,9 +17,9 @@ export function MainPersonalizeOption({ optionView, viewData }: MainPersonalizeO
 	return (
 		<button
 			className={clsx(styles.backgroundOption, {
-				[styles.backgroundOptionDark]: optionView === "dark",
-				[styles.backgroundOptionGray]: optionView === "light",
-				[styles.backgroundOptionJungle]: optionView === "jungle"
+				[styles.backgroundOptionDark || ""]: optionView === "dark",
+				[styles.backgroundOptionGray || ""]: optionView === "light",
+				[styles.backgroundOptionJungle || ""]: optionView === "jungle"
 			})}
 			onClick={changeMainView}
 			name={optionView}

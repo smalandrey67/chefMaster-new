@@ -1,4 +1,4 @@
-import { PageContainer } from "@/containers/PageContainer/PageContainer";
+import { PageContainer } from "@/ui/PageContainer/PageContainer";
 
 import { Profile } from "./components/Profile/Profile";
 import { Logo } from "./components/Logo/Logo";

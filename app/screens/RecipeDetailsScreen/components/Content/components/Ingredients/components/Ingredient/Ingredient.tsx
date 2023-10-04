@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { forwardRef } from "react";
 import { motion } from "framer-motion";
+import { forwardRef } from "react";
 
 import { INGREDIENT_IMAGE } from "@/constants/images.constants";
 import type { IngredientProps } from "./Ingredient.interface";

@@ -1,4 +1,4 @@
-import { $apiProtected } from "@/configs/axios.config";
+import { $apiProtected } from "@/config/axios.config";
 import type {
 	UpdateAvatarBody,
 	UpdateAvatarResponse,

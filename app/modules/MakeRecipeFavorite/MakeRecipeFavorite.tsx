@@ -1,7 +1,7 @@
 import { BsFillSuitHeartFill } from "react-icons/bs";
 
-import { useToggleFavoriteRecipe } from "./hooks/useToggleFavoriteRecipe";
 import { useGetHeartColor } from "./hooks/useGetHeartColor";
+import { useToggleFavoriteRecipe } from "./hooks/useToggleFavoriteRecipe";
 
 import type { MakeRecipeFavoriteProps } from "./MakeRecipeFavorite.interface";
 

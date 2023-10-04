@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { RecipeCard } from "@/common/RecipeCard/RecipeCard";
+import { RecipeCard } from "@/ui/RecipeCard/RecipeCard";
 import { FancyLink, Title } from "chefmaster-ui";
 
 import { TbArrowNarrowRight } from "react-icons/tb";
@@ -15,7 +15,7 @@ export function Recipes({ recipes, moduleTitle = "recipes", isSeeAll = true }: R
 				<Title className={styles.recipesTitle} variant="big">
 					{moduleTitle}
 				</Title>
-				{isSeeAll && <FancyLink Link={Link} href="/recipes" Icon={TbArrowNarrowRight} iconSize={20} iconColor="var(--dark-10)" />}
+				{isSeeAll && <FancyLink Link={Link} href="/recipes" Icon={TbArrowNarrowRight} iconSize={20} iconColor="#212121" />}
 			</div>
 			<div className={styles.recipesWrapper}>
 				{recipes.map((recipe) => (

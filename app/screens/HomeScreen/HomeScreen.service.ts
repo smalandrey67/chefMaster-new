@@ -1,8 +1,8 @@
-import { $api } from "@/configs/axios.config";
+import { $api } from "@/config/axios.config";
 
 import type { Recipe } from "@/interfaces/Recipe.interface";
 import type { Article } from "@/interfaces/Article.interface";
-import { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig } from "axios";
 
 export const HomeScreenService = {
 	async getPopularRecipes(params?: AxiosRequestConfig["params"]): Promise<Recipe[]> {
@@ -10,8 +10,8 @@ export const HomeScreenService = {
 		return popularRecipes;
 	},
 
-	async getArticles(params?: AxiosRequestConfig["params"]): Promise<Article[]> {
-		const { data: articles } = await $api.get<Article[]>("/articles", { params });
-		return articles;
+	async getPopularArticles(params?: AxiosRequestConfig["params"]): Promise<Article[]> {
+		const { data: popularArticles } = await $api.get<Article[]>("/articles", { params });
+		return popularArticles;
 	}
 };

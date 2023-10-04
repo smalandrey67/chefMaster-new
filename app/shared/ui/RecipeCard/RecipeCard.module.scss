@@ -1,20 +1,21 @@
 @import "@/styles/mixins";
+@import "@/styles/variables";
 
 .recipe {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 10px;
-	color: var(--light-10);
+	color: $light-10;
 	cursor: pointer;
-	background-color: var(--dark-10);
-	border-radius: var(--rounded-10);
+	background-color: $dark-10;
+	border-radius: $rounded-10;
 
 	@include scale();
 	@include isHover() {
-		transition: transform var(--transitionTime) ease;
+		transition: transform $transitionTime ease;
 
 		&:hover {
-			transform: scale(var(--scale));
+			transform: scale($scale);
 		}
 	}
 
@@ -54,7 +55,7 @@
 			width: 40px;
 			font-size: 13px;
 			line-height: 1.2;
-			color: var(--light-20);
+			color: $light-20;
 			text-align: center;
 
 			&::first-letter {

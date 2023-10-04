@@ -1,3 +1,5 @@
+@import "@/styles/variables";
+
 .instruction {
 	margin-bottom: 10px;
 
@@ -13,7 +15,7 @@
 	&Text {
 		margin: 0;
 		font-size: 12px;
-		color: var(--light-20);
+		color: $light-20;
 		letter-spacing: 1px;
 
 		@media screen and (min-width: 500px) {

@@ -17,9 +17,9 @@ export function NavbarPersonalizeOption({ optionView, viewData }: NavbarPersonal
 	return (
 		<button
 			className={clsx(styles.backgroundOption, {
-				[styles.backgroundOptionDark]: optionView === "dark",
-				[styles.backgroundOptionGray]: optionView === "light",
-				[styles.backgroundOptionTeal]: optionView === "teal"
+				[styles.backgroundOptionDark || ""]: optionView === "dark",
+				[styles.backgroundOptionGray || ""]: optionView === "light",
+				[styles.backgroundOptionTeal || ""]: optionView === "jungle"
 			})}
 			onClick={changeNavbarView}
 			name={optionView}

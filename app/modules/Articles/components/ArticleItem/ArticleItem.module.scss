@@ -1,4 +1,5 @@
 @import "@/styles/mixins";
+@import "@/styles/variables";
 
 .article {
 	display: grid;
@@ -13,16 +14,16 @@
 
 	@include scale();
 	@include isHover() {
-		transition: transform var(--transitionTime) ease;
+		transition: transform $transitionTime ease;
 
 		&:hover {
-			transform: scale(var(--scale));
+			transform: scale($scale);
 		}
 	}
 
 	&Image {
 		object-fit: cover;
-		border-radius: var(--rounded-10);
+		border-radius: $rounded-10;
 	}
 
 	&Title {
@@ -44,7 +45,7 @@
 				width: 20px;
 				height: 20px;
 				overflow: hidden;
-				border-radius: var(--round);
+				border-radius: $round;
 			}
 		}
 

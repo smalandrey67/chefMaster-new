@@ -1,3 +1,5 @@
+@import "@/styles/variables";
+
 @mixin isHover() {
 	@media (hover: hover) {
 		@content;
@@ -5,23 +7,23 @@
 }
 
 @mixin customScrollbar() {
-	scrollbar-color: var(--dark-30) var(--dark-30);
+	scrollbar-color: $dark-10 $dark-10;
 	scrollbar-width: thin;
 
 	&::-webkit-scrollbar-track {
-		background-color: var(--dark-30);
+		background-color: $dark-30;
 		border-radius: 10px;
 	}
 
 	&::-webkit-scrollbar {
-		width: 5px;
-		height: 5px;
-		background-color: var(--dark-10);
+		width: 3px;
+		height: 3px;
+		background-color: $dark-10;
 		border-radius: 10px;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: var(--dark-10);
+		background-color: rgb(98, 96, 96);
 		border-radius: 10px;
 	}
 }
@@ -37,6 +39,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -46,6 +49,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -55,6 +59,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -64,6 +69,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -73,6 +79,7 @@
 		0% {
 			opacity: 0;
 		}
+
 		100% {
 			opacity: 1;
 		}
@@ -87,9 +94,11 @@
 			opacity: 0;
 			transform: scale(0.9);
 		}
+
 		50% {
 			opacity: 0.5;
 		}
+
 		100% {
 			opacity: 1;
 			transform: scale(1);

@@ -1,3 +1,3 @@
 import type { RootState } from "@/store/store";
 
-export const selectFavoritesRecipes = (state: RootState) => state.favorites.favorites;
+export const selectFavoritesRecipes = (state: RootState) => state.favorites.favoritesRecipes;

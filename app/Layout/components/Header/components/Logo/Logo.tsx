@@ -6,7 +6,7 @@ import styles from "./Logo.module.scss";
 export function Logo() {
 	return (
 		<div className={styles.headerLogo}>
-			<ImSpoonKnife size="25" color="var(--neon-10)" />
+			<ImSpoonKnife size="25" color="#ffc30e" />
 			<Link href="/" className={styles.headerLogoLink}>
 				chefMaster
 			</Link>

@@ -1,12 +1,13 @@
-import { Step } from "./components/Step/Step";
+import { MStep } from "./components/Step/Step";
+import { biasFromLeftToRight } from "@/constants/motion.constant";
 
 import type { CookingProps } from "./Cooking.interface";
 
 export function Cooking({ cooking }: CookingProps): JSX.Element {
 	return (
 		<ul>
-			{cooking.map((step) => (
-				<Step key={step.id} {...step} />
+			{cooking.map(({ id, ...step }) => (
+				<MStep key={id} variants={biasFromLeftToRight} initial="hidden" animate="visible" custom={step.stepCount} {...step} />
 			))}
 		</ul>
 	);

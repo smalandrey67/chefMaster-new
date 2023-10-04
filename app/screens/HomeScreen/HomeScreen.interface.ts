@@ -3,5 +3,5 @@ import type { Article } from "@/interfaces/Article.interface";
 
 export interface HomeScreenProps {
 	popularRecipes: Recipe[];
-	articles: Article[];
+	popularArticles: Article[];
 }

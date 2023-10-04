@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 
-import { useAppDispatch, useAppSelector } from "./useRedux";
-import { viewSettingsThunk } from "@/modules/ViewSettings";
 import { selectUser } from "@/modules/AuthForm";
+import { viewSettingsThunk } from "@/modules/ViewSettings";
+import { useAppDispatch, useAppSelector } from "./useRedux";
 
 export const useLoadAppView = (): void => {
 	const user = useAppSelector(selectUser);

@@ -1,4 +1,4 @@
-import { $api } from "@/configs/axios.config";
+import { $api } from "@/config/axios.config";
 
 import type { LoginResponse, RefreshResponse, RegistrationResponse } from "./slices/auth/auth.interface";
 import type { AccurateAuthData } from "./AuthForm.interface";

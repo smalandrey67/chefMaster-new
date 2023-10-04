@@ -1,12 +1,12 @@
-import { PageContainer } from "@/containers/PageContainer/PageContainer";
+import { PageContainer } from "@/ui/PageContainer/PageContainer";
 
 import { Meta } from "./components/Meta/Meta";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
 
-import { useCheckIsAuthorized } from "@/hooks/useCheckIsAuthorized";
 import { useLoadAppView } from "@/hooks/useLoadAppView";
 import { useChangeMainView } from "@/hooks/useChangeMainView";
+import { useCheckIsAuthorized } from "@/hooks/useCheckIsAuthorized";
 
 import type { LayoutProps, WithLayoutProps } from "./Layout.interface";
 

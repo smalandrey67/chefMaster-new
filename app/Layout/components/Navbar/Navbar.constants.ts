@@ -1,6 +1,6 @@
 import type { NavbarItem } from "./Navbar.interface";
 
-import { HiOutlineDocumentText, HiOutlineThumbUp } from "react-icons/hi";
+import { HiOutlineThumbUp } from "react-icons/hi";
 import { RiHomeLine, RiSettingsLine } from "react-icons/ri";
 
 export const navbarItemsForAuthorizedUser: readonly NavbarItem[] = [
@@ -9,12 +9,6 @@ export const navbarItemsForAuthorizedUser: readonly NavbarItem[] = [
 		label: "home",
 		id: "19a012f4-b5a4-4609-b718-1fbf68ce1a84",
 		Icon: RiHomeLine
-	},
-	{
-		path: "/articles",
-		label: "articles",
-		id: "ee310c95-d0cc-4e7d-9e3d-ab280fcb870b",
-		Icon: HiOutlineDocumentText
 	},
 	{
 		path: "/favorites",
@@ -30,12 +24,6 @@ export const navbarItemsForNotAuthorizedUser: readonly NavbarItem[] = [
 		label: "home",
 		id: "19a012f4-b5a4-4609-b718-1fbf68ce1a84",
 		Icon: RiHomeLine
-	},
-	{
-		path: "/articles",
-		label: "articles",
-		id: "ee310c95-d0cc-4e7d-9e3d-ab280fcb870b",
-		Icon: HiOutlineDocumentText
 	},
 	{
 		path: "/favorites",

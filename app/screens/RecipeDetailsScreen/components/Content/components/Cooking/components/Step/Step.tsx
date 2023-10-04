@@ -1,35 +1,28 @@
 import Image from "next/image";
 import clsx from "clsx";
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { INGREDIENT_IMAGE } from "@/constants/images.constants";
-import { biasFromLeftToRight, growthHeight } from "@/constants/motion.constant";
+import { growthHeight } from "@/constants/motion.constant";
 
 import { BiChevronDown } from "react-icons/bi";
 import type { StepProps } from "./Step.interface";
 
 import styles from "./Step.module.scss";
 
-export function Step({ ingredients, stepCount, step }: StepProps): JSX.Element {
-	const [isStepOpen, setIsStepOpen] = useState<boolean>(stepCount === 1 ? true : false);
+const Step = forwardRef<HTMLLIElement, StepProps>(({ ingredients, stepCount, step }, ref) => {
+	const [isStepOpen, setIsStepOpen] = useState<boolean>(stepCount === 1);
 
 	const openStep = (): void => {
 		setIsStepOpen((prevIsStepOpen) => !prevIsStepOpen);
 	};
 
 	return (
-		<motion.li
-			className={styles.step}
-			onClick={openStep}
-			variants={biasFromLeftToRight}
-			initial="hidden"
-			animate="visible"
-			custom={stepCount}
-		>
+		<li className={styles.step} onClick={openStep} ref={ref}>
 			<div className={styles.stepWrapper}>
 				<div className={styles.stepCount}>step {stepCount}</div>
-				<button className={clsx(styles.stepArrow, { [styles.stepArrowOpen]: isStepOpen })}>
+				<button className={clsx(styles.stepArrow, { [styles.stepArrowOpen || ""]: isStepOpen })}>
 					<BiChevronDown size={23} />
 				</button>
 			</div>
@@ -52,6 +45,10 @@ export function Step({ ingredients, stepCount, step }: StepProps): JSX.Element {
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</motion.li>
+		</li>
 	);
-}
+});
+
+Step.displayName = "Step";
+
+export const MStep = motion(Step);

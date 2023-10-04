@@ -1,4 +1,4 @@
-import { $api } from "@/configs/axios.config";
+import { $api } from "@/config/axios.config";
 
 import type { Recipe } from "@/interfaces/Recipe.interface";
 

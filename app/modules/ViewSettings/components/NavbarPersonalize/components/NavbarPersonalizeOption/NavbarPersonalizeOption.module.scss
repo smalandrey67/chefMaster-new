@@ -1,25 +1,22 @@
 @import "@/styles/mixins";
+@import "@/styles/variables";
 
 .backgroundOption {
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
 	border: none;
-	border-radius: var(--rounded-20);
-
-	&Selected {
-		transform: scale(1.1);
-	}
+	border-radius: $rounded-20;
 
 	&Dark {
-		background: var(--dark-10);
+		background: $dark-10;
 	}
 
 	&Gray {
-		background: var(--light-20);
+		background: $light-20;
 	}
 
 	&Teal {
-		background: #317773;
+		background: $jungle-20;
 	}
 }

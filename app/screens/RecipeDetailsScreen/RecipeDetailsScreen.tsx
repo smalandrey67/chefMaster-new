@@ -14,13 +14,13 @@ const MakeRecipeFavorite = dynamic(() => import("@/modules/MakeRecipeFavorite").
 
 export function RecipeDetailsScreen({ recipeDetails }: RecipeDetailsScreenProps): JSX.Element {
 	return (
-		<section className={styles.details}>
+		<div className={styles.details}>
 			<div className={styles.detailsBody}>
 				<MakeRecipeFavorite {...recipeDetails} />
 				<DetailsImage {...recipeDetails} />
 				<About {...recipeDetails} />
 				<Content {...recipeDetails} />
 			</div>
-		</section>
+		</div>
 	);
 }

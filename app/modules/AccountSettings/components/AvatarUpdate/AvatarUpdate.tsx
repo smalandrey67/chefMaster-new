@@ -3,10 +3,10 @@ import { Button, Title, InputUpload } from "chefmaster-ui/dist";
 
 import { selectUser } from "@/modules/AuthForm";
 import { useAppSelector } from "@/hooks/useRedux";
-import { NO_PROFILE_IMAGE } from "@/constants/images.constants";
 
 import { useAvatarUpdateLocal } from "./hooks/useAvatarUpdateLocal";
 import { useAvatarUpdate } from "./hooks/useAvatarUpdate";
+import { NO_PROFILE_IMAGE } from "@/constants/images.constants";
 
 import type { SubmitAvatarUpdateForm } from "./AvatarUpdate.interface";
 

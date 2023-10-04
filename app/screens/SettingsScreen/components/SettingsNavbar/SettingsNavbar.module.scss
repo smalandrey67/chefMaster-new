@@ -1,14 +1,15 @@
+@import "@/styles/variables";
+
 .menu {
 	padding: 10px;
-	border-bottom: 1px solid var(--dark-10);
+	border-bottom: 1px solid $dark-10;
 
 	@media screen and (min-width: 640px) {
 		padding: 20px;
-		border-right: 1px solid var(--dark-10);
+		border-right: 1px solid $dark-10;
 	}
 
 	&List {
-
 		display: flex;
 		flex-direction: row;
 		gap: 20px;

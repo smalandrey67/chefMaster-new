@@ -3,8 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { ViewSettingsService } from "../../ViewSettings.service";
 
-import type { SaveViewSettingsThunkProps, ViewSettings } from "./view.interface";
 import type { RootState } from "@/store/store";
+import type { ResetViewSettingsThunkProps, SaveViewSettingsThunkProps, ViewSettings } from "./view.interface";
 
 const getViewSettings = createAsyncThunk<ViewSettings, string, { rejectValue: string }>(
 	"get_viewSettings",
@@ -40,4 +40,21 @@ const saveViewSettings = createAsyncThunk<ViewSettings, SaveViewSettingsThunkPro
 	}
 );
 
-export const viewSettingsThunk = { getViewSettings, saveViewSettings };
+const resetViewSettings = createAsyncThunk<ViewSettings, ResetViewSettingsThunkProps, { rejectValue: void; state: RootState }>(
+	"reset_viewSettings",
+	async ({ userId, showSuccessAlert, showErrorAlert }, thunkApi) => {
+		try {
+			thunkApi.fulfillWithValue(showSuccessAlert("Successfully saved view"));
+
+			const deletedViewSettings = await ViewSettingsService.resetViewSettings(userId);
+			return deletedViewSettings;
+		} catch (error: unknown) {
+			if (error instanceof AxiosError) {
+				return thunkApi.rejectWithValue(showErrorAlert(error.response?.data.message));
+			}
+			return thunkApi.rejectWithValue(showErrorAlert("Something went wrong"));
+		}
+	}
+);
+
+export const viewSettingsThunk = { getViewSettings, saveViewSettings, resetViewSettings };

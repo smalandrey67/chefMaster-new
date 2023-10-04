@@ -11,7 +11,7 @@ const localStorageMiddleware: Middleware<unknown, RootState> = (store) => (next)
 	if (localStorageKey) {
 		switch (action.type) {
 			case "favorites/toggleFavoriteRecipe": {
-				const upToDataFavoritesRecipes = store.getState().favorites.favorites;
+				const upToDataFavoritesRecipes = store.getState().favorites.favoritesRecipes;
 
 				lcs.setItem(localStorageKey, upToDataFavoritesRecipes);
 				break;

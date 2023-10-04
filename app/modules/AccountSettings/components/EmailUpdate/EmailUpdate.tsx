@@ -3,7 +3,7 @@ import { Button, InputGroup, Title } from "chefmaster-ui";
 
 import { useEmailUpdate } from "./hooks/useEmailUpdate";
 
-import { formValidations } from "@/configs/form.config";
+import { formValidations } from "@/config/form.config";
 import type { SubmitEmailUpdateForm } from "./EmailUpdate.interface";
 
 import styles from "./EmailUpdate.module.scss";

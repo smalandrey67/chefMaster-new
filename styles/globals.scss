@@ -1,13 +1,12 @@
 @import "mixins.scss";
-@import "variables.scss";
 @import "reset.scss";
+@import "variables.scss";
 
 body {
 	height: 100%;
 	font-family: var(--poppins-font);
-	font-weight: $fw-regular;
-	color: var(--light-10);
-	background: linear-gradient(45deg, var(--dark-10), var(--dark-20));
+	color: $light-10;
+	background: linear-gradient((45deg, $dark-10), $dark-20);
 
 	@include customScrollbar();
 }

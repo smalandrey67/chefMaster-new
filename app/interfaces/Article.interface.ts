@@ -3,5 +3,6 @@ export interface Article {
 	title: string;
 	authorName: string;
 	authorImage: string;
+	likes: number;
 	_id: string;
 }

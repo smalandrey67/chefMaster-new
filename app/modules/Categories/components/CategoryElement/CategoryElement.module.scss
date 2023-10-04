@@ -1,14 +1,15 @@
 @import "@/styles/mixins";
+@import "@/styles/variables";
 
 .category {
 	row-gap: 10px;
 	width: 100px;
 	min-height: 170px;
 	padding: 10px;
-	color: var(--light-10);
+	color: $light-10;
 	cursor: pointer;
-	background-color: var(--dark-10);
-	border-radius: var(--rounded-10);
+	background-color: $dark-10;
+	border-radius: $rounded-10;
 
 	@media screen and (min-width: 900px) {
 		width: 80px;
@@ -19,15 +20,15 @@
 	}
 
 	&:active {
-		background-color: var(--dark-20);
+		background-color: $dark-20;
 	}
 
 	@include scale();
 	@include isHover() {
-		transition: background-color var(--transitionTime) ease;
+		transition: background-color $transitionTime ease;
 
 		&:hover {
-			background-color: var(--dark-20);
+			background-color: $dark-20;
 		}
 	}
 
