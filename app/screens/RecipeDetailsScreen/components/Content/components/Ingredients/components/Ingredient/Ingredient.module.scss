@@ -1,4 +1,4 @@
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .ingredient {
 	display: flex;
@@ -24,7 +24,7 @@
 			overflow: hidden;
 			border-radius: $rounded-20;
 
-			@media screen and (min-width: 500px) {
+			@media screen and (width >= 500px) {
 				width: 60px;
 				height: 60px;
 			}
@@ -34,7 +34,7 @@
 	&Name {
 		font-size: 13px;
 
-		@media screen and (min-width: 500px) {
+		@media screen and (width >= 500px) {
 			font-size: 15px;
 		}
 
@@ -47,7 +47,7 @@
 		font-size: 13px;
 		font-weight: 600;
 
-		@media screen and (min-width: 500px) {
+		@media screen and (width >= 500px) {
 			font-size: 15px;
 		}
 	}

@@ -1,4 +1,4 @@
-import { PageContainer } from "@/ui/PageContainer/PageContainer";
+import { PageContainer } from "@/ui";
 
 import { Meta } from "./components/Meta/Meta";
 import { Header } from "./components/Header/Header";

@@ -1,4 +1,4 @@
-import { Title } from "chefmaster-ui";
+import { Title } from "@/ui";
 import { ArticleItem } from "./components/ArticleItem/ArticleItem";
 
 import type { ArticlesProps } from "./Articles.interface";

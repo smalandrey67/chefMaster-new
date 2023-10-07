@@ -1,4 +1,4 @@
-import { Title } from "chefmaster-ui";
+import { Title } from "@/ui";
 
 import { AuthForm } from "@/modules/AuthForm";
 import type { AuthScreenProps } from "./AuthScreen.interface";

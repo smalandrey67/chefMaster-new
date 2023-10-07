@@ -1,15 +1,13 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import { Title } from "chefmaster-ui";
+import { Title } from "@/ui";
 import type { ArticleItemProps } from "./ArticleItem.interface";
 
 import styles from "./ArticleItem.module.scss";
 
 export function ArticleItem({ image, title, authorImage, authorName, likes, _id }: ArticleItemProps): JSX.Element {
 	const router = useRouter();
-
-	console.log(likes);
 
 	const navigateToArticleDetails = (): void => {
 		router.push(`/articles/${_id}`);
@@ -22,7 +20,7 @@ export function ArticleItem({ image, title, authorImage, authorName, likes, _id 
 				<Title className={styles.articleTitle} variant="small">
 					{title}
 				</Title>
-
+				<div>{likes}</div>
 				<div className={styles.articleAuthor}>
 					<div className={styles.articleAuthorImageWrapper}>
 						<Image src={authorImage} className={styles.articleAuthorImage} fill alt="author image" />

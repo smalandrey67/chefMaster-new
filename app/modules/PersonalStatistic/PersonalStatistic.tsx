@@ -1,6 +1,6 @@
 import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, ChartData } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { NotAuthorized } from "chefmaster-ui";
+import { NotAuthorized } from "@/ui";
 
 import { useUserExist } from "@/hooks/useUserExist";
 

@@ -1,5 +1,5 @@
 @import "@/styles/mixins";
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .listItem {
 	display: flex;
@@ -17,8 +17,8 @@
 		background-color: $neon-20;
 	}
 
-	@media screen and (min-width: 1180px) {
-		@include isHover() {
+	@media screen and (width >= 1180px) {
+		@include isHover {
 			&:hover {
 				background-color: $neon-20;
 			}
@@ -33,7 +33,7 @@
 		text-transform: uppercase;
 	}
 
-	@media screen and (min-width: 1180px) {
+	@media screen and (width >= 1180px) {
 		display: block;
 	}
 }

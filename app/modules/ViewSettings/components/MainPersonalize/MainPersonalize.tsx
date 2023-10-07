@@ -1,5 +1,5 @@
 import { MainPersonalizeOption } from "./components/MainPersonalizeOption/MainPersonalizeOption";
-import { Title } from "chefmaster-ui";
+import { Title } from "@/ui";
 
 import { mainOptions } from "./MainPersonalize.constants";
 

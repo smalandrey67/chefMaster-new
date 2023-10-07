@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Title, InputGroup, Button } from "chefmaster-ui";
+import { Title, InputGroup, Button } from "@/ui";
 
-import { formValidations } from "@/config/form.config";
+import { formValidations } from "@/constants/validation.constants";
 import { useNameUpdate } from "./hooks/useNameUpdate";
 
 import type { SubmitNameUpdateForm } from "./NameUpdate.interface";
@@ -17,7 +17,7 @@ export function NameUpdate(): JSX.Element {
 	} = useForm<SubmitNameUpdateForm>({ mode: "onBlur" });
 	const { updateName, currentUserName } = useNameUpdate(reset);
 
-	const updatedUserName = errors.updatedUserName && errors.updatedUserName.message;
+	const updatedUserNameError = errors.updatedUserName && errors.updatedUserName.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
 
 	return (
@@ -35,9 +35,9 @@ export function NameUpdate(): JSX.Element {
 				labelName="updated name:"
 				type="text"
 				{...register("updatedUserName", formValidations.userName)}
-				error={updatedUserName}
+				error={updatedUserNameError}
 				autoComplete="username"
-				aria-invalid={!!updatedUserName}
+				aria-invalid={!!updatedUserNameError}
 			/>
 
 			<div className={styles.nameUpdate}>

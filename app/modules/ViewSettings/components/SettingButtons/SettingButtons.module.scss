@@ -1,14 +1,13 @@
 .settingsButtonWrapper {
-	position: absolute;
-	right: 0;
-	bottom: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
 
-	display: flex;
-	gap: 5px;
-	align-items: center;
-	width: 100%;
-
-	@media screen and (min-width: 420px) {
-		width: 250px;
-	}
+    @media screen and (width >= 420px) {
+        width: 250px;
+    }
 }

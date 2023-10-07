@@ -1,4 +1,4 @@
-import { Button } from "chefmaster-ui";
+import { Button } from "@/ui";
 
 import { selectUser } from "@/modules/AuthForm";
 import { toastAlert } from "@/utils/toastAlert.util";

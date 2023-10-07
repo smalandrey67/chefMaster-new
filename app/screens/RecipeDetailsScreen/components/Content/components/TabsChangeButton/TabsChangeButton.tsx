@@ -1,4 +1,4 @@
-import { Button } from "chefmaster-ui";
+import { Button } from "@/ui";
 import { GiCookingGlove, GiTomato } from "react-icons/gi";
 
 import type { TabsChangeButtonProps } from "./TabsChangeButton.interface";

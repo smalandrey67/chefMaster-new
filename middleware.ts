@@ -1,7 +1,9 @@
-import { NextResponse, type NextRequest } from "next/server";
 import { isDevelopment } from "@/constants/mode.constants";
+import { NextResponse, type NextRequest } from "next/server";
 
-const redirectPath = isDevelopment ? "http://localhost:3000/login" : "https://chef-master.vercel.app/login";
+const redirectPath = isDevelopment
+	? `${process.env.NEXT_PUBLIC_URL_DEVELOPMENT}/login`
+	: `${process.env.NEXT_PUBLIC_URL_PRODUCTION}/login`;
 
 export default async function middleware(request: NextRequest) {
 	const user = request.cookies.get("user")?.value;

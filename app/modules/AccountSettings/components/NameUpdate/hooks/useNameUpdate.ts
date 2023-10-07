@@ -8,8 +8,8 @@ import type { SubmitHandler, UseFormReset } from "react-hook-form";
 import type { SubmitNameUpdateForm } from "../NameUpdate.interface";
 
 export const useNameUpdate = (reset: UseFormReset<SubmitNameUpdateForm>) => {
-	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
+	const dispatch = useAppDispatch();
 
 	const updateName: SubmitHandler<SubmitNameUpdateForm> = (data): void => {
 		if (!user) return;

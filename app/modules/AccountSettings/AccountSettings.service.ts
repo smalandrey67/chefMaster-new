@@ -1,10 +1,10 @@
 import { $apiProtected } from "@/config/axios.config";
 import type {
-	UpdateAvatarBody,
-	UpdateAvatarResponse,
 	UpdateEmailBody,
-	UpdateEmailResponse,
+	UpdateAvatarBody,
 	UpdateUserNameBody,
+	UpdateEmailResponse,
+	UpdateAvatarResponse,
 	UpdateUserNameResponse
 } from "./slice/accountSettings/accountSettings.interface";
 

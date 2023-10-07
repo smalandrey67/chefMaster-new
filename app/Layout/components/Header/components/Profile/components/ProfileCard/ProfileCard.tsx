@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { Button } from "chefmaster-ui";
+import { Button } from "@/ui";
 
 import { ProfileImage } from "../ProfileImage/ProfileImage";
 import { profileActions } from "@/Layout/components/Header/slices/profile/profile";

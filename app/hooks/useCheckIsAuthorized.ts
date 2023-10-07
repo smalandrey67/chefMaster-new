@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { lcs } from "@/utils/localStorage.util";
+import { lcs } from "app/shared/lib/lcs/lcs";
 import { authThunk } from "@/modules/AuthForm";
 import { useAppDispatch } from "./useRedux";
 

@@ -1,13 +1,12 @@
 .auth {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 350px;
+    height: 100%;
+    margin: 0 auto;
 
-	height: 100%;
-	margin: 0 auto;
-
-	&Title {
-		margin-bottom: 10px;
-	}
+    &Title {
+        margin-bottom: 10px;
+    }
 }

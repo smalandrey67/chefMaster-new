@@ -1,12 +1,12 @@
 .favorite {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
-	&Heart {
-		padding: 0;
-		cursor: pointer;
-		background: none;
-		border: none;
-	}
+    &Heart {
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
 }

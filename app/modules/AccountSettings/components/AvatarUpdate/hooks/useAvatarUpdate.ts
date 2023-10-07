@@ -1,15 +1,15 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { accountSettingsThunk } from "@/modules/AccountSettings/slice/accountSettings/accountSettings.thunk";
 import { toastAlert } from "@/utils/toastAlert.util";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 
 import { selectUser } from "@/modules/AuthForm";
+import { accountSettingsThunk } from "@/modules/AccountSettings/slice/accountSettings/accountSettings.thunk";
 
 import type { SubmitHandler, UseFormReset } from "react-hook-form";
 import type { SubmitAvatarUpdateForm } from "../AvatarUpdate.interface";
 
 export const useAvatarUpdate = (reset: UseFormReset<SubmitAvatarUpdateForm>) => {
-	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
+	const dispatch = useAppDispatch();
 
 	const updateAvatar: SubmitHandler<SubmitAvatarUpdateForm> = (data): void => {
 		if (!user) return;
@@ -30,5 +30,8 @@ export const useAvatarUpdate = (reset: UseFormReset<SubmitAvatarUpdateForm>) => 
 		reset();
 	};
 
-	return updateAvatar;
+	return {
+		updateAvatar,
+		currentAvatar: user?.avatar
+	};
 };

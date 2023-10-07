@@ -1,4 +1,4 @@
-import { Title, IconMarker } from "chefmaster-ui";
+import { Title, IconMarker } from "@/ui";
 import { AiFillClockCircle, AiFillStar, AiFillFire } from "react-icons/ai";
 
 import type { AboutProps } from "./About.interface";
@@ -13,7 +13,7 @@ export function About({ title, cookTime, rating, cookLevel }: AboutProps): JSX.E
 					{title}
 				</Title>
 				<div className={styles.aboutRating}>
-					<IconMarker Icon={AiFillStar} label={rating} iconColor="#212121" iconSize={22} />
+					<IconMarker Icon={AiFillStar} label={rating} iconColor="#ffc30e" iconSize={22} />
 				</div>
 			</div>
 			<div className={styles.aboutMarkers}>

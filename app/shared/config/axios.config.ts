@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-import { lcs } from "@/utils/localStorage.util";
+import { lcs } from "app/shared/lib/lcs/lcs";
 import { isDevelopment } from "@/constants/mode.constants";
 
 import type { RefreshResponse } from "@/modules/AuthForm";
@@ -19,7 +19,7 @@ export const $apiProtected = axios.create({
 });
 
 $apiProtected.interceptors.request.use((config) => {
-	config.headers.Authorization = `Bearer ${lcs.getItemWithoutParse<string>("accessToken")}`;
+	config.headers.Authorization = `Bearer ${lcs.getItemWithoutParse("accessToken")}`;
 	return config;
 });
 

@@ -1,0 +1,61 @@
+@import "@/styles/variables.scss";
+
+.upload {
+	position: relative;
+	width: 120px;
+	height: 120px;
+
+	&Image {
+		object-fit: cover;
+
+		&Wrapper {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			border-radius: $round;
+		}
+	}
+
+	&Cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		border-radius: $round;
+
+		&Input {
+			display: none;
+		}
+
+		&Plus {
+			font-size: 25px;
+			color: $light-10;
+			opacity: 0;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background: rgb(28 28 28 / 50%);
+
+				.uploadCoverPlus {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	&ValidationError {
+		display: block;
+		margin-top: 5px;
+		font-size: 11px;
+		color: $scarlet;
+		text-align: center;
+		letter-spacing: 1px;
+	}
+}

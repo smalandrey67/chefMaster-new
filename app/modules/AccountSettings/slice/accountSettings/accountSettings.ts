@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { accountSettingsThunk } from "./accountSettings.thunk";
 
-import { lcs } from "@/utils/localStorage.util";
+import { lcs } from "app/shared/lib/lcs/lcs";
 
 const accountSettingsSlice = createSlice({
 	name: "accountSettings",

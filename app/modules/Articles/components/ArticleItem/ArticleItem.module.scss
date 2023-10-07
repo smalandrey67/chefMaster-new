@@ -1,5 +1,5 @@
 @import "@/styles/mixins";
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .article {
 	display: grid;
@@ -8,12 +8,13 @@
 	align-items: flex-start;
 	cursor: pointer;
 
-	@media screen and (min-width: 700px) {
+	@media screen and (width >= 700px) {
 		grid-template-columns: 1fr 2fr;
 	}
 
-	@include scale();
-	@include isHover() {
+	@include scale;
+
+	@include isHover {
 		transition: transform $transitionTime ease;
 
 		&:hover {

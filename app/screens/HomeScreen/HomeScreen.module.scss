@@ -1,20 +1,18 @@
 @import "@/styles/mixins";
 
 .home {
-	display: grid;
-	grid-template-rows: 189px 572px;
-	grid-template-columns: 560px 340px;
-	grid-row-gap: 10px;
-	grid-column-gap: 30px;
+    display: grid;
+    grid-template-rows: 189px 572px;
+    grid-template-columns: 560px 340px;
+    grid-gap: 10px 30px;
+    height: 100%;
+    overflow: auto;
 
-	height: 100%;
-	overflow: auto;
+    @media screen and (width <= 1085px) {
+        grid-template-rows: 189px auto;
+        grid-template-columns: auto;
+        padding-right: 5px;
+    }
 
-	@media screen and (max-width: 1085px) {
-		grid-template-rows: 189px auto;
-		grid-template-columns: auto;
-		padding-right: 5px;
-	}
-
-	@include customScrollbar;
+    @include customScrollbar;
 }

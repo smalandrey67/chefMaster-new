@@ -1,14 +1,14 @@
 .name {
-	display: flex;
-	flex-direction: column;
-	gap: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 
-	&Update {
-		width: 100%;
+    &Update {
+        width: 100%;
 
-		@media screen and (min-width: 420px) {
-			width: 150px;
-			margin-left: auto;
-		}
-	}
+        @media screen and (width >= 420px) {
+            width: 150px;
+            margin-left: auto;
+        }
+    }
 }

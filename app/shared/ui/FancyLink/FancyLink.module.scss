@@ -1,0 +1,34 @@
+@import "@/styles/variables.scss";
+
+.reset {
+	text-decoration: none;
+}
+
+.fancyLink {
+	display: inline-grid;
+	grid-auto-flow: column;
+	column-gap: 5px;
+	align-items: center;
+	justify-content: center;
+	font-family: inherit;
+	font-weight: 400;
+	color: $light-10;
+	cursor: pointer;
+	transition: color $transitionTime ease;
+
+	&:hover {
+		color: $light-20;
+	}
+
+	&IconOnly {
+		padding: 8px;
+		color: $dark-10;
+		background-color: $neon-10;
+		border-radius: $rounded-20;
+		transition: background-color $transitionTime ease;
+
+		&:hover {
+			background-color: $neon-20;
+		}
+	}
+}

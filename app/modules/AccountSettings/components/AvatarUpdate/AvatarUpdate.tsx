@@ -1,12 +1,9 @@
+import { Title, InputUpload, Button } from "@/ui";
 import { useForm } from "react-hook-form";
-import { Button, Title, InputUpload } from "chefmaster-ui/dist";
 
-import { selectUser } from "@/modules/AuthForm";
-import { useAppSelector } from "@/hooks/useRedux";
-
-import { useAvatarUpdateLocal } from "./hooks/useAvatarUpdateLocal";
 import { useAvatarUpdate } from "./hooks/useAvatarUpdate";
 import { NO_PROFILE_IMAGE } from "@/constants/images.constants";
+import { useAvatarUpdateLocal } from "./hooks/useAvatarUpdateLocal";
 
 import type { SubmitAvatarUpdateForm } from "./AvatarUpdate.interface";
 
@@ -20,14 +17,12 @@ export function AvatarUpdate(): JSX.Element {
 		reset
 	} = useForm<SubmitAvatarUpdateForm>({ mode: "onBlur" });
 
-	const user = useAppSelector(selectUser);
+	const { updateAvatar, currentAvatar } = useAvatarUpdate(reset);
+	const { changeAvatarLocal, localAvatar } = useAvatarUpdateLocal();
 
-	const { localAvatar, changeAvatarLocal } = useAvatarUpdateLocal();
-	const updateAvatar = useAvatarUpdate(reset);
-
+	const avatar = localAvatar ? String(localAvatar) : currentAvatar ? currentAvatar : NO_PROFILE_IMAGE;
 	const updatedAvatarError = errors.avatar && errors.avatar.message;
 	const isDisabledSubmitButton = !isDirty || !isValid || isSubmitting;
-	const currentAvatar = localAvatar ? String(localAvatar) : user?.avatar ? user.avatar : NO_PROFILE_IMAGE;
 
 	return (
 		<form className={styles.avatar} onSubmit={handleSubmit(updateAvatar)}>
@@ -40,7 +35,7 @@ export function AvatarUpdate(): JSX.Element {
 				})}
 				error={updatedAvatarError}
 				aria-invalid={!!updatedAvatarError}
-				currentImage={currentAvatar}
+				currentImage={avatar}
 			/>
 			<div className={styles.avatarUpdate}>
 				<Button isFullWidth type="submit" name="update" disabled={isDisabledSubmitButton}>

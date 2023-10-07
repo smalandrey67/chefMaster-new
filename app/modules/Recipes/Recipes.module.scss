@@ -1,41 +1,40 @@
 @import "@/styles/mixins";
 
 .recipes {
-	padding: 10px;
-	overflow: auto;
+    padding: 10px;
+    overflow: auto;
 
-	@media screen and (max-width: 1085px) {
-		grid-column: 1 / span 3;
-		overflow: visible;
-	}
+    @media screen and (width <= 1085px) {
+        grid-column: 1 / span 3;
+        overflow: visible;
+    }
 
-	&Header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin-bottom: 70px;
-	}
+    &Header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 70px;
+    }
 
-	&Title {
-		margin: 0;
-		text-transform: capitalize;
-	}
+    &Title {
+        margin: 0;
+        text-transform: capitalize;
+    }
 
-	&Wrapper {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-row-gap: 60px;
-		grid-column-gap: 15px;
+    &Wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 60px 15px;
 
-		@media screen and (min-width: 600px) {
-			grid-template-columns: repeat(2, 1fr);
-			grid-row-gap: 80px;
-		}
+        @media screen and (width >= 600px) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-row-gap: 80px;
+        }
 
-		@media screen and (min-width: 800px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
+        @media screen and (width >= 800px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 
-	@include customScrollbar;
+    @include customScrollbar;
 }

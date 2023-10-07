@@ -1,23 +1,23 @@
 @import "@/styles/mixins";
 
 .statistic {
-	display: flex;
-	gap: 15px;
-	align-items: center;
-	padding: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 10px;
 
-	@include fade();
+    @include fade;
 
-	@media screen and (max-width: 900px) {
-		grid-column: 1 / span 3;
-		justify-content: space-between;
-	}
+    @media screen and (width <= 900px) {
+        grid-column: 1 / span 3;
+        justify-content: space-between;
+    }
 
-	&Item {
-		width: 110px;
+    &Item {
+        width: 110px;
 
-		@media screen and (min-width: 500px) {
-			width: 150px;
-		}
-	}
+        @media screen and (width >= 500px) {
+            width: 150px;
+        }
+    }
 }

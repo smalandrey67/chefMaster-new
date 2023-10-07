@@ -1,0 +1,12 @@
+@import "@/styles/variables.scss";
+
+.marker {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+
+	&Title {
+		font-size: inherit;
+		color: $light-20;
+	}
+}

@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import type { User } from "@/interfaces/User.interface";
 import type { AuthState } from "./auth.interface";
 
-import { lcs } from "@/utils/localStorage.util";
+import { lcs } from "app/shared/lib/lcs/lcs";
 import { authThunk } from "./auth.thunk";
 
 const initialState: AuthState = {

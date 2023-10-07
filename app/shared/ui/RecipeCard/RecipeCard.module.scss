@@ -1,5 +1,5 @@
 @import "@/styles/mixins";
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .recipe {
 	box-sizing: border-box;
@@ -10,8 +10,9 @@
 	background-color: $dark-10;
 	border-radius: $rounded-10;
 
-	@include scale();
-	@include isHover() {
+	@include scale;
+
+	@include isHover {
 		transition: transform $transitionTime ease;
 
 		&:hover {
@@ -22,7 +23,7 @@
 	&Header {
 		width: 130px;
 		height: 130px;
-		margin: -60px auto 15px auto;
+		margin: -60px auto 15px;
 	}
 
 	&Image {
@@ -39,7 +40,7 @@
 	}
 
 	&Title {
-		margin: 0 0 10px 0;
+		margin: 0 0 10px;
 		font-size: 19px;
 		text-align: center;
 		text-transform: capitalize;

@@ -1,14 +1,14 @@
 .form {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-	&SubDetails {
-		display: flex;
-		justify-content: flex-end;
+    &SubDetails {
+        display: flex;
+        justify-content: flex-end;
 
-		&Link {
-			font-size: 13px;
-		}
-	}
+        &Link {
+            font-size: 13px;
+        }
+    }
 }

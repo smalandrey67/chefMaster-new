@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { Ingredients } from "./components/Ingredients/Ingredients";
-import { TabsChangeButton } from "./components/TabsChangeButton/TabsChangeButton";
 import { Cooking } from "./components/Cooking/Cooking";
 import { Description } from "./components/Description/Description";
+import { Ingredients } from "./components/Ingredients/Ingredients";
+import { TabsChangeButton } from "./components/TabsChangeButton/TabsChangeButton";
 
 import type { ContentProps } from "./Content.interface";
 

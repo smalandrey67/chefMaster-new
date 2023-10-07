@@ -1,5 +1,5 @@
 @import "@/styles/mixins";
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .categories {
 	display: flex;
@@ -9,11 +9,11 @@
 	overflow: auto;
 	border-radius: $rounded-10;
 
-	@media screen and (min-width: 1085px) {
+	@media screen and (width >= 1085px) {
 		padding-bottom: 0;
 	}
 
-	@media screen and (max-width: 900px) {
+	@media screen and (width <= 900px) {
 		grid-column: 1 / span 3;
 		justify-content: space-between;
 	}

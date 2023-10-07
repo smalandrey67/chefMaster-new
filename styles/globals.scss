@@ -1,16 +1,16 @@
-@import "mixins.scss";
-@import "reset.scss";
-@import "variables.scss";
+@import "mixins";
+@import "reset";
+@import "variables";
 
 body {
-	height: 100%;
-	font-family: var(--poppins-font);
-	color: $light-10;
-	background: linear-gradient((45deg, $dark-10), $dark-20);
+    height: 100%;
+    font-family: var(--poppins-font);
+    color: $light-10;
+    background: linear-gradient((45deg, $dark-10), $dark-20);
 
-	@include customScrollbar();
+    @include customScrollbar;
 }
 
 button:disabled {
-	cursor: not-allowed;
+    cursor: not-allowed;
 }

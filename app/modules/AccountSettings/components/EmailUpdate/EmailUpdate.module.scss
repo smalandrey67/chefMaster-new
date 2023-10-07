@@ -1,19 +1,19 @@
 .email {
-	display: flex;
-	flex-direction: column;
-	gap: 13px;
-	margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-bottom: 30px;
 
-	@media screen and (min-width: 420px) {
-		margin-bottom: 10px;
-	}
+    @media screen and (width >= 420px) {
+        margin-bottom: 10px;
+    }
 
-	&Update {
-		width: 100%;
+    &Update {
+        width: 100%;
 
-		@media screen and (min-width: 420px) {
-			width: 150px;
-			margin-left: auto;
-		}
-	}
+        @media screen and (width >= 420px) {
+            width: 150px;
+            margin-left: auto;
+        }
+    }
 }

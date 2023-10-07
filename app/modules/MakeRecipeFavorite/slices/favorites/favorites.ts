@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { lcs } from "@/utils/localStorage.util";
+import { lcs } from "app/shared/lib/lcs/lcs";
 
 import type { Recipe } from "@/interfaces/Recipe.interface";
 import type { FavoritesState } from "./favorites.interface";

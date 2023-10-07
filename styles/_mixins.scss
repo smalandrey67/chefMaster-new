@@ -1,4 +1,4 @@
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 @mixin isHover() {
 	@media (hover: hover) {
@@ -23,16 +23,12 @@
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: rgb(98, 96, 96);
+		background-color: rgb(98 96 96);
 		border-radius: 10px;
 	}
 }
 
 @mixin fade() {
-	-webkit-animation: fadeIn ease 1s;
-	-moz-animation: fadeIn ease 1s;
-	-o-animation: fadeIn ease 1s;
-	-ms-animation: fadeIn ease 1s;
 	animation: fadeIn ease 1s;
 
 	@keyframes fadeIn {
@@ -45,7 +41,7 @@
 		}
 	}
 
-	@-moz-keyframes fadeIn {
+	@keyframes fadeIn {
 		0% {
 			opacity: 0;
 		}
@@ -55,7 +51,7 @@
 		}
 	}
 
-	@-webkit-keyframes fadeIn {
+	@keyframes fadeIn {
 		0% {
 			opacity: 0;
 		}
@@ -65,7 +61,7 @@
 		}
 	}
 
-	@-o-keyframes fadeIn {
+	@keyframes fadeIn {
 		0% {
 			opacity: 0;
 		}
@@ -75,7 +71,7 @@
 		}
 	}
 
-	@-ms-keyframes fadeIn {
+	@keyframes fadeIn {
 		0% {
 			opacity: 0;
 		}

@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { InputGroup, Button } from "chefmaster-ui";
+import { InputGroup, Button } from "@/ui";
 
 import { useAuth } from "./hooks/useAuth";
 import { AuthFormToggle } from "./components/AuthFormToggle/AuthFormToggle";
-import { formValidations } from "@/config/form.config";
+import { formValidations } from "@/constants/validation.constants";
 
 import type { AuthFormProps, AuthFormData } from "./AuthForm.interface";
 

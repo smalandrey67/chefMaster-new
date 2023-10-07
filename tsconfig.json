@@ -1,36 +1,78 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"paths": {
-			"@/ui*": ["app/shared/ui*"],
-			"@/Layout/*": ["app/Layout/*"],
-			"@/screens/*": ["app/screens/*"],
-			"@/modules/*": ["app/modules/*"],
-			"@/interfaces/*": ["app/interfaces/*"],
-			"@/config/*": ["app/shared/config/*"],
-			"@/utils/*": ["app/utils/*"],
-			"@/constants/*": ["app/shared/constants/*"],
-			"@/hooks/*": ["app/hooks/*"],
-			"@/store/*": ["app/store/*"],
-			"@/pages/*": ["pages/*"],
-			"@/styles/*": ["styles/*"],
-			"@/images/*": ["public/images/*"]
-		}
-	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@/ui": [
+        "app/shared/ui/index"
+      ],
+      "@/Layout/*": [
+        "app/Layout/*"
+      ],
+      "@/screens/*": [
+        "app/screens/*"
+      ],
+      "@/modules/*": [
+        "app/modules/*"
+      ],
+      "@/interfaces/*": [
+        "app/interfaces/*"
+      ],
+      "@/config/*": [
+        "app/shared/config/*"
+      ],
+      "@/utils/*": [
+        "app/utils/*"
+      ],
+      "@/constants/*": [
+        "app/shared/constants/*"
+      ],
+      "@/hooks/*": [
+        "app/hooks/*"
+      ],
+      "@/store/*": [
+        "app/store/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/images/*": [
+        "public/images/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

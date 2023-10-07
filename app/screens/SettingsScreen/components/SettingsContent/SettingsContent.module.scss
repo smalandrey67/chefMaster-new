@@ -1,12 +1,12 @@
 @import "@/styles/mixins";
 
 .content {
-	padding: 20px 10px 10px 10px;
-	overflow: auto;
+    padding: 20px 10px 10px;
+    overflow: auto;
 
-	@include customScrollbar();
+    @include customScrollbar;
 
-	@media screen and (min-width: 640px) {
-		padding: 20px;
-	}
+    @media screen and (width >= 640px) {
+        padding: 20px;
+    }
 }

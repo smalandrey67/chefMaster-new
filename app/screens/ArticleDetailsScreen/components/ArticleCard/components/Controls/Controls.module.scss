@@ -1,38 +1,38 @@
 .controls {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
 
-	&Heart {
-		padding: 0;
-		cursor: pointer;
-		background: none;
-		border: none;
+    &Heart {
+        padding: 0;
+        cursor: pointer;
+        background: none;
+        border: none;
 
-		> svg {
-			width: 22px;
-			height: 22px;
-		}
+        > svg {
+            width: 22px;
+            height: 22px;
+        }
 
-		@media screen and (min-width: 550px) {
-			> svg {
-				width: 30px;
-				height: 30px;
-			}
-		}
-	}
+        @media screen and (width >= 550px) {
+            > svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
 
-	&Likes {
-		font-size: 15px;
+    &Likes {
+        font-size: 15px;
 
-		@media screen and (min-width: 550px) {
-			font-size: 19px;
-		}
+        @media screen and (width >= 550px) {
+            font-size: 19px;
+        }
 
-		&Text {
-			margin-left: 5px;
-			font-size: 15px;
-		}
-	}
+        &Text {
+            margin-left: 5px;
+            font-size: 15px;
+        }
+    }
 }

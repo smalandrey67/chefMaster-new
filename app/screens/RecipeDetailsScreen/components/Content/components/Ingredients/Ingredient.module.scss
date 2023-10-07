@@ -1,13 +1,13 @@
 .ingredients {
-	padding: 0 0 15px 0;
-	margin: 0;
+    padding: 0 0 15px;
+    margin: 0;
 
-	&Title {
-		margin: 0 0 5px 0;
-		font-size: 15px;
+    &Title {
+        margin: 0 0 5px;
+        font-size: 15px;
 
-		@media screen and (min-width: 500px) {
-			font-size: 18px;
-		}
-	}
+        @media screen and (width >= 500px) {
+            font-size: 18px;
+        }
+    }
 }

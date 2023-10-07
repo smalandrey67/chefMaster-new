@@ -1,4 +1,4 @@
-import { Title } from "chefmaster-ui";
+import { Title } from "@/ui";
 
 import { navbarOptions } from "./NavbarPersonalize.constants";
 import { NavbarPersonalizeOption } from "./components/NavbarPersonalizeOption/NavbarPersonalizeOption";

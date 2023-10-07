@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { FancyLink } from "chefmaster-ui";
+import { FancyLink } from "@/ui";
 
 import type { AuthFormToggleProps } from "./AuthFormToggle.interface";
 
@@ -11,12 +10,12 @@ export function AuthFormToggle({ authType }: AuthFormToggleProps): JSX.Element {
 			{
 				{
 					registration: (
-						<FancyLink className={styles.subDetailsLink} Link={Link} href="/login">
+						<FancyLink className={styles.subDetailsLink} href="/login">
 							Already have an account?
 						</FancyLink>
 					),
 					login: (
-						<FancyLink className={styles.subDetailsLink} Link={Link} href="/registration">
+						<FancyLink className={styles.subDetailsLink} href="/registration">
 							Don&apos;t have an account?
 						</FancyLink>
 					)

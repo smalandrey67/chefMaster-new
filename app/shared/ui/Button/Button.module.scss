@@ -1,0 +1,34 @@
+@import "@/styles/variables.scss";
+
+.reset {
+	background: transparent;
+	border: none;
+}
+
+.button {
+	display: inline-grid;
+	grid-auto-flow: column;
+	column-gap: 5px;
+	align-items: center;
+	justify-content: center;
+	min-height: 35px;
+	padding: 0 15px;
+	font-family: inherit;
+	font-weight: 400;
+	cursor: pointer;
+	background: $neon-10;
+	border-radius: $rounded-20;
+	transition: background-color $transitionTime ease;
+
+	&:hover {
+		background: $neon-20;
+	}
+
+	&IconWithContent {
+		padding: 0 15px 0 8px;
+	}
+
+	&FullWidth {
+		width: 100%;
+	}
+}

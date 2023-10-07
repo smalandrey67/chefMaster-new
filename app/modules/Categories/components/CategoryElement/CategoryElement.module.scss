@@ -1,5 +1,5 @@
 @import "@/styles/mixins";
-@import "@/styles/variables";
+@import "@/styles/variables.scss";
 
 .category {
 	row-gap: 10px;
@@ -11,7 +11,7 @@
 	background-color: $dark-10;
 	border-radius: $rounded-10;
 
-	@media screen and (min-width: 900px) {
+	@media screen and (width >= 900px) {
 		width: 80px;
 	}
 
@@ -23,8 +23,9 @@
 		background-color: $dark-20;
 	}
 
-	@include scale();
-	@include isHover() {
+	@include scale;
+
+	@include isHover {
 		transition: background-color $transitionTime ease;
 
 		&:hover {
