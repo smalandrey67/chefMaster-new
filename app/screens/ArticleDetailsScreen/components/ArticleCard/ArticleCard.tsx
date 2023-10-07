@@ -17,7 +17,7 @@ export function ArticleCard({ image, title, authorImage, authorName, likes }: Ar
 				<Image src={authorImage} className={styles.articleCardAuthorImage} width={50} height={50} alt={authorName} />
 				<h3 className={styles.articleCardAuthorName}>{authorName}</h3>
 			</div>
-			<Recommendations />
+			<Recommendations image={image} />
 			<Controls likes={likes} />
 		</div>
 	);

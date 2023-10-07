@@ -8,6 +8,7 @@ import { setupStore } from "@/store/store";
 
 import type { AppProps } from "next/app";
 
+import "keen-slider/keen-slider.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.scss";
 

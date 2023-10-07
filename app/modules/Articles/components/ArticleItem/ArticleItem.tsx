@@ -10,7 +10,9 @@ export function ArticleItem({ image, title, authorImage, authorName, likes, _id 
 	const router = useRouter();
 
 	const navigateToArticleDetails = (): void => {
-		router.push(`/articles/${_id}`);
+		// router.push(`/articles/${_id}`);
+		console.log(_id);
+		router.push("/articles/640a4cd5d48610a9ea9ed6c3");
 	};
 
 	return (
