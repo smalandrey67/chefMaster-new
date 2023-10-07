@@ -1,11 +1,12 @@
 import { ArticleDetailsScreen } from "@/screens/ArticleDetailsScreen/ArticleDetailsScreen";
 import { withLayout } from "@/Layout/Layout";
 
-import { HomeScreenService } from "@/screens/HomeScreen/HomeScreen.service";
+// import { HomeScreenService } from "@/screens/HomeScreen/HomeScreen.service";
 
 import type { ArticleDetailsScreenProps } from "@/screens/ArticleDetailsScreen/ArticleDetailsScreen.interface";
-import type { GetStaticPaths, GetStaticProps } from "next";
-import { ArticleDetailsScreenController } from "@/screens/ArticleDetailsScreen/ArticleDetailsScreen.controller";
+// import type { GetStaticPaths } from "next";
+// import type { GetStaticProps  } from "next"
+// import { ArticleDetailsScreenController } from "@/screens/ArticleDetailsScreen/ArticleDetailsScreen.controller";
 
 interface ArticleDetailsProps extends ArticleDetailsScreenProps, Record<string, unknown> {}
 
@@ -19,22 +20,22 @@ export default withLayout({
 	pageDescription: "Savoring Global Delights: Exploring the Culinary Wonders of the World"
 });
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const popularArticles = await HomeScreenService.getPopularArticles();
-	const paths = popularArticles.map((path) => ({ params: { id: path._id } }));
+// export const getStaticPaths: GetStaticPaths = async () => {
+// 	const popularArticles = await HomeScreenService.getPopularArticles();
+// 	const paths = popularArticles.map((path) => ({ params: { id: path._id } }));
 
-	return {
-		paths,
-		fallback: "blocking"
-	};
-};
+// 	return {
+// 		paths,
+// 		fallback: "blocking"
+// 	};
+// };
 
-export const getStaticProps: GetStaticProps<ArticleDetailsScreenProps> = async (context) => {
-	try {
-		return await ArticleDetailsScreenController.getArticleDetails(context);
-	} catch (error) {
-		return {
-			notFound: true
-		};
-	}
-};
+// export const getStaticProps: GetStaticProps<ArticleDetailsScreenProps> = async (context) => {
+// 	try {
+// 		return await ArticleDetailsScreenController.getArticleDetails(context);
+// 	} catch (error) {
+// 		return {
+// 			notFound: true
+// 		};
+// 	}
+// };
