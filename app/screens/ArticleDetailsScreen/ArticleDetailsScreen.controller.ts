@@ -1,7 +1,7 @@
-import { ArticleDetailsScreenService } from "./ArticleDetailsScreen.service";
+// import { ArticleDetailsScreenService } from "./ArticleDetailsScreen.service";
 
-import type { GetStaticPropsContext, PreviewData } from "next";
 import type { ParsedUrlQuery } from "querystring";
+import type { GetStaticPropsContext, PreviewData } from "next";
 
 export const ArticleDetailsScreenController = {
 	async getArticleDetails(context: GetStaticPropsContext<ParsedUrlQuery, PreviewData>) {
@@ -11,10 +11,10 @@ export const ArticleDetailsScreenController = {
 			throw new Error("Error in providing article id");
 		}
 
-		const articleDetails = await ArticleDetailsScreenService.getArticleDetails(articleId);
+		// const articleDetails = await ArticleDetailsScreenService.getArticleDetails(articleId);
 
 		return {
-			props: { articleDetails }
+			props: { articleDetails: [] }
 		};
 	}
 };
